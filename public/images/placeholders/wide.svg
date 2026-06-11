@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 900" role="img" aria-labelledby="title desc">
+  <title id="title">Wide placeholder</title>
+  <desc id="desc">Wide editorial placeholder for future graduation photography.</desc>
+  <rect width="1800" height="900" fill="#f0ece4"/>
+  <path d="M0 0h1800v900H0z" fill="url(#grain)" opacity=".26"/>
+  <path d="M112 448h1576M900 96v708" stroke="#11110f" stroke-width="3" opacity=".16"/>
+  <rect x="232" y="182" width="460" height="536" fill="#11110f" opacity=".08"/>
+  <rect x="762" y="182" width="276" height="536" fill="#11110f" opacity=".12"/>
+  <rect x="1108" y="182" width="460" height="536" fill="#11110f" opacity=".08"/>
+  <text x="112" y="142" fill="#11110f" font-family="Arial, sans-serif" font-size="42" letter-spacing="16" opacity=".62">HIGHLIGHT</text>
+  <text x="112" y="810" fill="#11110f" font-family="Arial, sans-serif" font-size="24" letter-spacing="10" opacity=".42">REPLACE / PUBLIC / IMAGES</text>
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency=".68" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <pattern id="grain" width="1800" height="900" patternUnits="userSpaceOnUse">
+      <rect width="1800" height="900" filter="url(#noise)" opacity=".5"/>
+    </pattern>
+  </defs>
+</svg>

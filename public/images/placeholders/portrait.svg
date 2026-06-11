@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">Editorial portrait placeholder for future graduation photography.</desc>
+  <rect width="900" height="1200" fill="#e8e2d8"/>
+  <path d="M0 0h900v1200H0z" fill="url(#grain)" opacity=".34"/>
+  <circle cx="450" cy="410" r="150" fill="#11110f" opacity=".1"/>
+  <path d="M235 910c35-188 126-282 215-282s180 94 215 282" fill="none" stroke="#11110f" stroke-width="22" opacity=".14"/>
+  <path d="M96 112h708M96 1088h708" stroke="#11110f" stroke-width="4" opacity=".22"/>
+  <text x="88" y="198" fill="#11110f" font-family="Arial, sans-serif" font-size="40" letter-spacing="14" opacity=".62">IMAGE</text>
+  <text x="88" y="1018" fill="#11110f" font-family="Arial, sans-serif" font-size="24" letter-spacing="10" opacity=".42">REPLACE / PUBLIC / IMAGES</text>
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <pattern id="grain" width="900" height="1200" patternUnits="userSpaceOnUse">
+      <rect width="900" height="1200" filter="url(#noise)" opacity=".42"/>
+    </pattern>
+  </defs>
+</svg>
