@@ -1,9 +1,11 @@
 .marquee {
+  color: var(--color-graphite);
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   overflow: hidden;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+  opacity: 0.5;
 }
 
 .marquee__track {
@@ -19,11 +21,11 @@
 }
 
 .marquee__track--forward {
-  animation: marquee-track-forward 24s linear infinite;
+  animation: marquee-track-forward 60s linear infinite;
 }
 
 .marquee__track--reverse {
-  animation: marquee-track-reverse 24s linear infinite;
+  animation: marquee-track-reverse 60s linear infinite;
 }
 
 .marquee__item {

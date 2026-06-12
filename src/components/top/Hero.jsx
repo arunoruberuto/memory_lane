@@ -62,8 +62,10 @@ export function Hero() {
           className={styles["hero__title"]}
           variants={revealItem}
         >
-          二年間の<ruby>記憶<rt>メモリー</rt></ruby>を、<br/>
-          ここに集めて。
+          二年間の<ruby>記憶<rt>メモリー</rt></ruby>を、
+          <br/>ここに集めて──
+          <br/>ようこそ、
+          <br/>僕たちの<ruby>軌道<rt>レーン</rt></ruby>へ。
         </motion.h1>
         <motion.div
           className={styles["hero__copy-grid"]}

@@ -8,14 +8,14 @@ export function Footer() {
         <div>
           <p className={styles["footer__eyebrow"]}>Graduation Showcase</p>
           <p className={styles["footer__headline"]}>
-            See You In The Next Room.
+            別のページで
+            <br/>また会おう。
           </p>
         </div>
         <div className={styles["footer__meta"]}>
           <Link className={styles["footer__link"]} to="/">
             U卒業 / グループ秋
           </Link>
-          <p>Static editorial showcase prepared for Vercel deployment.</p>
           <small className={styles["footer__copyright"]}>© 2026 NAITEI GROUP</small>
         </div>
       </div>
