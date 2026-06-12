@@ -1,0 +1,49 @@
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-mist);
+  box-shadow: var(--shadow-hairline);
+}
+
+.media-frame--portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.media-frame--landscape {
+  aspect-ratio: 14 / 9;
+}
+
+.media-frame--wide {
+  aspect-ratio: 2 / 1;
+}
+
+.media-frame--square {
+  aspect-ratio: 1 / 1;
+}
+
+.media-frame__image {
+  object-fit: cover;
+  transition: transform 700ms var(--ease-exhibition);
+}
+
+.media-frame:hover .media-frame__image {
+  transform: scale(1.055);
+}
+
+.media-frame__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.7;
+  background: linear-gradient(to top, rgb(17 17 15 / 20%), transparent, rgb(247 244 238 / 10%));
+}
+
+.media-frame__caption {
+  max-width: 24rem;
+  margin-top: 0.75rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1.625;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

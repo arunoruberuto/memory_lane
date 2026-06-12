@@ -1,0 +1,129 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid rgb(17 17 15 / 10%);
+  background-color: rgb(247 244 238 / 72%);
+  backdrop-filter: blur(3px) saturate(1);
+  mix-blend-mode: normal;
+}
+
+.header__skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  color: var(--color-paper);
+  background-color: var(--color-ink);
+  border-radius: 9999px;
+}
+
+.header__skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.header__nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+  gap: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.header__brand-link {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.header__brand-link:focus-visible,
+.header__nav-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+.header__brand-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.06em;
+}
+
+.header__brand-subtitle {
+  margin-top: 0.25rem;
+  color: var(--color-graphite);
+  font-size: 0.62rem;
+  letter-spacing: 0.36em;
+}
+
+.header__nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  column-gap: 1.25rem;
+  row-gap: 0.75rem;
+}
+
+.header__nav-link {
+  position: relative;
+  display: inline-flex;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.header__nav-rule {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms var(--ease-editorial);
+}
+
+.header__nav-link:hover .header__nav-rule,
+.header__nav-rule--active {
+  transform: scaleX(1);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+
+  .header__nav {
+    font-size: 0.875rem;
+  }
+
+  .header__brand-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .header__nav-items {
+    column-gap: 2rem;
+  }
+}

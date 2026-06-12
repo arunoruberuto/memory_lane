@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/* Project variables */
+:root {
+  --color-paper: #f7f4ee;
+  --color-ink: #11110f;
+  --color-mist: #dedbd3;
+  --color-graphite: #5d5a54;
+  --color-border-soft: rgb(17 17 15 / 15%);
+  --color-border: rgb(17 17 15 / 20%);
+  --color-border-strong: rgb(17 17 15 / 30%);
+  --color-player-bg: rgb(247 244 238 / 88%);
+  --color-paper-muted: rgb(247 244 238 / 70%);
+  --shadow-hairline: 0 0 0 1px rgb(10 10 10 / 12%);
+  --font-sans: "LINE Seed JP", "Helvetica Neue", "Hiragino Sans", "Yu Gothic",
+    "YuGothic", "Noto Sans JP", Arial, sans-serif;
+  --font-display: "LINE Seed JP", "Helvetica Neue", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --layout-max: 1500px;
+  --ease-exhibition: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-editorial: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Global settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentcolor;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgb(17 17 15 / 6%), transparent 24rem),
+    radial-gradient(circle at 88% 8%, rgb(17 17 15 / 4%), transparent 20rem),
+    var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: inherit;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgb(17 17 15 / 6%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(17 17 15 / 4%) 1px, transparent 1px);
+  background-size: 7.5rem 7.5rem;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 80%, transparent);
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
