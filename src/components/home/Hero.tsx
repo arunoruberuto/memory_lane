@@ -63,7 +63,7 @@ export function Hero() {
           className="max-w-[13ch] font-display text-[clamp(4.7rem,15vw,15.5rem)] font-black uppercase leading-[0.78] tracking-[-0.095em]"
           variants={revealItem}
         >
-          Unfinished Works, Beautifully Shown.
+          HAL東京<br />2024年 秋生.
         </motion.h1>
         <motion.div
           className="mt-10 grid max-w-5xl gap-8 border-t border-ink/20 pt-6 md:grid-cols-[0.35fr_0.65fr]"

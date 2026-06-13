@@ -6,8 +6,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1500px] gap-12 md:grid-cols-[1.2fr_0.8fr] md:items-end">
         <div>
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.44em] text-graphite">Graduation Showcase</p>
-          <p className="max-w-4xl font-display text-[clamp(3rem,9vw,9rem)] font-black uppercase leading-[0.82] tracking-[-0.08em]">
-            See You In The Next Room.
+          <p
+            lang="ja"
+            className="max-w-4xl font-display text-[clamp(2rem,5vw,5rem)] font-black leading-[1.0] tracking-[-0.08em]"
+          >
+            次のページで、<br />また会いましょう。
           </p>
         </div>
         <div className="flex flex-col gap-5 text-sm leading-relaxed text-graphite md:items-end md:text-right">

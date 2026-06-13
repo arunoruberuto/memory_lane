@@ -18,10 +18,10 @@ export type Member = {
 
 export const members: Member[] = [
   {
-    id: "aoi-sato",
-    name: "Aoi Sato",
+    id: "alfons",
+    name: "Alfons",
     role: "Creative Direction",
-    bio: "Aoi builds visual systems from quiet observations, translating ordinary campus scenes into composed, cinematic fragments.",
+    bio: "Alfons builds visual systems from quiet observations, translating ordinary campus scenes into composed, cinematic fragments.",
     image: "/images/placeholders/portrait.svg",
     accent: "#d8d4ca",
     statement:
@@ -33,7 +33,7 @@ export const members: Member[] = [
     ]
   },
   {
-    id: "hana-mori",
+    id: "",
     name: "Hana Mori",
     role: "Photography",
     bio: "Hana photographs the space between people, using distance, blur, and silence as active compositional tools.",
