@@ -58,7 +58,7 @@ export function MemberGrid() {
               <Link
                 to={`/members/${member.id}`}
                 className={styles["member-grid__link"]}
-                aria-label={`View ${member.name}, ${member.role}`}
+                aria-label={`View ${member.name},${member.realname},${member.role}`}
               >
                 <div className={styles["member-grid__card"]}>
                   <div className={styles["member-grid__meta"]}>
@@ -81,6 +81,9 @@ export function MemberGrid() {
                       <h3 className={styles["member-grid__name"]}>
                         {member.name}
                       </h3>
+                      <p className={styles["member-grid__realname"]}>
+                        {member.realname}
+                      </p>
                     </div>
                   </div>
                   <p className={styles["member-grid__bio"]}>
