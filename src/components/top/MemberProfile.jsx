@@ -13,7 +13,7 @@ export function MemberProfile({ member, otherMembers }) {
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-          <Marquee text={`${member.name} / ${member.role}`} reverse />
+          <Marquee text={`${member.name} // ${member.realname} // ${member.role}`} reverse />
         </div>
 
         <motion.div
@@ -29,6 +29,9 @@ export function MemberProfile({ member, otherMembers }) {
             <h1 className={styles["member-profile__hero-title"]}>
               {member.name}
             </h1>
+            <p className={styles["member-profile__realname"]}>
+              {member.realname}
+            </p>
             <div className={styles["member-profile__bio-grid"]}>
               <p className={styles["member-profile__role"]}>{member.role}</p>
               <p className={styles["member-profile__bio"]}>{member.bio}</p>

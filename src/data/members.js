@@ -2,6 +2,7 @@ export const members = [
   {
     id: "aoi-sato",
     name: "Aoi Sato",
+    realname: "Aoi Sato",
     role: "Creative Direction",
     bio: "Aoi builds visual systems from quiet observations, translating ordinary campus scenes into composed, cinematic fragments.",
     image: "/images/placeholders/portrait.svg",
@@ -32,6 +33,7 @@ export const members = [
   {
     id: "ren-takahashi",
     name: "Ren Takahashi",
+    realname: "Ren Takahashi",
     role: "Motion Design",
     bio: "Ren designs kinetic identities where typography behaves like a living surface instead of a static caption.",
     image: "/images/placeholders/portrait.svg",
@@ -47,6 +49,7 @@ export const members = [
   {
     id: "mio-kawase",
     name: "Mio Kawase",
+    realname: "Mio Kawase",
     role: "Music",
     bio: "Mio layers field recordings and soft electronic textures into music that feels architectural and intimate.",
     image: "/images/placeholders/portrait.svg",
@@ -62,6 +65,7 @@ export const members = [
   {
     id: "yuto-ishida",
     name: "Yuto Ishida",
+    realname: "Yuto Ishida",
     role: "Web Engineering",
     bio: "Yuto treats the browser as an exhibition room, shaping interaction, pacing, and performance into a single surface.",
     image: "/images/placeholders/portrait.svg",
@@ -77,6 +81,7 @@ export const members = [
   {
     id: "rika-fujimoto",
     name: "Rika Fujimoto",
+    realname: "Rika Fujimoto",
     role: "Graphic Design",
     bio: "Rika uses restrained grids, oversized marks, and paper-like negative space to create calm but assertive compositions.",
     image: "/images/placeholders/portrait.svg",
@@ -92,6 +97,7 @@ export const members = [
   {
     id: "sora-nakano",
     name: "Sora Nakano",
+    realname: "Sora Nakano",
     role: "Film Editing",
     bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
     image: "/images/placeholders/portrait.svg",
@@ -107,6 +113,7 @@ export const members = [
   {
     id: "mei-kobayashi",
     name: "Mei Kobayashi",
+    realname: "Mei Kobayashi",
     role: "Art Direction",
     bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
     image: "/images/placeholders/portrait.svg",
@@ -122,6 +129,7 @@ export const members = [
   {
     id: "kai-yamamoto",
     name: "Kai Yamamoto",
+    realname: "Kai Yamamoto",
     role: "Writing",
     bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
     image: "/images/placeholders/portrait.svg",
