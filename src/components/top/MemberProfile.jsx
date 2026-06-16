@@ -6,14 +6,19 @@ import { Marquee } from "@/components/common/Marquee";
 import { easeOutExpo, revealContainer, revealItem } from "@/components/common/motionPresets";
 import styles from "./MemberProfile.module.css";
 
+function getMemberName(member) {
+  return `${member.name1} ${member.name2}`;
+}
+
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
+  const memberName = getMemberName(member);
 
   return (
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-          <Marquee text={`${member.name} // ${member.realname} // ${member.role}`} reverse />
+          <Marquee text={`${memberName} // ${member.realname} // ${member.role}`} reverse />
         </div>
 
         <motion.div
@@ -27,9 +32,13 @@ export function MemberProfile({ member, otherMembers }) {
               Member Profile
             </p>
             <h1 className={styles["member-profile__hero-title"]}>
-              {member.name}
+              <span>{member.name1}</span>
+              <span>{member.name2}</span>
             </h1>
-            <p className={styles["member-profile__realname"]}>
+            <p
+              className={styles["member-profile__realname"]}
+              lang={member.realnameLang}
+            >
               {member.realname}
             </p>
             <div className={styles["member-profile__bio-grid"]}>
@@ -41,7 +50,7 @@ export function MemberProfile({ member, otherMembers }) {
           <motion.div variants={revealItem} className={styles["member-profile__profile-image-column"]}>
             <MediaFrame
               src={member.image}
-              alt={`${member.name} profile image placeholder`}
+              alt={`${memberName} profile image placeholder`}
               aspect="portrait"
               caption="人物紹介メインビジュアル"
               className={styles["member-profile__profile-image"]}
@@ -120,27 +129,32 @@ export function MemberProfile({ member, otherMembers }) {
           </div>
 
           <div className={styles["member-profile__related-grid"]}>
-            {otherMembers.slice(0, 4).map((otherMember) => (
-              <Link
-                to={`/members/${otherMember.id}`}
-                key={otherMember.id}
-                className={styles["member-profile__member-link"]}
-              >
-                <div className={styles["member-profile__member-image-frame"]}>
-                  <Image
-                    src={otherMember.image}
-                    alt={`${otherMember.name} portrait placeholder`}
-                    fill
-                    sizes="(min-width: 768px) 25vw, 100vw"
-                    className={styles["member-profile__member-image"]}
-                  />
-                </div>
-                <p className={styles["member-profile__member-name"]}>
-                  {otherMember.name}
-                </p>
-                <p className={styles["member-profile__member-role"]}>{otherMember.role}</p>
-              </Link>
-            ))}
+            {otherMembers.slice(0, 4).map((otherMember) => {
+              const otherMemberName = getMemberName(otherMember);
+
+              return (
+                <Link
+                  to={`/members/${otherMember.id}`}
+                  key={otherMember.id}
+                  className={styles["member-profile__member-link"]}
+                >
+                  <div className={styles["member-profile__member-image-frame"]}>
+                    <Image
+                      src={otherMember.image}
+                      alt={`${otherMemberName} portrait placeholder`}
+                      fill
+                      sizes="(min-width: 768px) 25vw, 100vw"
+                      className={styles["member-profile__member-image"]}
+                    />
+                  </div>
+                  <p className={styles["member-profile__member-name"]}>
+                    <span>{otherMember.name1}</span>
+                    <span>{otherMember.name2}</span>
+                  </p>
+                  <p className={styles["member-profile__member-role"]}>{otherMember.role}</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

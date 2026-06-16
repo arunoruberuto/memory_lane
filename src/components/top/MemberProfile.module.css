@@ -41,6 +41,35 @@
   text-transform: uppercase;
 }
 
+.member-profile__hero-title span,
+.member-profile__member-name span {
+  display: block;
+}
+
+.member-profile__realname {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.member-profile__realname:lang(en) {
+  font-family: var(--font-realname-en);
+}
+
+.member-profile__realname:lang(ko) {
+  font-family: var(--font-realname-ko);
+}
+
+.member-profile__realname:lang(ja) {
+  font-family: var(--font-realname-ja);
+}
+
+.member-profile__realname:lang(zh) {
+  font-family: var(--font-realname-zh);
+}
+
 .member-profile__bio-grid {
   display: grid;
   margin-top: 2rem;
