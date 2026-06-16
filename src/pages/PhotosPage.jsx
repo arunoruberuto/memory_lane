@@ -18,7 +18,7 @@ export function PhotosPage() {
             </div>
           </div>
           <MediaFrame
-            src={`${import.meta.env.BASE_URL}images/placeholders/wide.svg`}
+            src="/images/placeholders/wide.svg"
             alt="Photography page main image placeholder"
             aspect="wide"
             caption="写真ページのコンセプトと紹介テキスト / イメージ画像"
