@@ -22,7 +22,7 @@ export function MusicPage() {
             </div>
           </div>
           <MediaFrame
-            src="/images/placeholders/landscape.svg"
+            src={`${import.meta.env.BASE_URL}images/placeholders/landscape.svg`}
             alt="Music page image placeholder"
             aspect="landscape"
             caption="Musicのコンセプトと紹介テキスト / イメージ画像"
