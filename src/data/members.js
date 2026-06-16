@@ -16,9 +16,8 @@ export const members = [
     ]
   },
   {
-    id: "hana-mori",
-    name: "Hana Mori",
-    realname: "Hana Mori",
+    id: "alfonsus",
+    name: "Alfonsus Norbert",
     role: "Photography",
     bio: "Hana photographs the space between people, using distance, blur, and silence as active compositional tools.",
     image: "/images/placeholders/portrait.svg",
