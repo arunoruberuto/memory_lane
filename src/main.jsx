@@ -6,7 +6,7 @@ import "./css/style.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/memory_lane/">
       <App />
     </BrowserRouter>
   </React.StrictMode>

@@ -100,6 +100,7 @@ export const members = [
   {
     id: "alfonsus",
     name: "Alfonsus Norbert",
+    realname: "Alfonsus Ferdinand Norbert",
     role: "Film Editing",
     bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
     image: `${base}images/placeholders/portrait.svg`,
