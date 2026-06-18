@@ -1,62 +1,7 @@
 export const members = [
   {
-    id: "pi1",
-    name1: "Alfonsus",
-    name2: "Norbert",
-    realname: "Alfonsus Norbert",
-    realnameLang: "en",
-    role: "リーダー",
-    bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
-    image: "/images/placeholders/portrait.svg",
-    accent: "#ebe6dc",
-    statement:
-      "Editing is a way of listening to images until they reveal their own tempo.",
-    tags: ["editing", "rhythm", "cinema"],
-    works: [
-      { title: "Handheld Weather", medium: "Short Film", year: "2026" },
-      { title: "Cut Marks", medium: "Video Essay", year: "2025" }
-    ]
-  },
-  {
-    id: "pi2",
-    name1: "Kim",
-    name2: "Byoungsoo",
-    realname: "김 병수",
-    realnameLang: "ko",
-    role: "Art Direction",
-    bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
-    image: "/images/placeholders/portrait.svg",
-    accent: "#d6d1c7",
-    statement:
-      "The best props behave like evidence from a dream the audience almost remembers.",
-    tags: ["objects", "set design", "worldbuilding"],
-    works: [
-      { title: "Table for Nine", medium: "Set Piece", year: "2026" },
-      { title: "Borrowed Room", medium: "Photo Direction", year: "2025" }
-    ]
-  },
-  {
-    id: "pi3",
-    name1: "Tamazaki",
-    name2: "Miharu",
-    realname: "玉崎 美遥",
-    realnameLang: "ja",
-    role: "Writing",
-    bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
-    image: "/images/placeholders/portrait.svg",
-    accent: "#f5f1ea",
-    statement:
-      "A good caption opens a door, then gets out of the way before the viewer walks through.",
-    tags: ["copy", "script", "concept"],
-    works: [
-      { title: "Caption Studies", medium: "Text Series", year: "2026" },
-      { title: "Voice Memo", medium: "Script", year: "2025" }
-    ]
-  },
-  {
-    id: "pw1",
-    name1: "Kaku",
-    name2: "Shibun",
+    id: "kaku",
+    name: "Kaku Shibun",
     realname: "郭紫ブン",
     realnameLang: "zh",
     role: "Creative Direction",
@@ -161,6 +106,53 @@ export const members = [
       { title: "Margin Notes", medium: "Book Design", year: "2025" }
     ]
   },
+  {
+    id: "alfonsus",
+    name: "Alfonsus Norbert",
+    role: "Film Editing",
+    bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
+    image: `${base}images/placeholders/portrait.svg`,
+    accent: "#ebe6dc",
+    statement:
+      "Editing is a way of listening to images until they reveal their own tempo.",
+    tags: ["editing", "rhythm", "cinema"],
+    works: [
+      { title: "Handheld Weather", medium: "Short Film", year: "2026" },
+      { title: "Cut Marks", medium: "Video Essay", year: "2025" }
+    ]
+  },
+  {
+    id: "kim",
+    name: "Kim Byoungsoo",
+    realname: "김 병수",
+    role: "Art Direction",
+    bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
+    image: `${base}images/placeholders/portrait.svg`,
+    accent: "#d6d1c7",
+    statement:
+      "The best props behave like evidence from a dream the audience almost remembers.",
+    tags: ["objects", "set design", "worldbuilding"],
+    works: [
+      { title: "Table for Nine", medium: "Set Piece", year: "2026" },
+      { title: "Borrowed Room", medium: "Photo Direction", year: "2025" }
+    ]
+  },
+  {
+    id: "Tamazaki",
+    name: "Tamazaki Miharu",
+    realname: "玉崎 美遥",
+    role: "Writing",
+    bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
+    image: `${base}images/placeholders/portrait.svg`,
+    accent: "#f5f1ea",
+    statement:
+      "A good caption opens a door, then gets out of the way before the viewer walks through.",
+    tags: ["copy", "script", "concept"],
+    works: [
+      { title: "Caption Studies", medium: "Text Series", year: "2026" },
+      { title: "Voice Memo", medium: "Script", year: "2025" }
+    ]
+  }
 ];
 
 export function getMemberById(id) {

@@ -10,6 +10,10 @@ function getMemberName(member) {
   return `${member.name1} ${member.name2}`;
 }
 
+function getMemberName(member) {
+  return `${member.name1} ${member.name2}`;
+}
+
 const gridVariants = {
   hidden: {},
   visible: {

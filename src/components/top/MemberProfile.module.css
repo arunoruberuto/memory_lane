@@ -41,6 +41,7 @@
   text-transform: uppercase;
 }
 
+<<<<<<< Updated upstream
 .member-profile__hero-title span,
 .member-profile__member-name span {
   display: block;
@@ -70,6 +71,12 @@
   font-family: var(--font-realname-zh);
 }
 
+=======
+.member-profile__hero-title span {
+  display: block;
+}
+
+>>>>>>> Stashed changes
 .member-profile__bio-grid {
   display: grid;
   margin-top: 2rem;
@@ -267,6 +274,10 @@
   font-weight: 800;
   letter-spacing: -0.06em;
   text-transform: uppercase;
+}
+
+.member-profile__member-name span {
+  display: block;
 }
 
 .member-profile__member-role {
