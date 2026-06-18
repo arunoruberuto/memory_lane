@@ -2,8 +2,9 @@ const base = import.meta.env.BASE_URL;
 
 export const members = [
   {
-    id: "kaku",
-    name: "Kaku Shibun",
+    id: "pw1",
+    name1: "Kaku",
+    name2: "Shibun",
     realname: "郭紫ブン",
     realnameLang: "zh",
     role: "Creative Direction",
@@ -109,8 +110,9 @@ export const members = [
     ]
   },
   {
-    id: "alfonsus",
-    name: "Alfonsus Norbert",
+    id: "pi1",
+    name1: "Alfonsus",
+    name2: "Norbert",
     realname: "Alfonsus Ferdinand Norbert",
     role: "Film Editing",
     bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
@@ -125,8 +127,9 @@ export const members = [
     ]
   },
   {
-    id: "kim",
-    name: "Kim Byoungsoo",
+    id: "pi2",
+    name1: "Kim",
+    name2: "Byoungsoo",
     realname: "김 병수",
     role: "Art Direction",
     bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
@@ -141,8 +144,9 @@ export const members = [
     ]
   },
   {
-    id: "Tamazaki",
-    name: "Tamazaki Miharu",
+    id: "pi3",
+    name1: "Tamazaki",
+    name2: "Miharu",
     realname: "玉崎 美遥",
     role: "Writing",
     bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
