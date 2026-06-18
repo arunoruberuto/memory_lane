@@ -35,7 +35,7 @@
 .member-profile__hero-title {
   font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 12rem);
-  line-height: 0.76;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: -0.1em;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 .member-profile__statement {
   font-family: var(--font-display);
   font-size: clamp(2.25rem, 6vw, 6.375rem);
-  line-height: 0.85;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: -0.08em;
   text-transform: uppercase;
@@ -178,7 +178,7 @@
 .member-profile__related-title {
   font-family: var(--font-display);
   font-size: clamp(2.375rem, 6vw, 6.375rem);
-  line-height: 0.82;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: -0.08em;
   text-transform: uppercase;

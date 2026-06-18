@@ -11,7 +11,7 @@
 .section-label__title {
   font-family: var(--font-display);
   font-size: clamp(2.75rem, 8vw, 7.625rem);
-  line-height: 0.82;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: -0.075em;
   text-transform: uppercase;

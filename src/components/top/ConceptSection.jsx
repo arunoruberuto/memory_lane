@@ -4,6 +4,8 @@ import { SectionLabel } from "@/components/common/SectionLabel";
 import { easeOutExpo } from "@/components/common/motionPresets";
 import styles from "./ConceptSection.module.css";
 
+const base = import.meta.env.BASE_URL;
+
 export function ConceptSection() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -12,7 +14,7 @@ export function ConceptSection() {
       <div className={styles["concept-section__inner"]}>
         <div className={styles["concept-section__media-column"]}>
           <MediaFrame
-            src="/images/placeholders/wide.svg"
+            src={`${base}images/placeholders/wide.svg`}
             alt="Placeholder image representing the graduation exhibition concept"
             aspect="wide"
             caption="Concept image area defined by the wireframe. Replace with exhibition photography."

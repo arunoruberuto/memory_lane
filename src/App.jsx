@@ -8,10 +8,12 @@ import { HomePage } from "@/pages/HomePage";
 import { MemberPage } from "@/pages/MemberPage";
 import { PhotosPage } from "@/pages/PhotosPage";
 import styles from "./App.module.css";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
 
 export default function App() {
   return (
     <AudioProvider>
+      <ScrollToTop />
       <Header />
       <main id="main-content" className={styles["app__main"]}>
         <Routes>

@@ -1,11 +1,13 @@
+const base = import.meta.env.BASE_URL;
+
 export const members = [
   {
-    id: "aoi-sato",
-    name: "Aoi Sato",
-    realname: "Aoi Sato",
+    id: "kaku",
+    name: "Kaku Shibun",
+    realname: "郭紫ブン",
     role: "Creative Direction",
     bio: "Aoi builds visual systems from quiet observations, translating ordinary campus scenes into composed, cinematic fragments.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#d8d4ca",
     statement:
       "Graduation is treated as a threshold: a room where unfinished questions can still glow.",
@@ -16,12 +18,12 @@ export const members = [
     ]
   },
   {
-    id: "hana-mori",
-    name: "Hana Mori",
-    realname: "Hana Mori",
+    id: "tou",
+    name: "Tou Gou",
+    realname: "董豪",
     role: "Photography",
     bio: "Hana photographs the space between people, using distance, blur, and silence as active compositional tools.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#ece7de",
     statement:
       "A photograph can be less about proof and more about remembering how air felt.",
@@ -32,12 +34,12 @@ export const members = [
     ]
   },
   {
-    id: "ren-takahashi",
-    name: "Ren Takahashi",
-    realname: "Ren Takahashi",
+    id: "li",
+    name: "Li Gen",
+    realname: "李ゲン",
     role: "Motion Design",
     bio: "Ren designs kinetic identities where typography behaves like a living surface instead of a static caption.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#cfcac0",
     statement:
       "Movement gives typography a pulse, and the pulse tells the viewer where to look next.",
@@ -48,12 +50,12 @@ export const members = [
     ]
   },
   {
-    id: "mio-kawase",
-    name: "Mio Kawase",
-    realname: "Mio Kawase",
+    id: "syou",
+    name: "Ryou Syou",
+    realname: "廖翔",
     role: "Music",
     bio: "Mio layers field recordings and soft electronic textures into music that feels architectural and intimate.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#e5e0d6",
     statement:
       "Music is the floor under the exhibition; even silence has a material weight.",
@@ -64,12 +66,12 @@ export const members = [
     ]
   },
   {
-    id: "yuto-ishida",
-    name: "Yuto Ishida",
-    realname: "Yuto Ishida",
+    id: "rin",
+    name: "Rin Syuusei",
+    realname: "林秋静",
     role: "Web Engineering",
     bio: "Yuto treats the browser as an exhibition room, shaping interaction, pacing, and performance into a single surface.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#f1eee8",
     statement:
       "An interface can feel handmade when every transition has a reason to exist.",
@@ -80,12 +82,12 @@ export const members = [
     ]
   },
   {
-    id: "rika-fujimoto",
-    name: "Rika Fujimoto",
-    realname: "Rika Fujimoto",
+    id: "ro",
+    name: "Ro Seizen",
+    realname: "ロ世前エン",
     role: "Graphic Design",
     bio: "Rika uses restrained grids, oversized marks, and paper-like negative space to create calm but assertive compositions.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#ddd7cc",
     statement:
       "A blank area is not empty when it is holding the work in exactly the right tension.",
@@ -96,12 +98,11 @@ export const members = [
     ]
   },
   {
-    id: "sora-nakano",
-    name: "Sora Nakano",
-    realname: "Sora Nakano",
+    id: "alfonsus",
+    name: "Alfonsus Norbert",
     role: "Film Editing",
     bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#ebe6dc",
     statement:
       "Editing is a way of listening to images until they reveal their own tempo.",
@@ -112,12 +113,12 @@ export const members = [
     ]
   },
   {
-    id: "mei-kobayashi",
-    name: "Mei Kobayashi",
-    realname: "Mei Kobayashi",
+    id: "kim",
+    name: "Kim Byoungsoo",
+    realname: "김 병수",
     role: "Art Direction",
     bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#d6d1c7",
     statement:
       "The best props behave like evidence from a dream the audience almost remembers.",
@@ -128,12 +129,12 @@ export const members = [
     ]
   },
   {
-    id: "kai-yamamoto",
-    name: "Kai Yamamoto",
-    realname: "Kai Yamamoto",
+    id: "Tamazaki",
+    name: "Tamazaki Miharu",
+    realname: "玉崎 美遥",
     role: "Writing",
     bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
-    image: "/images/placeholders/portrait.svg",
+    image: `${base}images/placeholders/portrait.svg`,
     accent: "#f5f1ea",
     statement:
       "A good caption opens a door, then gets out of the way before the viewer walks through.",

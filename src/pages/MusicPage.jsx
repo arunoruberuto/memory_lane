@@ -3,6 +3,8 @@ import { SectionLabel } from "@/components/common/SectionLabel";
 import { TrackList } from "@/components/music/TrackList";
 import styles from "./MusicPage.module.css";
 
+const base = import.meta.env.BASE_URL;
+
 export function MusicPage() {
   return (
     <>
@@ -22,7 +24,7 @@ export function MusicPage() {
             </div>
           </div>
           <MediaFrame
-            src="/images/placeholders/landscape.svg"
+            src={`${base}images/placeholders/landscape.svg`}
             alt="Music page image placeholder"
             aspect="landscape"
             caption="Musicのコンセプトと紹介テキスト / イメージ画像"
