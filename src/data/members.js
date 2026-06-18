@@ -51,7 +51,7 @@ export const members = [
   },
   {
     id: "syou",
-    name: "Ryou Syou",
+    name: "Ryou Shou",
     realname: "廖翔",
     role: "Music",
     bio: "Mio layers field recordings and soft electronic textures into music that feels architectural and intimate.",
