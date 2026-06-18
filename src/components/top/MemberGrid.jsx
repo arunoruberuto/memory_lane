@@ -58,7 +58,7 @@ export function MemberGrid() {
               <Link
                 to={`/members/${member.id}`}
                 className={styles["member-grid__link"]}
-                aria-label={`View ${member.name},${member.realname},${member.role}`}
+                aria-label={`View ${member.name1} ${member.name2},${member.realname},${member.role}`}
               >
                 <div className={styles["member-grid__card"]}>
                   <div className={styles["member-grid__meta"]}>
@@ -68,7 +68,7 @@ export function MemberGrid() {
                   <div className={styles["member-grid__image-frame"]}>
                     <Image
                       src={member.image}
-                      alt={`${member.name} portrait placeholder`}
+                      alt={`${member.name1} ${member.name2} portrait placeholder`}
                       fill
                       sizes="(min-width: 768px) 31vw, 100vw"
                       className={styles["member-grid__image"]}
@@ -79,9 +79,10 @@ export function MemberGrid() {
                     />
                     <div className={styles["member-grid__name-panel"]}>
                       <h3 className={styles["member-grid__name"]}>
-                        {member.name}
+                        <span className={styles["member-grid__name1"]}>{member.name1}</span>
+                        <span className={styles["member-grid__name2"]}>{member.name2}</span>
                       </h3>
-                      <p className={styles["member-grid__realname"]}>
+                      <p className={`${styles["member-grid__realname"]} ${member.realnameLang ? styles[`member-grid__realname--${member.realnameLang}`] : ""}`}>
                         {member.realname}
                       </p>
                     </div>
