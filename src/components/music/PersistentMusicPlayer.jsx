@@ -3,6 +3,10 @@ import { useAudioPlayer } from "@/context/AudioContext";
 import styles from "./PersistentMusicPlayer.module.css";
 
 function formatTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    return "--:--";
+  }
+
   const safeSeconds = Math.max(0, Math.floor(seconds));
   const minutes = Math.floor(safeSeconds / 60);
   const remainingSeconds = safeSeconds % 60;
@@ -11,7 +15,8 @@ function formatTime(seconds) {
 }
 
 export function PersistentMusicPlayer() {
-  const { currentTrack, isPlaying, progress, toggle, seek } = useAudioPlayer();
+  const { currentTrack, currentTrackDuration, isPlaying, progress, toggle, seek } = useAudioPlayer();
+  const hasDuration = currentTrackDuration > 0;
 
   return (
     <motion.aside
@@ -42,7 +47,7 @@ export function PersistentMusicPlayer() {
               </p>
             </div>
             <p className={styles["music-player__time"]}>
-              {formatTime(progress)} / {formatTime(currentTrack.duration)}
+              {formatTime(progress)} / {formatTime(currentTrackDuration)}
             </p>
           </div>
 
@@ -54,15 +59,16 @@ export function PersistentMusicPlayer() {
             className={styles["music-player__progress"]}
             type="range"
             min={0}
-            max={currentTrack.duration}
+            max={hasDuration ? currentTrackDuration : 1}
             step={0.25}
             value={progress}
+            disabled={!hasDuration}
             onChange={(event) => seek(Number(event.currentTarget.value))}
           />
         </div>
 
         <p className={styles["music-player__mood"]}>
-          {currentTrack.mood}
+          {currentTrack.artist}
         </p>
       </div>
     </motion.aside>

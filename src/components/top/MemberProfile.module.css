@@ -41,6 +41,10 @@
   text-transform: uppercase;
 }
 
+.member-profile__same-line-name2 {
+  margin-left: 0.5em;
+}
+
 .member-profile__bio-grid {
   display: grid;
   margin-top: 2rem;

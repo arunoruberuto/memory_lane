@@ -8,12 +8,44 @@ export function AudioProvider({ children }) {
   const [currentTrackId, setCurrentTrackId] = useState(tracks[0].id);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [trackDurations, setTrackDurations] = useState({});
 
   const currentTrackIndex = Math.max(
     0,
     tracks.findIndex((track) => track.id === currentTrackId)
   );
   const currentTrack = tracks[currentTrackIndex] ?? tracks[0];
+  const currentTrackDuration = trackDurations[currentTrack.id] ?? 0;
+
+  useEffect(() => {
+    let isMounted = true;
+    const audioElements = tracks.map((track) => {
+      const audio = new Audio();
+      audio.preload = "metadata";
+      audio.src = track.src;
+
+      audio.addEventListener("loadedmetadata", () => {
+        if (!isMounted || !Number.isFinite(audio.duration)) {
+          return;
+        }
+
+        setTrackDurations((current) => ({
+          ...current,
+          [track.id]: audio.duration
+        }));
+      });
+
+      return audio;
+    });
+
+    return () => {
+      isMounted = false;
+      audioElements.forEach((audio) => {
+        audio.removeAttribute("src");
+        audio.load();
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
@@ -49,16 +81,24 @@ export function AudioProvider({ children }) {
 
     const interval = window.setInterval(() => {
       setProgress((current) => {
-        if (current >= currentTrack.duration) {
+        if (currentTrackDuration <= 0 || current >= currentTrackDuration) {
           return 0;
         }
 
-        return Math.min(currentTrack.duration, current + 0.25);
+        return Math.min(currentTrackDuration, current + 0.25);
       });
     }, 250);
 
     return () => window.clearInterval(interval);
-  }, [currentTrack.duration, isPlaying]);
+  }, [currentTrackDuration, isPlaying]);
+
+  useEffect(() => {
+    if (currentTrackDuration <= 0) {
+      return;
+    }
+
+    setProgress((current) => Math.min(current, currentTrackDuration));
+  }, [currentTrackDuration]);
 
   const play = useCallback(() => setIsPlaying(true), []);
   const pause = useCallback(() => setIsPlaying(false), []);
@@ -66,9 +106,9 @@ export function AudioProvider({ children }) {
 
   const seek = useCallback(
     (value) => {
-      setProgress(Math.min(Math.max(value, 0), currentTrack.duration));
+      setProgress(Math.min(Math.max(value, 0), currentTrackDuration));
     },
-    [currentTrack.duration]
+    [currentTrackDuration]
   );
 
   const selectTrack = useCallback((trackId) => {
@@ -84,8 +124,10 @@ export function AudioProvider({ children }) {
   const value = useMemo(
     () => ({
       tracks,
+      trackDurations,
       currentTrack,
       currentTrackIndex,
+      currentTrackDuration,
       isPlaying,
       progress,
       play,
@@ -94,7 +136,7 @@ export function AudioProvider({ children }) {
       seek,
       selectTrack
     }),
-    [currentTrack, currentTrackIndex, isPlaying, pause, play, progress, seek, selectTrack, toggle]
+    [currentTrack, currentTrackDuration, currentTrackIndex, isPlaying, pause, play, progress, seek, selectTrack, toggle, trackDurations]
   );
 
   return <AudioPlayerContext.Provider value={value}>{children}</AudioPlayerContext.Provider>;

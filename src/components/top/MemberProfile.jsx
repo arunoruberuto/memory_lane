@@ -8,12 +8,13 @@ import styles from "./MemberProfile.module.css";
 
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
+  const memberName = `${member.name1} ${member.name2}`;
 
   return (
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-          <Marquee text={`${member.name} // ${member.realname} // ${member.role}`} reverse />
+          <Marquee text={`${memberName} // ${member.realname} // ${member.role}`} reverse />
         </div>
 
         <motion.div
@@ -27,7 +28,8 @@ export function MemberProfile({ member, otherMembers }) {
               Member Profile
             </p>
             <h1 className={styles["member-profile__hero-title"]}>
-              {member.name}
+              <span>{member.name1}</span>
+              <span className={styles["member-profile__same-line-name2"]}>{member.name2}</span>
             </h1>
             <p className={styles["member-profile__realname"]}>
               {member.realname}
@@ -41,7 +43,7 @@ export function MemberProfile({ member, otherMembers }) {
           <motion.div variants={revealItem} className={styles["member-profile__profile-image-column"]}>
             <MediaFrame
               src={member.image}
-              alt={`${member.name} profile image placeholder`}
+              alt={`${memberName} profile image placeholder`}
               aspect="portrait"
               caption="人物紹介メインビジュアル"
               className={styles["member-profile__profile-image"]}
@@ -129,14 +131,15 @@ export function MemberProfile({ member, otherMembers }) {
                 <div className={styles["member-profile__member-image-frame"]}>
                   <Image
                     src={otherMember.image}
-                    alt={`${otherMember.name} portrait placeholder`}
+                    alt={`${otherMember.name1} ${otherMember.name2} portrait placeholder`}
                     fill
                     sizes="(min-width: 768px) 25vw, 100vw"
                     className={styles["member-profile__member-image"]}
                   />
                 </div>
                 <p className={styles["member-profile__member-name"]}>
-                  {otherMember.name}
+                  <span>{otherMember.name1}</span>
+                  <span className={styles["member-profile__same-line-name2"]}>{otherMember.name2}</span>
                 </p>
                 <p className={styles["member-profile__member-role"]}>{otherMember.role}</p>
               </Link>

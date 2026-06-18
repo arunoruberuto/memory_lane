@@ -3,14 +3,18 @@ import { useAudioPlayer } from "@/context/AudioContext";
 import styles from "./TrackList.module.css";
 
 function formatDuration(seconds) {
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    return "--:--";
+  }
+
   const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
+  const remainingSeconds = Math.floor(seconds % 60);
 
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
 
 export function TrackList() {
-  const { tracks, currentTrack, isPlaying, selectTrack, toggle } = useAudioPlayer();
+  const { tracks, trackDurations, currentTrack, isPlaying, selectTrack, toggle } = useAudioPlayer();
 
   return (
     <div className={styles["track-list"]}>
@@ -35,11 +39,9 @@ export function TrackList() {
             </span>
             <span className={styles["track-list__meta"]}>
               {track.artist}
-              <br />
-              {track.mood}
             </span>
             <span className={styles["track-list__duration"]}>
-              {isCurrent && isPlaying ? "Playing" : formatDuration(track.duration)}
+              {formatDuration(trackDurations[track.id])}
             </span>
           </motion.button>
         );
