@@ -4,42 +4,42 @@ export const photos = [
   {
     id: "studio-light",
     title: "Studio Light",
-    caption: "A quiet installation view prepared for the graduation showcase.",
+    caption: "卒業制作展に向けて準備された、静かな展示風景。",
     image: `${base}images/placeholders/landscape.svg`,
     orientation: "landscape"
   },
   {
     id: "nine-portraits",
     title: "Nine Portraits",
-    caption: "A future wall for member photography and process documentation.",
+    caption: "メンバー写真や制作過程の記録を掲載するためのスペース。",
     image: `${base}images/placeholders/wide.svg`,
     orientation: "wide"
   },
   {
     id: "table-study",
     title: "Table Study",
-    caption: "Objects, sketches, and notes staged as part of the exhibition archive.",
+    caption: "展示アーカイブの一部として配置されたオブジェ、スケッチ、メモ。",
     image: `${base}images/placeholders/landscape.svg`,
     orientation: "landscape"
   },
   {
     id: "hallway-after",
     title: "Hallway After",
-    caption: "An atmospheric placeholder for campus photography.",
+    caption: "キャンパス写真の雰囲気を伝えるための仮イメージ。",
     image: `${base}images/placeholders/portrait.svg`,
     orientation: "portrait"
   },
   {
     id: "paper-wall",
     title: "Paper Wall",
-    caption: "Large-format print material can replace this image without layout edits.",
+    caption: "レイアウトを調整せずに、大判印刷物の画像へ差し替えられます。",
     image: `${base}images/placeholders/landscape.svg`,
     orientation: "landscape"
   },
   {
     id: "closing-room",
     title: "Closing Room",
-    caption: "The final photographic beat of the showcase sequence.",
+    caption: "展示の流れを締めくくる最後の写真。",
     image: `${base}images/placeholders/wide.svg`,
     orientation: "wide"
   }
