@@ -4,16 +4,46 @@ import { AppImage as Image } from "@/components/common/AppImage";
 import { MediaFrame } from "@/components/common/MediaFrame";
 import { Marquee } from "@/components/common/Marquee";
 import { easeOutExpo, revealContainer, revealItem } from "@/components/common/motionPresets";
+import { useEffect, useState } from "react";
 import styles from "./MemberProfile.module.css";
 
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
+  const memberName = `${member.name1} ${member.name2}`;
+  const longestNamePartLength = Math.max(member.name1.length, member.name2.length);
+  const compactNameClass =
+    longestNamePartLength >= 8 || memberName.replace(/\s/g, "").length >= 14
+      ? styles["member-profile__hero-title--compact"]
+      : "";
+  const [selectedWork, setSelectedWork] = useState(null);
+
+  useEffect(() => {
+    if (!selectedWork) {
+      return undefined;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedWork(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedWork]);
 
   return (
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-          <Marquee text={`${member.name} // ${member.realname} // ${member.role}`} reverse />
+          <Marquee text={`${memberName} // ${member.realname} // ${member.role}`} reverse />
         </div>
 
         <motion.div
@@ -22,12 +52,16 @@ export function MemberProfile({ member, otherMembers }) {
           initial={shouldReduceMotion ? false : "hidden"}
           animate="visible"
         >
-          <motion.div variants={revealItem}>
+          <motion.div
+            variants={revealItem}
+            className={styles["member-profile__hero-copy"]}
+          >
             <p className={styles["member-profile__eyebrow"]}>
               Member Profile
             </p>
-            <h1 className={styles["member-profile__hero-title"]}>
-              {member.name}
+            <h1 className={`${styles["member-profile__hero-title"]} ${compactNameClass}`}>
+              <span className={styles["member-profile__hero-title-word"]}>{member.name1}</span>
+              <span className={styles["member-profile__hero-title-word"]}>{member.name2}</span>
             </h1>
             <p className={styles["member-profile__realname"]}>
               {member.realname}
@@ -41,7 +75,7 @@ export function MemberProfile({ member, otherMembers }) {
           <motion.div variants={revealItem} className={styles["member-profile__profile-image-column"]}>
             <MediaFrame
               src={member.image}
-              alt={`${member.name} profile image placeholder`}
+              alt={`${memberName} profile image placeholder`}
               aspect="portrait"
               caption="人物紹介メインビジュアル"
               className={styles["member-profile__profile-image"]}
@@ -78,14 +112,30 @@ export function MemberProfile({ member, otherMembers }) {
             </p>
             <ul className={styles["member-profile__works-list"]}>
               {member.works.map((work) => (
-                <li key={work.title} className={styles["member-profile__work-item"]}>
+                <li key={work.id ?? work.title} className={styles["member-profile__work-item"]}>
                   <div>
                     <p className={styles["member-profile__work-title"]}>
-                      {work.title}
+                      {work.description || work.url ? (
+                        <button
+                          type="button"
+                          className={styles["member-profile__work-link"]}
+                          onClick={() => setSelectedWork(work)}
+                        >
+                          {work.title}
+                        </button>
+                      ) : (
+                        <span>{work.title}</span>
+                      )}
                     </p>
-                    <p className={styles["member-profile__work-medium"]}>{work.medium}</p>
+
+                    <p className={styles["member-profile__work-medium"]}>
+                      {work.medium}
+                    </p>
                   </div>
-                  <p className={styles["member-profile__work-year"]}>{work.year}</p>
+
+                  <p className={styles["member-profile__work-year"]}>
+                    {work.year}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -129,14 +179,15 @@ export function MemberProfile({ member, otherMembers }) {
                 <div className={styles["member-profile__member-image-frame"]}>
                   <Image
                     src={otherMember.image}
-                    alt={`${otherMember.name} portrait placeholder`}
+                    alt={`${otherMember.name1} ${otherMember.name2} portrait placeholder`}
                     fill
                     sizes="(min-width: 768px) 25vw, 100vw"
                     className={styles["member-profile__member-image"]}
                   />
                 </div>
                 <p className={styles["member-profile__member-name"]}>
-                  {otherMember.name}
+                  <span>{otherMember.name1}</span>
+                  <span className={styles["member-profile__same-line-name2"]}>{otherMember.name2}</span>
                 </p>
                 <p className={styles["member-profile__member-role"]}>{otherMember.role}</p>
               </Link>
@@ -144,6 +195,85 @@ export function MemberProfile({ member, otherMembers }) {
           </div>
         </div>
       </section>
+
+      {selectedWork && (
+        <div
+          className={styles["member-profile__modal-overlay"]}
+          onClick={() => setSelectedWork(null)}
+        >
+          <motion.div
+            className={styles["member-profile__modal"]}
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="work-modal-title"
+            aria-describedby={selectedWork.description ? "work-modal-description" : undefined}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: easeOutExpo,
+            }}
+          >
+            <div className={styles["member-profile__modal-header"]}>
+              <p className={styles["member-profile__modal-eyebrow"]}>
+                Work Detail
+              </p>
+              <button
+                type="button"
+                className={styles["member-profile__modal-close"]}
+                onClick={() => setSelectedWork(null)}
+                aria-label="Close work detail"
+              >
+                x
+              </button>
+            </div>
+
+            <h2
+              id="work-modal-title"
+              className={styles["member-profile__modal-title"]}
+            >
+              {selectedWork.title}
+            </h2>
+            <div className={styles["member-profile__modal-meta"]}>
+              <span>{selectedWork.medium}</span>
+              <span>{selectedWork.year}</span>
+            </div>
+
+            {selectedWork.description && (
+              <p
+                id="work-modal-description"
+                className={styles["member-profile__modal-description"]}
+              >
+                {selectedWork.description}
+              </p>
+            )}
+
+            <div className={styles["member-profile__modal-actions"]}>
+              {selectedWork.url && (
+                <a
+                  className={styles["member-profile__modal-action"]}
+                  href={selectedWork.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Launch Site
+                </a>
+              )}
+
+              <button
+                type="button"
+                className={styles["member-profile__modal-action"]}
+                onClick={() => setSelectedWork(null)}
+              >
+                Close
+              </button>
+            </div>
+
+          </motion.div>
+        </div>
+      )}
+
     </>
   );
 }
