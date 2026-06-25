@@ -72,7 +72,10 @@ export function MemberGrid() {
                       <span>{String(index + 1).padStart(2, "0")}</span>
                       <span>{member.role}</span>
                     </div>
-                    <div className={styles["member-grid__image-frame"]}>
+                    <div
+                      className={styles["member-grid__image-frame"]}
+                      style={{ transform: "translateZ(0)" }}
+                    >
                       <Image
                         src={member.image}
                         alt={`${memberName} portrait placeholder`}

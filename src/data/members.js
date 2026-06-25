@@ -114,12 +114,13 @@ export const members = [
     name1: "Alfonsus",
     name2: "Norbert",
     realname: "Alfonsus Ferdinand Norbert",
+    realnameLang: "en",
     role: "Film Editing",
-    bio: "Sora cuts images with a musician's sense of breath, making small pauses feel as important as dramatic turns.",
+    bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#ebe6dc",
     statement:
-      "Editing is a way of listening to images until they reveal their own tempo.",
+      "編集とは、映像が自らのテンポを明かすまで耳を澄ませること。",
     tags: ["editing", "rhythm", "cinema"],
     works: [
       { title: "Handheld Weather", medium: "Short Film", year: "2026" },
@@ -131,12 +132,13 @@ export const members = [
     name1: "Kim",
     name2: "Byoungsoo",
     realname: "김 병수",
+    realnameLang: "ko",
     role: "Art Direction",
-    bio: "Mei composes sets, objects, and small rituals into visual worlds that feel slightly familiar and slightly impossible.",
+    bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#d6d1c7",
     statement:
-      "The best props behave like evidence from a dream the audience almost remembers.",
+      "優れた小道具は、観客がほとんど思い出しかけている夢の証拠のように振る舞う。",
     tags: ["objects", "set design", "worldbuilding"],
     works: [
       { title: "Table for Nine", medium: "Set Piece", year: "2026" },
@@ -148,6 +150,7 @@ export const members = [
     name1: "Tamazaki",
     name2: "Miharu",
     realname: "玉崎 美遥",
+    realnameLang: "ja",
     role: "Writing",
     bio: "Kai writes concise exhibition texts and scripts that leave enough space for viewers to bring themselves into the work.",
     image: `${base}images/placeholders/portrait.svg`,
@@ -159,7 +162,7 @@ export const members = [
       { title: "Caption Studies", medium: "Text Series", year: "2026" },
       { title: "Voice Memo", medium: "Script", year: "2025" }
     ]
-  }
+  },
 ];
 
 export function getMemberById(id) {
