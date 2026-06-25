@@ -14,8 +14,23 @@ export const members = [
       "編集とは、映像が自らのテンポを明かすまで耳を澄ませること。",
     tags: ["editing", "rhythm", "cinema"],
     works: [
-      { title: "Handheld Weather", medium: "Short Film", year: "2026" },
-      { title: "Cut Marks", medium: "Video Essay", year: "2025" }
+      { 
+        id: "wfprofile",
+        title: "A Younger Me", 
+        medium: "Profile Record", 
+        year: "2024",
+        description:
+          "A compact personal web piece built from childhood images, memory fragments, and the strange distance between an earlier self and the present.",
+        url: `${base}projects/pi1/wfprofile/index.html`
+      },
+      { 
+        id: "cut-marks",
+        title: "Cut Marks", 
+        medium: "Video Essay", 
+        year: "2025",
+        description:
+          "A study of rhythm, interruption, and invisible edits that asks how much meaning can live inside a single cut."
+      }
     ]
   },
   {
@@ -31,8 +46,22 @@ export const members = [
       "優れた小道具は、観客がほとんど思い出しかけている夢の証拠のように振る舞う。",
     tags: ["objects", "set design", "worldbuilding"],
     works: [
-      { title: "Table for Nine", medium: "Set Piece", year: "2026" },
-      { title: "Borrowed Room", medium: "Photo Direction", year: "2025" }
+      {
+        id: "table-for-nine",
+        title: "Table for Nine",
+        medium: "Set Piece",
+        year: "2026",
+        description:
+          "A staged table environment where props, empty seats, and small gestures suggest a gathering that has just moved out of frame."
+      },
+      {
+        id: "borrowed-room",
+        title: "Borrowed Room",
+        medium: "Photo Direction",
+        year: "2025",
+        description:
+          "A quiet photo sequence that treats an ordinary room as a temporary theater for memory, color, and borrowed intimacy."
+      }
     ]
   },
   {
@@ -48,8 +77,22 @@ export const members = [
       "よいキャプションは扉を開き、鑑賞者がそこを通る前にそっと身を引く。",
     tags: ["copy", "script", "concept"],
     works: [
-      { title: "Caption Studies", medium: "Text Series", year: "2026" },
-      { title: "Voice Memo", medium: "Script", year: "2025" }
+      {
+        id: "caption-studies",
+        title: "Caption Studies",
+        medium: "Text Series",
+        year: "2026",
+        description:
+          "A set of short texts exploring how captions can guide attention while still leaving room for the viewer to enter."
+      },
+      {
+        id: "voice-memo",
+        title: "Voice Memo",
+        medium: "Script",
+        year: "2025",
+        description:
+          "A script shaped like a private recording, moving between rehearsal, confession, and unfinished notes for a future scene."
+      }
     ]
   },
   {
@@ -66,8 +109,22 @@ export const members = [
       "卒業はひとつの境界として扱われる。未完の問いがまだ光を帯びる部屋として。",
     tags: ["direction", "installation", "editorial"],
     works: [
-      { title: "Room Tone", medium: "Short Film", year: "2026" },
-      { title: "Archive of Light", medium: "Installation", year: "2025" }
+      {
+        id: "room-tone",
+        title: "Room Tone",
+        medium: "Short Film",
+        year: "2026",
+        description:
+          "A short film that follows campus light, pauses, and residual sound as evidence of a place between ordinary days."
+      },
+      {
+        id: "archive-of-light",
+        title: "Archive of Light",
+        medium: "Installation",
+        year: "2025",
+        description:
+          "An installation that gathers projected fragments and reflective surfaces into a loose archive of passage, delay, and brightness."
+      }
     ],
   }
   ,
@@ -85,8 +142,22 @@ export const members = [
       "写真は証明よりも、空気がどのように感じられたかを思い出すためのものになりうる。",
     tags: ["photo", "portrait", "memory"],
     works: [
-      { title: "After the Bell", medium: "Photo Series", year: "2026" },
-      { title: "Blue Hallway", medium: "Zine", year: "2025" }
+      {
+        id: "after-the-bell",
+        title: "After the Bell",
+        medium: "Photo Series",
+        year: "2026",
+        description:
+          "A photo series about the suspended atmosphere after classes end, when corridors keep the traces of movement."
+      },
+      {
+        id: "blue-hallway",
+        title: "Blue Hallway",
+        medium: "Zine",
+        year: "2025",
+        description:
+          "A small-format zine collecting blurred passageways, cool light, and portraits that sit between documentation and memory."
+      }
     ]
   },
   {
@@ -103,8 +174,22 @@ export const members = [
       "動きはタイポグラフィに鼓動を与え、その鼓動が次にどこを見るべきかを鑑賞者に伝える。",
     tags: ["motion", "type", "identity"],
     works: [
-      { title: "Signal Study", medium: "Motion Poster", year: "2026" },
-      { title: "Nine Seconds", medium: "Title Sequence", year: "2025" }
+      {
+        id: "signal-study",
+        title: "Signal Study",
+        medium: "Motion Poster",
+        year: "2026",
+        description:
+          "A motion poster built from pulsing typography, timing shifts, and graphic signals that turn reading into a moving act."
+      },
+      {
+        id: "nine-seconds",
+        title: "Nine Seconds",
+        medium: "Title Sequence",
+        year: "2025",
+        description:
+          "A title sequence experiment that compresses identity, pace, and transition into a short burst of moving type."
+      }
     ]
   },
   {
@@ -121,8 +206,22 @@ export const members = [
       "音楽は展示の床であり、沈黙にも素材としての重みがある。",
     tags: ["music", "field recording", "composition"],
     works: [
-      { title: "Dust Loop", medium: "Music Piece", year: "2026" },
-      { title: "Courtyard Drift", medium: "Music", year: "2025" }
+      {
+        id: "dust-loop",
+        title: "Dust Loop",
+        medium: "Music Piece",
+        year: "2026",
+        description:
+          "A layered sound piece where field recordings, soft static, and repeated tones create a room-like sense of time."
+      },
+      {
+        id: "courtyard-drift",
+        title: "Courtyard Drift",
+        medium: "Music",
+        year: "2025",
+        description:
+          "A gentle composition drawn from outdoor resonance, footsteps, and electronic texture, drifting between public space and interior feeling."
+      }
     ]
   },
   {
@@ -139,8 +238,22 @@ export const members = [
       "すべてのトランジションに存在する理由があるとき、インターフェースは手作りのように感じられる。",
     tags: ["frontend", "interaction", "systems"],
     works: [
-      { title: "Soft Cursor", medium: "Interactive Web", year: "2026" },
-      { title: "Index Room", medium: "Archive Site", year: "2025" }
+      {
+        id: "soft-cursor",
+        title: "Soft Cursor",
+        medium: "Interactive Web",
+        year: "2026",
+        description:
+          "An interactive browser study focused on cursor behavior, quiet transitions, and the tactile feeling of digital space."
+      },
+      {
+        id: "index-room",
+        title: "Index Room",
+        medium: "Archive Site",
+        year: "2025",
+        description:
+          "An archive interface that treats indexes as rooms, letting documents, images, and paths rearrange into a browsable floor plan."
+      }
     ]
   },
   {
@@ -157,8 +270,22 @@ export const members = [
       "余白は、作品をちょうどよい緊張感で支えているとき、空っぽではない。",
     tags: ["print", "layout", "visual identity"],
     works: [
-      { title: "Folded Index", medium: "Poster Set", year: "2026" },
-      { title: "Margin Notes", medium: "Book Design", year: "2025" }
+      {
+        id: "folded-index",
+        title: "Folded Index",
+        medium: "Poster Set",
+        year: "2026",
+        description:
+          "A poster system using folds, strict grids, and oversized marks to turn printed space into a navigable index."
+      },
+      {
+        id: "margin-notes",
+        title: "Margin Notes",
+        medium: "Book Design",
+        year: "2025",
+        description:
+          "A book design experiment where margins carry secondary voices, quiet annotations, and the rhythm of looking again."
+      }
     ]
   },
 ];

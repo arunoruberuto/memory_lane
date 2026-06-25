@@ -40,7 +40,10 @@ export function PhotosPage() {
             </p>
           </div>
 
-          <div className={styles["photos-page__gallery-grid"]}>
+          <div 
+            className={styles["photos-page__gallery-grid"]}
+            style={{ transform: "translateZ(0)" }}
+          >
             {photos.map((photo, index) => (
               <article
                 key={photo.id}
