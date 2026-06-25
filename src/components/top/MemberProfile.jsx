@@ -13,20 +13,12 @@ function getMemberName(member) {
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
   const memberName = getMemberName(member);
-<<<<<<< Updated upstream
-=======
-  const marqueeParts = [memberName, member.realname, member.role].filter(Boolean);
->>>>>>> Stashed changes
 
   return (
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-<<<<<<< Updated upstream
           <Marquee text={`${memberName} // ${member.realname} // ${member.role}`} reverse />
-=======
-          <Marquee text={marqueeParts.join(" // ")} reverse />
->>>>>>> Stashed changes
         </div>
 
         <motion.div
@@ -43,23 +35,12 @@ export function MemberProfile({ member, otherMembers }) {
               <span>{member.name1}</span>
               <span>{member.name2}</span>
             </h1>
-<<<<<<< Updated upstream
             <p
               className={styles["member-profile__realname"]}
               lang={member.realnameLang}
             >
               {member.realname}
             </p>
-=======
-            {member.realname ? (
-              <p
-                className={styles["member-profile__realname"]}
-                lang={member.realnameLang}
-              >
-                {member.realname}
-              </p>
-            ) : null}
->>>>>>> Stashed changes
             <div className={styles["member-profile__bio-grid"]}>
               <p className={styles["member-profile__role"]}>{member.role}</p>
               <p className={styles["member-profile__bio"]}>{member.bio}</p>

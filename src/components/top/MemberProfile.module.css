@@ -41,7 +41,6 @@
   text-transform: uppercase;
 }
 
-<<<<<<< Updated upstream
 .member-profile__hero-title span,
 .member-profile__member-name span {
   display: block;
@@ -71,12 +70,6 @@
   font-family: var(--font-realname-zh);
 }
 
-=======
-.member-profile__hero-title span {
-  display: block;
-}
-
->>>>>>> Stashed changes
 .member-profile__bio-grid {
   display: grid;
   margin-top: 2rem;
@@ -316,7 +309,7 @@
   }
 
   .member-profile__related-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
 
