@@ -27,7 +27,7 @@ export function Hero() {
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.9, ease: easeOutExpo, delay: 0.35 }}
       >
-        <Marquee text="PIPW SATO GRADUATION SHOWCASE" />
+        <Marquee text="PIPW SATO GRADUATION EXBITION" />
       </motion.div>
 
       <motion.div className={styles["hero__poster-layer"]} style={{ y: posterY }}>
@@ -56,7 +56,7 @@ export function Hero() {
           className={styles["hero__eyebrow"]}
           variants={revealItem}
         >
-          Graduation Exhibition / Static Portfolio / 2026
+          Graduation Exhibition / Memory Lane / 2026
         </motion.p>
         <motion.h1
           className={styles["hero__title"]}
@@ -71,10 +71,10 @@ export function Hero() {
           className={styles["hero__copy-grid"]}
           variants={revealItem}
         >
-          <p className={styles["hero__copy-label"]}>Main Visual</p>
+          <p className={styles["hero__copy-label"]}>卒業アルバム</p>
           <p className={styles["hero__copy"]}>
-            A motion-led graduation showcase for nine creators: photography, music, member stories,
-            and the quiet tension of a final exhibition room.
+            8人のクラスメイトによる、モーション演出を中心とした卒業ショーケース。
+            写真、音楽、メンバー一人ひとりのストーリーを通して、卒業前の特別な空気を表現します。
           </p>
         </motion.div>
       </motion.div>
