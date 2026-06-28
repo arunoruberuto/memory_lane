@@ -1,35 +1,46 @@
-import { MediaFrame } from "@/components/common/MediaFrame";
 import { SectionLabel } from "@/components/common/SectionLabel";
 import { TrackList } from "@/components/music/TrackList";
+import { useAudioPlayer } from "@/context/AudioContext";
 import styles from "./MusicPage.module.css";
 
-const base = import.meta.env.BASE_URL;
-
 export function MusicPage() {
+  const { currentTrack, isPlaying } = useAudioPlayer();
+  const discClassName = [
+    styles["music-page__disc"],
+    isPlaying ? styles["music-page__disc--playing"] : ""
+  ].filter(Boolean).join(" ");
+
   return (
     <>
       <section className={styles["music-page__hero-section"]}>
         <div className={styles["music-page__hero-grid"]}>
           <div>
-            <SectionLabel eyebrow="Music / 音のページ" title="Room Tone" />
+            <SectionLabel eyebrow="音楽 / 卒業コンピレーション" title="卒業に向けて一曲を" />
             <div className={styles["music-page__copy-grid"]}>
               <p className={styles["music-page__copy-label"]}>
-                Concept
+                コンセプト
               </p>
               <p className={styles["music-page__copy"]}>
-                Placeholder tracks define the persistent player architecture now; final audio can
-                later be dropped into <span className={styles["music-page__path"]}>/public/music</span>
-                and wired through the local track data.
+                音楽を通して、<br/>
+                卒業に向けたそれぞれの想いを<br/>
+                一曲ずつ呼び覚まします。
               </p>
             </div>
           </div>
-          <MediaFrame
-            src={`${base}images/placeholders/landscape.svg`}
-            alt="Music page image placeholder"
-            aspect="landscape"
-            caption="Musicのコンセプトと紹介テキスト / イメージ画像"
-            className={styles["music-page__media-frame"]}
-          />
+          <div
+            className={styles["music-page__disc-stage"]}
+            role="img"
+            aria-label={`${currentTrack.title}のアートワークディスク`}
+          >
+            <div key={currentTrack.id} className={discClassName}>
+              <img
+                className={styles["music-page__disc-artwork"]}
+                src={currentTrack.artwork}
+                alt={`${currentTrack.title}のカバーアート`}
+              />
+              <span className={styles["music-page__disc-hole"]} aria-hidden="true" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -37,10 +48,10 @@ export function MusicPage() {
         <div className={styles["music-page__list-inner"]}>
           <div className={styles["music-page__list-header"]}>
             <p className={styles["music-page__list-eyebrow"]}>
-              Music List
+              トラックリスト
             </p>
             <h2 className={styles["music-page__list-title"]}>
-              Music Index
+              トラックリスト
             </h2>
           </div>
           <TrackList />
