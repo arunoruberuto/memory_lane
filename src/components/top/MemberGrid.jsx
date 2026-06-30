@@ -6,8 +6,11 @@ import { SectionLabel } from "@/components/common/SectionLabel";
 import { easeOutExpo } from "@/components/common/motionPresets";
 import styles from "./MemberGrid.module.css";
 
-function getMemberName(member) {
-  return `${member.name1} ${member.name2}`;
+function getRealnameClassName(member) {
+  return [
+    styles["member-grid__realname"],
+    member.realnameLang ? styles[`member-grid__realname--${member.realnameLang}`] : ""
+  ].filter(Boolean).join(" ");
 }
 
 const gridVariants = {
@@ -44,7 +47,7 @@ export function MemberGrid() {
     <section className={styles["member-grid"]} id="members">
       <div className={styles["member-grid__inner"]}>
         <div className={styles["member-grid__header"]}>
-          <SectionLabel eyebrow="Members / 3x3 Gallery" title="Nine Creators" />
+          <SectionLabel eyebrow="Members / 3x3 Gallery" title="Eight Members" />
           <p className={styles["member-grid__description"]}>
             The homepage centerpiece is an exhibition wall, not a team-card list.
           </p>
@@ -69,8 +72,10 @@ export function MemberGrid() {
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <span>{member.role}</span>
                   </div>
-                  <div className={styles["member-grid__image-frame"]}
-                    style={{ transform: 'translateZ(0)' }}>
+                  <div
+                    className={styles["member-grid__image-frame"]}
+                    style={{ transform: "translateZ(0)" }}
+                  >
                     <Image
                       src={member.image}
                       alt={`${member.name1} ${member.name2} portrait placeholder`}
@@ -87,18 +92,21 @@ export function MemberGrid() {
                         <span className={styles["member-grid__name1"]}>{member.name1}</span>
                         <span className={styles["member-grid__name2"]}>{member.name2}</span>
                       </h3>
-                      <p className={`${styles["member-grid__realname"]} ${member.realnameLang ? styles[`member-grid__realname--${member.realnameLang}`] : ""}`}>
+                      <p
+                        className={getRealnameClassName(member)}
+                        lang={member.realnameLang}
+                      >
                         {member.realname}
                       </p>
                     </div>
-                    <p className={styles["member-grid__bio"]}>
-                      {member.bio}
-                    </p>
                   </div>
-                </Link>
-              </motion.article>
-            );
-          })}
+                  <p className={styles["member-grid__bio"]}>
+                    {member.bio}
+                  </p>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
         </motion.div>
       </div>
     </section>

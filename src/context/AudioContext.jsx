@@ -64,14 +64,17 @@ function readStoredAudioState() {
 }
 
 export function AudioProvider({ children }) {
+  const [initialAudioState] = useState(readStoredAudioState);
+  const initialTrackId = initialAudioState.currentTrackId ?? tracks[0].id;
+  const initialProgress = initialAudioState.progress ?? 0;
   const audioRef = useRef(null);
-  const currentTrackIdRef = useRef(tracks[0].id);
-  const progressRef = useRef(0);
+  const currentTrackIdRef = useRef(initialTrackId);
+  const progressRef = useRef(initialProgress);
   const isRepeatOneRef = useRef(false);
-  const [currentTrackId, setCurrentTrackId] = useState(tracks[0].id);
+  const [currentTrackId, setCurrentTrackId] = useState(initialTrackId);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isRepeatOne, setIsRepeatOne] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(initialProgress);
   const [trackDurations, setTrackDurations] = useState({});
 
   const currentTrackIndex = Math.max(
@@ -204,91 +207,6 @@ export function AudioProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    currentTrackRef.current = currentTrack;
-  }, [currentTrack]);
-
-  useEffect(() => {
-    const audio = new Audio();
-    audio.preload = "metadata";
-    audioRef.current = audio;
-
-    const updateDuration = () => {
-      const track = currentTrackRef.current;
-      const duration = getFiniteDuration(audio.duration);
-
-      if (!track || duration <= 0) {
-        return;
-      }
-
-      setTrackDurations((current) => {
-        if (current[track.id] === duration) {
-          return current;
-        }
-
-        return {
-          ...current,
-          [track.id]: duration
-        };
-      });
-    };
-
-    const applyPendingSeek = () => {
-      const duration = getFiniteDuration(audio.duration);
-      const nextTime = clampTime(pendingSeekRef.current, duration);
-
-      if (Number.isFinite(nextTime)) {
-        audio.currentTime = nextTime;
-      }
-
-      setProgress(audio.currentTime);
-    };
-
-    const handleLoadedMetadata = () => {
-      updateDuration();
-      applyPendingSeek();
-    };
-
-    const handleDurationChange = () => {
-      updateDuration();
-      setProgress((current) => clampTime(current, audio.duration));
-    };
-
-    const handleTimeUpdate = () => {
-      setProgress(audio.currentTime);
-      pendingSeekRef.current = audio.currentTime;
-    };
-
-    const handleEnded = () => {
-      audio.currentTime = 0;
-      pendingSeekRef.current = 0;
-      setProgress(0);
-      setIsPlaying(false);
-    };
-
-    const handleError = () => {
-      setIsPlaying(false);
-    };
-
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    audio.addEventListener("durationchange", handleDurationChange);
-    audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("ended", handleEnded);
-    audio.addEventListener("error", handleError);
-
-    return () => {
-      audio.pause();
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      audio.removeEventListener("durationchange", handleDurationChange);
-      audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("ended", handleEnded);
-      audio.removeEventListener("error", handleError);
-      audio.removeAttribute("src");
-      audio.load();
-      audioRef.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
     window.localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({ currentTrackId, progress }),
@@ -365,7 +283,7 @@ export function AudioProvider({ children }) {
 
   const seek = useCallback(
     (value) => {
-      const nextProgress = Math.min(Math.max(value, 0), currentTrackDuration);
+      const nextProgress = clampTime(value, currentTrackDuration);
       const audio = audioRef.current;
 
       if (audio) {
