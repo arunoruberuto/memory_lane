@@ -57,48 +57,39 @@ export function MemberGrid() {
           whileInView="visible"
           viewport={{ once: true, margin: "-10% 0px" }}
         >
-          {members.map((member, index) => {
-            const memberName = getMemberName(member);
-
-            return (
-              <motion.article key={member.id} variants={memberVariants}>
-                <Link
-                  to={`/members/${member.id}`}
-                  className={styles["member-grid__link"]}
-                  aria-label={`View ${memberName},${member.realname},${member.role}`}
-                >
-                  <div className={styles["member-grid__card"]}>
-                    <div className={styles["member-grid__meta"]}>
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <span>{member.role}</span>
-                    </div>
+          {members.map((member, index) => (
+            <motion.article key={member.id} variants={memberVariants}>
+              <Link
+                to={`/members/${member.id}`}
+                className={styles["member-grid__link"]}
+                aria-label={`View ${member.name1} ${member.name2},${member.realname},${member.role}`}
+              >
+                <div className={styles["member-grid__card"]}>
+                  <div className={styles["member-grid__meta"]}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{member.role}</span>
+                  </div>
+                  <div className={styles["member-grid__image-frame"]}
+                    style={{ transform: 'translateZ(0)' }}>
+                    <Image
+                      src={member.image}
+                      alt={`${member.name1} ${member.name2} portrait placeholder`}
+                      fill
+                      sizes="(min-width: 768px) 31vw, 100vw"
+                      className={styles["member-grid__image"]}
+                    />
                     <div
-                      className={styles["member-grid__image-frame"]}
-                      style={{ transform: "translateZ(0)" }}
-                    >
-                      <Image
-                        src={member.image}
-                        alt={`${memberName} portrait placeholder`}
-                        fill
-                        sizes="(min-width: 768px) 31vw, 100vw"
-                        className={styles["member-grid__image"]}
-                      />
-                      <div
-                        className={styles["member-grid__tint"]}
-                        style={{ backgroundColor: member.accent }}
-                      />
-                      <div className={styles["member-grid__name-panel"]}>
-                        <h3 className={styles["member-grid__name"]}>
-                          <span>{member.name1}</span>
-                          <span>{member.name2}</span>
-                        </h3>
-                        <p
-                          className={styles["member-grid__realname"]}
-                          lang={member.realnameLang}
-                        >
-                          {member.realname}
-                        </p>
-                      </div>
+                      className={styles["member-grid__tint"]}
+                      style={{ backgroundColor: member.accent }}
+                    />
+                    <div className={styles["member-grid__name-panel"]}>
+                      <h3 className={styles["member-grid__name"]}>
+                        <span className={styles["member-grid__name1"]}>{member.name1}</span>
+                        <span className={styles["member-grid__name2"]}>{member.name2}</span>
+                      </h3>
+                      <p className={`${styles["member-grid__realname"]} ${member.realnameLang ? styles[`member-grid__realname--${member.realnameLang}`] : ""}`}>
+                        {member.realname}
+                      </p>
                     </div>
                     <p className={styles["member-grid__bio"]}>
                       {member.bio}

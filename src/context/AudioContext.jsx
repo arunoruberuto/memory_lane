@@ -12,6 +12,57 @@ import { tracks } from "@/data/tracks";
 const STORAGE_KEY = "pipw-sato-audio-state";
 const AudioPlayerContext = createContext(undefined);
 
+function getFiniteDuration(duration) {
+  return Number.isFinite(duration) && duration > 0 ? duration : 0;
+}
+
+function clampTime(value, duration) {
+  const safeValue = Number.isFinite(value) ? value : 0;
+  const max = getFiniteDuration(duration);
+
+  if (max <= 0) {
+    return Math.max(0, safeValue);
+  }
+
+  return Math.min(Math.max(0, safeValue), max);
+}
+
+function readStoredAudioState() {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  let stored;
+
+  try {
+    stored = window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return {};
+  }
+
+  if (!stored) {
+    return {};
+  }
+
+  try {
+    const parsed = JSON.parse(stored);
+    const nextState = {};
+
+    if (tracks.some((track) => track.id === parsed.currentTrackId)) {
+      nextState.currentTrackId = parsed.currentTrackId;
+    }
+
+    if (Number.isFinite(parsed.progress)) {
+      nextState.progress = Math.max(0, parsed.progress);
+    }
+
+    return nextState;
+  } catch {
+    window.localStorage.removeItem(STORAGE_KEY);
+    return {};
+  }
+}
+
 export function AudioProvider({ children }) {
   const audioRef = useRef(null);
   const currentTrackIdRef = useRef(tracks[0].id);
@@ -153,23 +204,88 @@ export function AudioProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    currentTrackRef.current = currentTrack;
+  }, [currentTrack]);
 
-    if (!stored) {
-      return;
-    }
+  useEffect(() => {
+    const audio = new Audio();
+    audio.preload = "metadata";
+    audioRef.current = audio;
 
-    try {
-      const parsed = JSON.parse(stored);
-      if (tracks.some((track) => track.id === parsed.currentTrackId)) {
-        setCurrentTrackId(parsed.currentTrackId);
+    const updateDuration = () => {
+      const track = currentTrackRef.current;
+      const duration = getFiniteDuration(audio.duration);
+
+      if (!track || duration <= 0) {
+        return;
       }
-      if (Number.isFinite(parsed.progress)) {
-        setProgress(Math.max(0, parsed.progress));
+
+      setTrackDurations((current) => {
+        if (current[track.id] === duration) {
+          return current;
+        }
+
+        return {
+          ...current,
+          [track.id]: duration
+        };
+      });
+    };
+
+    const applyPendingSeek = () => {
+      const duration = getFiniteDuration(audio.duration);
+      const nextTime = clampTime(pendingSeekRef.current, duration);
+
+      if (Number.isFinite(nextTime)) {
+        audio.currentTime = nextTime;
       }
-    } catch {
-      window.localStorage.removeItem(STORAGE_KEY);
-    }
+
+      setProgress(audio.currentTime);
+    };
+
+    const handleLoadedMetadata = () => {
+      updateDuration();
+      applyPendingSeek();
+    };
+
+    const handleDurationChange = () => {
+      updateDuration();
+      setProgress((current) => clampTime(current, audio.duration));
+    };
+
+    const handleTimeUpdate = () => {
+      setProgress(audio.currentTime);
+      pendingSeekRef.current = audio.currentTime;
+    };
+
+    const handleEnded = () => {
+      audio.currentTime = 0;
+      pendingSeekRef.current = 0;
+      setProgress(0);
+      setIsPlaying(false);
+    };
+
+    const handleError = () => {
+      setIsPlaying(false);
+    };
+
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("durationchange", handleDurationChange);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("error", handleError);
+
+    return () => {
+      audio.pause();
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("durationchange", handleDurationChange);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("error", handleError);
+      audio.removeAttribute("src");
+      audio.load();
+      audioRef.current = null;
+    };
   }, []);
 
   useEffect(() => {
