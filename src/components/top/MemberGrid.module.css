@@ -115,6 +115,11 @@
   display: block;
 }
 
+.member-grid__name1,
+.member-grid__name2 {
+  display: block;
+}
+
 .member-grid__name span {
   display: block;
 }
