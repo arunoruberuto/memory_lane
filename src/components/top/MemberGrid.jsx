@@ -6,6 +6,10 @@ import { SectionLabel } from "@/components/common/SectionLabel";
 import { easeOutExpo } from "@/components/common/motionPresets";
 import styles from "./MemberGrid.module.css";
 
+function getMemberName(member) {
+  return `${member.name1} ${member.name2}`;
+}
+
 const gridVariants = {
   hidden: {},
   visible: {
@@ -87,14 +91,14 @@ export function MemberGrid() {
                         {member.realname}
                       </p>
                     </div>
+                    <p className={styles["member-grid__bio"]}>
+                      {member.bio}
+                    </p>
                   </div>
-                  <p className={styles["member-grid__bio"]}>
-                    {member.bio}
-                  </p>
-                </div>
-              </Link>
-            </motion.article>
-          ))}
+                </Link>
+              </motion.article>
+            );
+          })}
         </motion.div>
       </div>
     </section>

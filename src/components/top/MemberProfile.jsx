@@ -7,6 +7,10 @@ import { easeOutExpo, revealContainer, revealItem } from "@/components/common/mo
 import { useEffect, useState } from "react";
 import styles from "./MemberProfile.module.css";
 
+function getMemberName(member) {
+  return `${member.name1} ${member.name2}`;
+}
+
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
   const memberName = `${member.name1} ${member.name2}`;
@@ -63,7 +67,10 @@ export function MemberProfile({ member, otherMembers }) {
               <span className={styles["member-profile__hero-title-word"]}>{member.name1}</span>
               <span className={styles["member-profile__hero-title-word"]}>{member.name2}</span>
             </h1>
-            <p className={styles["member-profile__realname"]}>
+            <p
+              className={styles["member-profile__realname"]}
+              lang={member.realnameLang}
+            >
               {member.realname}
             </p>
             <div className={styles["member-profile__bio-grid"]}>

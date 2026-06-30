@@ -4,7 +4,12 @@
 }
 
 .track-list__track {
+  position: relative;
   display: grid;
+  grid-template-columns: 2.75rem 4rem minmax(0, 1fr);
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
@@ -12,8 +17,31 @@
   text-align: left;
   transition:
     color 150ms,
-    background-color 150ms,
     padding 150ms;
+}
+
+.track-list__track::before {
+  position: absolute;
+  inset: -1.5rem;
+  z-index: -2;
+  background-image: var(--track-artwork);
+  background-position: center;
+  background-size: cover;
+  content: "";
+  filter: blur(18px) saturate(1.15);
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 150ms;
+}
+
+.track-list__track::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgb(21 20 18 / 58%);
+  content: "";
+  opacity: 0;
+  transition: opacity 150ms;
 }
 
 .track-list__track + .track-list__track {
@@ -24,7 +52,11 @@
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   color: var(--color-paper);
-  background-color: var(--color-ink);
+}
+
+.track-list__track:hover::before,
+.track-list__track:hover::after {
+  opacity: 1;
 }
 
 .track-list__track:focus-visible {
@@ -41,7 +73,23 @@
   text-transform: uppercase;
 }
 
+.track-list__artwork-frame {
+  display: block;
+  width: 4rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--color-border-soft);
+}
+
+.track-list__artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .track-list__title {
+  min-width: 0;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 4vw, 3rem);
   line-height: 1;
@@ -51,6 +99,7 @@
 }
 
 .track-list__meta {
+  grid-column: 2 / 4;
   align-self: end;
   color: var(--color-graphite);
   font-size: 0.875rem;
@@ -60,6 +109,7 @@
 }
 
 .track-list__duration {
+  grid-column: 2 / 4;
   align-self: end;
   justify-self: start;
   font-size: 0.875rem;
@@ -76,15 +126,21 @@
 
 @media (min-width: 768px) {
   .track-list__track {
-    grid-template-columns: 3.75rem minmax(0, 1fr) max-content 6rem;
-    gap: 5rem;
+    grid-template-columns: 3.75rem 4.5rem minmax(0, 1fr) max-content 6rem;
+    gap: 2rem;
+  }
+
+  .track-list__artwork-frame {
+    width: 4.5rem;
   }
 
   .track-list__meta {
+    grid-column: auto;
     justify-self: end;
   }
 
   .track-list__duration {
+    grid-column: auto;
     justify-self: end;
   }
 }

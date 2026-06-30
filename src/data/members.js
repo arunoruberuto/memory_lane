@@ -104,7 +104,7 @@ export const members = [
     role: "Creative Direction",
     bio: "Aoiは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#d8d4ca",
+    accent: "#ebe6dc",
     statement:
       "卒業はひとつの境界として扱われる。未完の問いがまだ光を帯びる部屋として。",
     tags: ["direction", "installation", "editorial"],
@@ -137,7 +137,7 @@ export const members = [
     role: "Photography",
     bio: "Hanaは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#ece7de",
+    accent: "#d6d1c7",
     statement:
       "写真は証明よりも、空気がどのように感じられたかを思い出すためのものになりうる。",
     tags: ["photo", "portrait", "memory"],
@@ -160,6 +160,24 @@ export const members = [
       }
     ]
   },
+  // {
+  //   id: "pi3",
+  //   name1: "Tamazaki",
+  //   name2: "Miharu",
+  //   realname: "玉崎 美遥",
+  //   realnameLang: "ja",
+  //   role: "ライティング",
+  //   bio: "玉崎は、見る人自身が作品の中に入り込める余白を残しながら、簡潔な展示テキストや脚本を紡ぐ。",
+  //   image: `${base}images/placeholders/portrait.svg`,
+  //   accent: "#f5f1ea",
+  //   statement:
+  //     "よいキャプションは扉を開き、見る人が通り抜ける前にそっと身を引く。",
+  //   tags: ["copy", "script", "concept"],
+  //   works: [
+  //     { title: "キャプション習作", medium: "テキストシリーズ", year: "2026" },
+  //     { title: "ボイスメモ", medium: "脚本", year: "2025" }
+  //   ]
+  // },
   {
     id: "pw3",
     name1: "Ri",
@@ -169,7 +187,7 @@ export const members = [
     role: "Motion Design",
     bio: "Renは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#cfcac0",
+    accent: "#d8d4ca",
     statement:
       "動きはタイポグラフィに鼓動を与え、その鼓動が次にどこを見るべきかを鑑賞者に伝える。",
     tags: ["motion", "type", "identity"],
@@ -201,7 +219,7 @@ export const members = [
     role: "Music",
     bio: "Mioはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#e5e0d6",
+    accent: "#ece7de",
     statement:
       "音楽は展示の床であり、沈黙にも素材としての重みがある。",
     tags: ["music", "field recording", "composition"],
@@ -233,7 +251,7 @@ export const members = [
     role: "Web Engineering",
     bio: "Yutoはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#f1eee8",
+    accent: "#cfcac0",
     statement:
       "すべてのトランジションに存在する理由があるとき、インターフェースは手作りのように感じられる。",
     tags: ["frontend", "interaction", "systems"],
@@ -265,7 +283,7 @@ export const members = [
     role: "Graphic Design",
     bio: "Rikaは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
-    accent: "#ddd7cc",
+    accent: "#e5e0d6",
     statement:
       "余白は、作品をちょうどよい緊張感で支えているとき、空っぽではない。",
     tags: ["print", "layout", "visual identity"],

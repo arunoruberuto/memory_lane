@@ -3,6 +3,8 @@
   bottom: 0;
   left: 0;
   z-index: 50;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
   padding: 1rem;
   border-top: 1px solid var(--color-border-soft);
@@ -10,7 +12,28 @@
   backdrop-filter: blur(24px);
 }
 
+.music-player::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgb(247 244 238 / 70%);
+  content: "";
+}
+
+.music-player__artwork-bg {
+  position: absolute;
+  inset: -1.5rem;
+  z-index: -2;
+  background-position: center;
+  background-size: cover;
+  filter: blur(5px) saturate(1);
+  opacity: 0.7;
+  transform: scale(1.08);
+}
+
 .music-player__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   max-width: var(--layout-max);
   margin-right: auto;
@@ -38,6 +61,11 @@
   background-color: var(--color-ink);
 }
 
+.music-player__toggle--active {
+  color: var(--color-paper);
+  background-color: var(--color-ink);
+}
+
 .music-player__toggle:focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 4px;
@@ -46,6 +74,13 @@
 .music-player__details,
 .music-player__track-meta {
   min-width: 0;
+}
+
+.music-player__title-row {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  gap: 1rem;
 }
 
 .music-player__row {
@@ -62,19 +97,32 @@
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-bottom: 0.5em;
+}
+
+.music-player__title {
+  flex-shrink: 1;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.05em;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.music-player__title {
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.05em;
+.music-player__artist {
+  flex-shrink: 0;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1.625;
+  letter-spacing: 0.24em;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
@@ -110,15 +158,10 @@
   cursor: pointer;
 }
 
-.music-player__mood {
-  display: none;
-  max-width: 18rem;
-  color: var(--color-graphite);
-  font-size: 0.75rem;
-  line-height: 1.625;
-  letter-spacing: 0.24em;
-  text-align: right;
-  text-transform: uppercase;
+.music-player__skip-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -130,9 +173,5 @@
   .music-player__inner {
     grid-template-columns: auto 1fr auto;
     align-items: center;
-  }
-
-  .music-player__mood {
-    display: block;
   }
 }

@@ -26,13 +26,21 @@ export function TrackList() {
             key={track.id}
             className={styles["track-list__track"]}
             type="button"
+            style={{ "--track-artwork": `url(${track.artwork})` }}
             onClick={() => (isCurrent ? toggle() : selectTrack(track.id))}
-            whileHover={{ x: 8 }}
             whileTap={{ scale: 0.99 }}
-            aria-label={`${isCurrent && isPlaying ? "Pause" : "Play"} ${track.title}`}
+            aria-label={`${track.title}を${isCurrent && isPlaying ? "一時停止" : "再生"}`}
           >
             <span className={styles["track-list__index"]}>
               {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className={styles["track-list__artwork-frame"]}>
+              <img
+                className={styles["track-list__artwork"]}
+                src={track.artwork}
+                alt={`${track.title}のカバーアート`}
+                loading="lazy"
+              />
             </span>
             <span className={styles["track-list__title"]}>
               {track.title}

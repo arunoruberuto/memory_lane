@@ -16,6 +16,10 @@
     "YuGothic", "Noto Sans JP", Arial, sans-serif;
   --font-display: "LINE Seed JP", "Helvetica Neue", "Hiragino Kaku Gothic ProN",
     "Yu Gothic", sans-serif;
+  --font-realname-en: "Helvetica Neue", Arial, sans-serif;
+  --font-realname-ko: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  --font-realname-ja: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-realname-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   --layout-max: 1500px;

@@ -265,6 +265,10 @@
   text-transform: uppercase;
 }
 
+.member-profile__member-name span {
+  display: block;
+}
+
 .member-profile__member-role {
   margin-top: 0.5rem;
   color: var(--color-graphite);
@@ -301,7 +305,7 @@
   }
 
   .member-profile__related-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
 
