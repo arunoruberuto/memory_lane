@@ -7,10 +7,6 @@ import { easeOutExpo, revealContainer, revealItem } from "@/components/common/mo
 import { useEffect, useState } from "react";
 import styles from "./MemberProfile.module.css";
 
-function getMemberName(member) {
-  return `${member.name1} ${member.name2}`;
-}
-
 export function MemberProfile({ member, otherMembers }) {
   const shouldReduceMotion = useReducedMotion();
   const memberName = `${member.name1} ${member.name2}`;

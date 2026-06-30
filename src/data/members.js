@@ -6,6 +6,7 @@ export const members = [
     name1: "Alfonsus",
     name2: "Norbert",
     realname: "Alfonsus Ferdinand Norbert",
+    realnameLang: "en",
     role: "Film Editing",
     bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
     image: `${base}images/placeholders/portrait.svg`,
@@ -38,6 +39,7 @@ export const members = [
     name1: "Kim",
     name2: "Byoungsoo",
     realname: "김 병수",
+    realnameLang: "ko",
     role: "Art Direction",
     bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
@@ -64,37 +66,38 @@ export const members = [
       }
     ]
   },
-  {
-    id: "pi3",
-    name1: "Tamazaki",
-    name2: "Miharu",
-    realname: "玉崎 美遥",
-    role: "Writing",
-    bio: "Kaiは、鑑賞者が自分自身を作品に重ねられる余白を残しながら、簡潔な展示テキストや脚本を書く。",
-    image: `${base}images/placeholders/portrait.svg`,
-    accent: "#f5f1ea",
-    statement:
-      "よいキャプションは扉を開き、鑑賞者がそこを通る前にそっと身を引く。",
-    tags: ["copy", "script", "concept"],
-    works: [
-      {
-        id: "caption-studies",
-        title: "Caption Studies",
-        medium: "Text Series",
-        year: "2026",
-        description:
-          "A set of short texts exploring how captions can guide attention while still leaving room for the viewer to enter."
-      },
-      {
-        id: "voice-memo",
-        title: "Voice Memo",
-        medium: "Script",
-        year: "2025",
-        description:
-          "A script shaped like a private recording, moving between rehearsal, confession, and unfinished notes for a future scene."
-      }
-    ]
-  },
+  // {
+  //   id: "pi3",
+  //   name1: "Tamazaki",
+  //   name2: "Miharu",
+  //   realname: "玉崎 美遥",
+  //   realnameLang: "ja",
+  //   role: "Writing",
+  //   bio: "Kaiは、鑑賞者が自分自身を作品に重ねられる余白を残しながら、簡潔な展示テキストや脚本を書く。",
+  //   image: `${base}images/placeholders/portrait.svg`,
+  //   accent: "#f5f1ea",
+  //   statement:
+  //     "よいキャプションは扉を開き、鑑賞者がそこを通る前にそっと身を引く。",
+  //   tags: ["copy", "script", "concept"],
+  //   works: [
+  //     {
+  //       id: "caption-studies",
+  //       title: "Caption Studies",
+  //       medium: "Text Series",
+  //       year: "2026",
+  //       description:
+  //         "A set of short texts exploring how captions can guide attention while still leaving room for the viewer to enter."
+  //     },
+  //     {
+  //       id: "voice-memo",
+  //       title: "Voice Memo",
+  //       medium: "Script",
+  //       year: "2025",
+  //       description:
+  //         "A script shaped like a private recording, moving between rehearsal, confession, and unfinished notes for a future scene."
+  //     }
+  //   ]
+  // },
   {
     id: "pw1",
     name1: "Kaku",
@@ -160,24 +163,6 @@ export const members = [
       }
     ]
   },
-  // {
-  //   id: "pi3",
-  //   name1: "Tamazaki",
-  //   name2: "Miharu",
-  //   realname: "玉崎 美遥",
-  //   realnameLang: "ja",
-  //   role: "ライティング",
-  //   bio: "玉崎は、見る人自身が作品の中に入り込める余白を残しながら、簡潔な展示テキストや脚本を紡ぐ。",
-  //   image: `${base}images/placeholders/portrait.svg`,
-  //   accent: "#f5f1ea",
-  //   statement:
-  //     "よいキャプションは扉を開き、見る人が通り抜ける前にそっと身を引く。",
-  //   tags: ["copy", "script", "concept"],
-  //   works: [
-  //     { title: "キャプション習作", medium: "テキストシリーズ", year: "2026" },
-  //     { title: "ボイスメモ", medium: "脚本", year: "2025" }
-  //   ]
-  // },
   {
     id: "pw3",
     name1: "Ri",

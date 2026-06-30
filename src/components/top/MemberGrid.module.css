@@ -115,11 +115,6 @@
   display: block;
 }
 
-.member-grid__name1,
-.member-grid__name2 {
-  display: block;
-}
-
 .member-grid__name span {
   display: block;
 }
@@ -135,18 +130,22 @@
   mix-blend-mode: difference;
 }
 
+.member-grid__realname--en,
 .member-grid__realname:lang(en) {
   font-family: var(--font-realname-en);
 }
 
+.member-grid__realname--ko,
 .member-grid__realname:lang(ko) {
   font-family: var(--font-realname-ko);
 }
 
+.member-grid__realname--ja,
 .member-grid__realname:lang(ja) {
   font-family: var(--font-realname-ja);
 }
 
+.member-grid__realname--zh,
 .member-grid__realname:lang(zh) {
   font-family: var(--font-realname-zh);
 }
