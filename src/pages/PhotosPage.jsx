@@ -54,10 +54,15 @@ export function PhotosPage() {
       <section className={styles["photos-page__hero-section"]}>
         <div className={styles["photos-page__hero-grid"]}>
           <div>
-            <SectionLabel eyebrow="Photos / Gallery" title="Collected Light" />
-            <div className={styles["photos-page__copy"]}>
-              <p>
-                A photography archive using the images stored in public/images.
+            <SectionLabel eyebrow="写真/ 卒業アルバム" title="アルバム" />
+            <div className={styles["photos-page__copy-grid"]}>
+              <p className={styles["photos-page__copy-label"]}>
+                コンセプト
+              </p>
+              <p className={styles["photos-page__copy"]}>
+                写真を通して、<br />
+                卒業に向けたそれぞれの想いを<br />
+                記憶の奥まで残します。
               </p>
             </div>
           </div>
@@ -75,10 +80,10 @@ export function PhotosPage() {
         <div className={styles["photos-page__gallery-inner"]}>
           <div className={styles["photos-page__gallery-header"]}>
             <h2 className={styles["photos-page__gallery-title"]}>
-              All Photos
+              すべての写真
             </h2>
             <p className={styles["photos-page__gallery-note"]}>
-              Images loaded from public/images/photos.
+              public/images/photos から画像が読み込まれました。
             </p>
           </div>
 
