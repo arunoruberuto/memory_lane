@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MediaFrame } from "@/components/common/MediaFrame";
 import { SectionLabel } from "@/components/common/SectionLabel";
 import { photos } from "@/data/photos";
@@ -7,7 +7,19 @@ import styles from "./PhotosPage.module.css";
 const base = import.meta.env.BASE_URL;
 const galleryAspects = ["landscape", "portrait", "square", "wide", "landscape", "portrait"];
 
+function shufflePhotos(photoList) {
+  const shuffled = [...photoList];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+
+  return shuffled;
+}
+
 export function PhotosPage() {
+  const shuffledPhotos = useMemo(() => shufflePhotos(photos), []);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   useEffect(() => {
@@ -71,7 +83,7 @@ export function PhotosPage() {
           </div>
 
           <div className={styles["photos-page__gallery-grid"]}>
-            {photos.map((photo, index) => (
+            {shuffledPhotos.map((photo, index) => (
               <article
                 key={photo.id}
                 role="button"
