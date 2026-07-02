@@ -2,45 +2,94 @@ const base = import.meta.env.BASE_URL;
 
 export const photos = [
   {
-    id: "studio-light",
-    title: "Studio Light",
-    caption: "卒業制作展に向けて準備された、静かな展示風景。",
-    image: `${base}images/placeholders/landscape.svg`,
+    id: "photo-001",
+    title: "Photo 001",
+    caption: "Image from public/images/photos/001.jpg.",
+    image: `${base}images/photos/001.jpg`,
     orientation: "landscape"
   },
   {
-    id: "nine-portraits",
-    title: "Nine Portraits",
-    caption: "メンバー写真や制作過程の記録を掲載するためのスペース。",
-    image: `${base}images/placeholders/wide.svg`,
+    id: "photo-002",
+    title: "Photo 002",
+    caption: "Image from public/images/photos/002.jpeg.",
+    image: `${base}images/photos/002.jpeg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-003",
+    title: "Photo 003",
+    caption: "Image from public/images/photos/003.jpeg.",
+    image: `${base}images/photos/003.jpeg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-004",
+    title: "放課後の海",
+    caption: "ある日の放課後皆一緒に海に行きました！",
+    image: `${base}images/photos/004.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-005",
+    title: "Photo 005",
+    caption: "Image from public/images/photos/005.jpg.",
+    image: `${base}images/photos/005.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-006",
+    title: "Photo 006",
+    caption: "Image from public/images/photos/006.jpg.",
+    image: `${base}images/photos/006.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-007",
+    title: "Photo 007",
+    caption: "Image from public/images/photos/007.jpg.",
+    image: `${base}images/photos/007.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-008",
+    title: "Photo 008",
+    caption: "Image from public/images/photos/008.jpg.",
+    image: `${base}images/photos/008.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-009",
+    title: "Photo 009",
+    caption: "Image from public/images/photos/009.jpg.",
+    image: `${base}images/photos/009.jpg`,
+    orientation: "landscape"
+  },
+  {
+    id: "photo-010",
+    title: "Photo 010",
+    caption: "Image from public/images/photos/010.jpeg.",
+    image: `${base}images/photos/010.jpeg`,
     orientation: "wide"
   },
   {
-    id: "table-study",
-    title: "Table Study",
-    caption: "展示アーカイブの一部として配置されたオブジェ、スケッチ、メモ。",
-    image: `${base}images/placeholders/landscape.svg`,
+    id: "photo-011",
+    title: "Photo 011",
+    caption: "Image from public/images/photos/011.jpeg.",
+    image: `${base}images/photos/011.jpeg`,
     orientation: "landscape"
   },
   {
-    id: "hallway-after",
-    title: "Hallway After",
-    caption: "キャンパス写真の雰囲気を伝えるための仮イメージ。",
-    image: `${base}images/placeholders/portrait.svg`,
+    id: "photo-012",
+    title: "Photo 012",
+    caption: "Image from public/images/photos/012.jpg.",
+    image: `${base}images/photos/012.jpg`,
     orientation: "portrait"
   },
   {
-    id: "paper-wall",
-    title: "Paper Wall",
-    caption: "レイアウトを調整せずに、大判印刷物の画像へ差し替えられます。",
-    image: `${base}images/placeholders/landscape.svg`,
+    id: "photo-013",
+    title: "Photo 013",
+    caption: "Image from public/images/photos/013.JPG.",
+    image: `${base}images/photos/013.JPG`,
     orientation: "landscape"
-  },
-  {
-    id: "closing-room",
-    title: "Closing Room",
-    caption: "展示の流れを締めくくる最後の写真。",
-    image: `${base}images/placeholders/wide.svg`,
-    orientation: "wide"
   }
 ];

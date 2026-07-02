@@ -11,6 +11,18 @@ export const members = [
     bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#ebe6dc",
+    profile: {
+      studentId: "student-1",
+      template: "candy",
+      windowStyle: {
+        "--profile-window-title": "#d92f74",
+        "--profile-window-answer": "#d92f74"
+      },
+      astro: "おひつじ座",
+      birthday: "4月1日",
+      q1: "小さな編集室を借りて、一日中好きな映画と音楽だけをつなぎ直してみたい。",
+      q2: "一緒に過ごした時間のテンポを、これからも忘れずに持っていきたいです。"
+    },
     statement:
       "編集とは、映像が自らのテンポを明かすまで耳を澄ませること。",
     tags: ["editing", "rhythm", "cinema"],
@@ -44,6 +56,17 @@ export const members = [
     bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#d6d1c7",
+    profile: {
+      studentId: "student-2",
+      template: "mint",
+      windowStyle: {
+        "--profile-window-card-border": "#4bc5ad"
+      },
+      astro: "うお座",
+      birthday: "5月15日",
+      q1: "素材屋さんと古道具屋さんをまわって、見たことのない部屋を一つ作りたい。",
+      q2: "何気ない毎日を作品に変えてくれたみんなに感謝しています。"
+    },
     statement:
       "優れた小道具は、観客がほとんど思い出しかけている夢の証拠のように振る舞う。",
     tags: ["objects", "set design", "worldbuilding"],
@@ -66,38 +89,6 @@ export const members = [
       }
     ]
   },
-  // {
-  //   id: "pi3",
-  //   name1: "Tamazaki",
-  //   name2: "Miharu",
-  //   realname: "玉崎 美遥",
-  //   realnameLang: "ja",
-  //   role: "Writing",
-  //   bio: "Kaiは、鑑賞者が自分自身を作品に重ねられる余白を残しながら、簡潔な展示テキストや脚本を書く。",
-  //   image: `${base}images/placeholders/portrait.svg`,
-  //   accent: "#f5f1ea",
-  //   statement:
-  //     "よいキャプションは扉を開き、鑑賞者がそこを通る前にそっと身を引く。",
-  //   tags: ["copy", "script", "concept"],
-  //   works: [
-  //     {
-  //       id: "caption-studies",
-  //       title: "Caption Studies",
-  //       medium: "Text Series",
-  //       year: "2026",
-  //       description:
-  //         "A set of short texts exploring how captions can guide attention while still leaving room for the viewer to enter."
-  //     },
-  //     {
-  //       id: "voice-memo",
-  //       title: "Voice Memo",
-  //       medium: "Script",
-  //       year: "2025",
-  //       description:
-  //         "A script shaped like a private recording, moving between rehearsal, confession, and unfinished notes for a future scene."
-  //     }
-  //   ]
-  // },
   {
     id: "pw1",
     name1: "Kaku",
@@ -108,6 +99,17 @@ export const members = [
     bio: "Aoiは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#ebe6dc",
+    profile: {
+      studentId: "student-3",
+      template: "soda",
+      windowStyle: {
+        "--profile-window-line": "#ffd1e4"
+      },
+      astro: "てんびん座",
+      birthday: "10月8日",
+      q1: "みんなを集めて、展示みたいな一泊旅行を企画したい。",
+      q2: "この場所で出会った視点が、これからの制作の土台になります。"
+    },
     statement:
       "卒業はひとつの境界として扱われる。未完の問いがまだ光を帯びる部屋として。",
     tags: ["direction", "installation", "editorial"],
@@ -141,6 +143,17 @@ export const members = [
     bio: "Hanaは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#d6d1c7",
+    profile: {
+      studentId: "student-4",
+      template: "candy",
+      windowStyle: {
+        "--profile-window-header": "linear-gradient(90deg, #ff8fab, #ffc2d1)"
+      },
+      astro: "かに座",
+      birthday: "7月22日",
+      q1: "大きなフィルムカメラを買って、知らない街の朝を撮りに行きたい。",
+      q2: "写真に写らない会話や空気まで、ずっと大切に覚えています。"
+    },
     statement:
       "写真は証明よりも、空気がどのように感じられたかを思い出すためのものになりうる。",
     tags: ["photo", "portrait", "memory"],
@@ -173,6 +186,17 @@ export const members = [
     bio: "Renは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#d8d4ca",
+    profile: {
+      studentId: "student-5",
+      template: "mint",
+      windowStyle: {
+        "--profile-window-title": "#0f8c7a"
+      },
+      astro: "ふたご座",
+      birthday: "6月3日",
+      q1: "新しいPCとモニターをそろえて、動く文字の実験を何本も作りたい。",
+      q2: "一人では出せなかった速さと発想を、みんなからもらいました。"
+    },
     statement:
       "動きはタイポグラフィに鼓動を与え、その鼓動が次にどこを見るべきかを鑑賞者に伝える。",
     tags: ["motion", "type", "identity"],
@@ -205,6 +229,17 @@ export const members = [
     bio: "Mioはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#ece7de",
+    profile: {
+      studentId: "student-6",
+      template: "soda",
+      windowStyle: {
+        "--profile-window-border": "#4262d9"
+      },
+      astro: "みずがめ座",
+      birthday: "2月10日",
+      q1: "録音機材を持って旅に出て、知らない場所の音だけで曲を作りたい。",
+      q2: "みんなの声や足音も、この展示の大事な音として残っています。"
+    },
     statement:
       "音楽は展示の床であり、沈黙にも素材としての重みがある。",
     tags: ["music", "field recording", "composition"],
@@ -237,6 +272,17 @@ export const members = [
     bio: "Yutoはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#cfcac0",
+    profile: {
+      studentId: "student-7",
+      template: "candy",
+      windowStyle: {
+        "--profile-window-card-bg": "#fffdfd"
+      },
+      astro: "おとめ座",
+      birthday: "9月12日",
+      q1: "ずっと触っていたくなるようなWeb作品を、時間を気にせず作り込みたい。",
+      q2: "同じ画面をのぞき込みながら考えた時間が、いちばんの宝物です。"
+    },
     statement:
       "すべてのトランジションに存在する理由があるとき、インターフェースは手作りのように感じられる。",
     tags: ["frontend", "interaction", "systems"],
@@ -269,6 +315,17 @@ export const members = [
     bio: "Rikaは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
     image: `${base}images/placeholders/portrait.svg`,
     accent: "#e5e0d6",
+    profile: {
+      studentId: "student-8",
+      template: "mint",
+      windowStyle: {
+        "--profile-window-qa-bg": "#f5fffc"
+      },
+      astro: "やぎ座",
+      birthday: "1月6日",
+      q1: "紙、インク、製本にぜんぶ使って、手で触れる作品集を作りたい。",
+      q2: "余白の取り方まで一緒に悩める仲間に出会えてよかったです。"
+    },
     statement:
       "余白は、作品をちょうどよい緊張感で支えているとき、空っぽではない。",
     tags: ["print", "layout", "visual identity"],

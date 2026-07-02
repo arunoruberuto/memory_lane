@@ -1,9 +1,10 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { AppImage as Image } from "@/components/common/AppImage";
 import { members } from "@/data/members";
 import { SectionLabel } from "@/components/common/SectionLabel";
 import { easeOutExpo } from "@/components/common/motionPresets";
+import { MemberProfileWindow } from "./MemberProfileWindow";
 import styles from "./MemberGrid.module.css";
 
 function getRealnameClassName(member) {
@@ -42,6 +43,38 @@ const memberVariants = {
 
 export function MemberGrid() {
   const shouldReduceMotion = useReducedMotion();
+  const [selectedMember, setSelectedMember] = useState(null);
+
+  function openMemberWindow(member) {
+    setSelectedMember(member);
+  }
+
+  function handleCardKeyDown(event, member) {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    openMemberWindow(member);
+  }
+
+  useEffect(() => {
+    if (!selectedMember) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedMember(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedMember]);
 
   return (
     <section className={styles["member-grid"]} id="members">
@@ -61,54 +94,61 @@ export function MemberGrid() {
           viewport={{ once: true, margin: "-10% 0px" }}
         >
           {members.map((member, index) => (
-            <motion.article key={member.id} variants={memberVariants}>
-              <Link
-                to={`/members/${member.id}`}
-                className={styles["member-grid__link"]}
-                aria-label={`View ${member.name1} ${member.name2},${member.realname},${member.role}`}
-              >
-                <div className={styles["member-grid__card"]}>
-                  <div className={styles["member-grid__meta"]}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <span>{member.role}</span>
-                  </div>
-                  <div
-                    className={styles["member-grid__image-frame"]}
-                    style={{ transform: "translateZ(0)" }}
-                  >
-                    <Image
-                      src={member.image}
-                      alt={`${member.name1} ${member.name2} portrait placeholder`}
-                      fill
-                      sizes="(min-width: 768px) 31vw, 100vw"
-                      className={styles["member-grid__image"]}
-                    />
-                    <div
-                      className={styles["member-grid__tint"]}
-                      style={{ backgroundColor: member.accent }}
-                    />
-                    <div className={styles["member-grid__name-panel"]}>
-                      <h3 className={styles["member-grid__name"]}>
-                        <span className={styles["member-grid__name1"]}>{member.name1}</span>
-                        <span className={styles["member-grid__name2"]}>{member.name2}</span>
-                      </h3>
-                      <p
-                        className={getRealnameClassName(member)}
-                        lang={member.realnameLang}
-                      >
-                        {member.realname}
-                      </p>
-                    </div>
-                  </div>
-                  <p className={styles["member-grid__bio"]}>
-                    {member.bio}
-                  </p>
+            <motion.article
+              key={member.id}
+              variants={memberVariants}
+              className={styles["member-grid__trigger"]}
+              role="button"
+              tabIndex={0}
+              onClick={() => openMemberWindow(member)}
+              onKeyDown={(event) => handleCardKeyDown(event, member)}
+              aria-label={`Open ${member.name1} ${member.name2}, ${member.realname}, ${member.role} profile window`}
+            >
+              <div className={styles["member-grid__card"]}>
+                <div className={styles["member-grid__meta"]}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{member.role}</span>
                 </div>
-              </Link>
+                <div
+                  className={styles["member-grid__image-frame"]}
+                  style={{ transform: "translateZ(0)" }}
+                >
+                  <Image
+                    src={member.image}
+                    alt={`${member.name1} ${member.name2} portrait placeholder`}
+                    fill
+                    sizes="(min-width: 768px) 31vw, 100vw"
+                    className={styles["member-grid__image"]}
+                  />
+                  <div
+                    className={styles["member-grid__tint"]}
+                    style={{ backgroundColor: member.accent }}
+                  />
+                  <div className={styles["member-grid__name-panel"]}>
+                    <h3 className={styles["member-grid__name"]}>
+                      <span className={styles["member-grid__name1"]}>{member.name1}</span>
+                      <span className={styles["member-grid__name2"]}>{member.name2}</span>
+                    </h3>
+                    <p
+                      className={getRealnameClassName(member)}
+                      lang={member.realnameLang}
+                    >
+                      {member.realname}
+                    </p>
+                  </div>
+                </div>
+                <p className={styles["member-grid__bio"]}>
+                  {member.bio}
+                </p>
+              </div>
             </motion.article>
           ))}
         </motion.div>
       </div>
+      <MemberProfileWindow
+        member={selectedMember}
+        onClose={() => setSelectedMember(null)}
+      />
     </section>
   );
 }
