@@ -4,8 +4,9 @@ import styles from "./Header.module.css";
 
 const navItems = [
   { href: "/", label: "Top" },
+  { href: "/profiles", label: "Profiles" },
   { href: "/photos", label: "Photos" },
-  { href: "/music", label: "Music" }
+  { href: "/music", label: "Music" },
 ];
 
 export function Header() {
