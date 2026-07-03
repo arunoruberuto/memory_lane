@@ -10,28 +10,22 @@ const thsTrackNames = {
   ths4: "Shoko S."
 };
 
+// 再生時間をプレイヤー表示用の「分:秒」に整えます。
 function formatTime(seconds) {
-  if (!Number.isFinite(seconds) || seconds <= 0) {
-    return "--:--";
-  }
-
-  const safeSeconds = Math.max(0, Math.floor(seconds));
-  const minutes = Math.floor(safeSeconds / 60);
-  const remainingSeconds = safeSeconds % 60;
+  const totalSeconds = Math.floor(seconds);
+  const minutes = Math.floor(totalSeconds / 60);
+  const remainingSeconds = totalSeconds % 60;
 
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
 
+// 曲IDから末尾の「m」を外し、メンバーIDまたはTHS表示名を読み取ります。
 function getMemberLabel(trackId) {
   const trackMemberId = trackId.replace(/m$/, "");
   const member = members.find(({ id }) => id === trackMemberId);
 
   if (thsTrackNames[trackMemberId]) {
     return `THS - ${thsTrackNames[trackMemberId]}`;
-  }
-
-  if (!member) {
-    return trackMemberId.toUpperCase();
   }
 
   return `${member.id}`;
@@ -50,7 +44,6 @@ export function PersistentMusicPlayer() {
     playPrevious,
     playNext
   } = useAudioPlayer();
-  const hasDuration = currentTrackDuration > 0;
   const memberLabel = getMemberLabel(currentTrack.id);
 
   return (
@@ -61,6 +54,7 @@ export function PersistentMusicPlayer() {
       transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
       aria-label="固定ミュージックプレイヤー"
     >
+      {/* 再生中の曲のアートワークを背景として表示します。 */}
       {isPlaying && (
         <div
           className={styles["music-player__artwork-bg"]}
@@ -69,6 +63,7 @@ export function PersistentMusicPlayer() {
         />
       )}
       <div className={styles["music-player__inner"]}>
+        {/* 再生と一時停止を切り替えるボタンです。 */}
         <button
           className={styles["music-player__toggle"]}
           type="button"
@@ -80,6 +75,7 @@ export function PersistentMusicPlayer() {
 
         <div className={styles["music-player__details"]}>
           <div className={styles["music-player__row"]}>
+            {/* 曲IDから読んだラベルと、曲名・アーティスト名を表示します。 */}
             <div className={styles["music-player__track-meta"]}>
               <p className={styles["music-player__label"]}>
                 {memberLabel}
@@ -93,11 +89,13 @@ export function PersistentMusicPlayer() {
                 </p>
               </div>
             </div>
+            {/* 現在位置と曲全体の長さを表示します。 */}
             <p className={styles["music-player__time"]}>
               {formatTime(progress)} / {formatTime(currentTrackDuration)}
             </p>
           </div>
 
+          {/* タイムラインを操作して、再生位置を移動します。 */}
           <label className={styles["music-player__sr-only"]} htmlFor="global-player-progress">
             タイムライン
           </label>
@@ -106,14 +104,14 @@ export function PersistentMusicPlayer() {
             className={styles["music-player__progress"]}
             type="range"
             min={0}
-            max={hasDuration ? currentTrackDuration : 1}
+            max={currentTrackDuration}
             step={0.25}
             value={progress}
-            disabled={!hasDuration}
             onChange={(event) => seek(Number(event.currentTarget.value))}
           />
         </div>
 
+        {/* ループ、前の曲、次の曲を操作するボタン群です。 */}
         <div className={styles["music-player__skip-controls"]}>
           <button
             className={[
