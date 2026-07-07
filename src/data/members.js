@@ -1,4 +1,5 @@
 const base = import.meta.env.BASE_URL;
+const memberResumeImage = (id) => `${base}images/resume/${id}.jpg`;
 
 export const members = [
   {
@@ -9,7 +10,7 @@ export const members = [
     realnameLang: "en",
     role: "Film Editing",
     bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pi1"),
     accent: "#ebe6dc",
     profile: {
       studentId: "student-1",
@@ -54,7 +55,7 @@ export const members = [
     realnameLang: "ko",
     role: "Art Direction",
     bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pi2"),
     accent: "#d6d1c7",
     profile: {
       studentId: "student-2",
@@ -97,7 +98,7 @@ export const members = [
     realnameLang: "zh",
     role: "Creative Direction",
     bio: "Aoiは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw1"),
     accent: "#ebe6dc",
     profile: {
       studentId: "student-3",
@@ -141,7 +142,7 @@ export const members = [
     realnameLang: "zh",
     role: "Photography",
     bio: "Hanaは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw2"),
     accent: "#d6d1c7",
     profile: {
       studentId: "student-4",
@@ -184,7 +185,7 @@ export const members = [
     realnameLang: "zh",
     role: "Motion Design",
     bio: "Renは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw3"),
     accent: "#d8d4ca",
     profile: {
       studentId: "student-5",
@@ -227,7 +228,7 @@ export const members = [
     realnameLang: "zh",
     role: "Music",
     bio: "Mioはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw4"),
     accent: "#ece7de",
     profile: {
       studentId: "student-6",
@@ -270,7 +271,7 @@ export const members = [
     realnameLang: "zh",
     role: "Web Engineering",
     bio: "Yutoはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw5"),
     accent: "#cfcac0",
     profile: {
       studentId: "student-7",
@@ -313,7 +314,7 @@ export const members = [
     realnameLang: "zh",
     role: "Graphic Design",
     bio: "Rikaは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
-    image: `${base}images/placeholders/portrait.svg`,
+    image: memberResumeImage("pw6"),
     accent: "#e5e0d6",
     profile: {
       studentId: "student-8",

@@ -7,6 +7,7 @@ import { MusicPage } from "@/pages/MusicPage";
 import { HomePage } from "@/pages/HomePage";
 import { MemberPage } from "@/pages/MemberPage";
 import { PhotosPage } from "@/pages/PhotosPage";
+import { ProfilesPage } from "@/pages/ProfilesPage";
 import styles from "./App.module.css";
 import { ScrollToTop } from "@/components/common/ScrollToTop";
 
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/photos" element={<PhotosPage />} />
           <Route path="/music" element={<MusicPage />} />
+          <Route path="/profiles" element={<ProfilesPage />} />
           <Route path="/members/:id" element={<MemberPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
