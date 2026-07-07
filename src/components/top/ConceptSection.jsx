@@ -28,7 +28,16 @@ export function ConceptSection() {
           viewport={{ once: true, margin: "-12% 0px" }}
           transition={{ duration: 0.9, ease: easeOutExpo }}
         >
-          <SectionLabel eyebrow="Concept / 画像とテキスト" title="A Last Room Before The Next." />
+          <SectionLabel
+            eyebrow="Concept / 画像とテキスト"
+            title={
+              <>
+                卒業前の
+                <br />
+                ラストページ
+              </>
+            }
+          />
           <div className={styles["concept-section__copy-grid"]}>
             <p className={styles["concept-section__copy-label"]}>Curatorial Note</p>
             <div className={styles["concept-section__copy"]}>

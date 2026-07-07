@@ -30,7 +30,7 @@ export function Hero() {
         <Marquee text="PIPW SATO GRADUATION EXBITION" />
       </motion.div>
 
-      <motion.div className={styles["hero__poster-layer"]} style={{ y: posterY }}>
+      {/* <motion.div className={styles["hero__poster-layer"]} style={{ y: posterY }}>
         {members.slice(0, 5).map((member, index) => (
           <motion.div
             key={member.id}
@@ -43,7 +43,7 @@ export function Hero() {
             <div className={styles["hero__poster-tint"]} style={{ backgroundColor: member.accent, opacity: 0.52 }} />
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         className={styles["hero__content"]}

@@ -81,7 +81,7 @@ export function MemberGrid() {
                   >
                     <Image
                       src={member.image}
-                      alt={`${member.name1} ${member.name2} portrait placeholder`}
+                      alt={`${member.name1} ${member.name2} portrait`}
                       fill
                       sizes="(min-width: 768px) 31vw, 100vw"
                       className={styles["member-grid__image"]}

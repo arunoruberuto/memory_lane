@@ -78,7 +78,7 @@ export function MemberProfile({ member, otherMembers }) {
           <motion.div variants={revealItem} className={styles["member-profile__profile-image-column"]}>
             <MediaFrame
               src={member.image}
-              alt={`${memberName} profile image placeholder`}
+              alt={`${memberName} profile image`}
               aspect="portrait"
               caption="人物紹介メインビジュアル"
               className={styles["member-profile__profile-image"]}
