@@ -100,7 +100,7 @@ export function ProfilesPage() {
           className={styles["profiles-page__window"]}
           style={{ left: `${position.left}px`, top: `${position.top}px` }}
           data-template={selectedMember.profile?.template}
-          data-profile-id={selectedMember.profile?.studentId}
+          data-profile-id={selectedMember.id}
           aria-labelledby="profile-window-title"
         >
           <div

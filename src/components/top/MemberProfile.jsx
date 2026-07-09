@@ -57,7 +57,7 @@ export function MemberProfile({ member, otherMembers }) {
             className={styles["member-profile__hero-copy"]}
           >
             <p className={styles["member-profile__eyebrow"]}>
-              Member Profile
+              メンバープロフィール
             </p>
             <h1 className={`${styles["member-profile__hero-title"]} ${compactNameClass}`}>
               <span className={styles["member-profile__hero-title-word"]}>{member.name1}</span>
@@ -96,7 +96,7 @@ export function MemberProfile({ member, otherMembers }) {
             transition={{ duration: 0.82, ease: easeOutExpo }}
           >
             <p className={styles["member-profile__eyebrow"]}>
-              Text Area / Statement
+              テキストエリア / ステートメント
             </p>
             <p className={styles["member-profile__statement"]}>
               {member.statement}
@@ -111,7 +111,7 @@ export function MemberProfile({ member, otherMembers }) {
             transition={{ duration: 0.82, ease: easeOutExpo, delay: 0.08 }}
           >
             <p className={styles["member-profile__eyebrow"]}>
-              個人エリア / Works
+              個人エリア / 作品
             </p>
             <ul className={styles["member-profile__works-list"]}>
               {member.works.map((work) => (
@@ -161,7 +161,7 @@ export function MemberProfile({ member, otherMembers }) {
           <div className={styles["member-profile__related-header"]}>
             <div>
               <p className={styles["member-profile__related-eyebrow"]}>
-                Other Members
+                他のメンバー
               </p>
               <h2 className={styles["member-profile__related-title"]}>
                 Next Wall
@@ -220,7 +220,7 @@ export function MemberProfile({ member, otherMembers }) {
           >
             <div className={styles["member-profile__modal-header"]}>
               <p className={styles["member-profile__modal-eyebrow"]}>
-                Work Detail
+                作品詳細
               </p>
               <button
                 type="button"

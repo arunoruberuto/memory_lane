@@ -8,12 +8,11 @@ export const members = [
     name2: "Norbert",
     realname: "Alfonsus Ferdinand Norbert",
     realnameLang: "en",
-    role: "Film Editing",
-    bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
+    role: "リーダー",
+    bio: "アルフォンスは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
     image: memberResumeImage("pi1"),
     accent: "#ebe6dc",
     profile: {
-      studentId: "student-1",
       template: "candy",
       windowStyle: {
         "--profile-window-title": "#d92f74",
@@ -31,19 +30,19 @@ export const members = [
       { 
         id: "wfprofile",
         title: "A Younger Me", 
-        medium: "Profile Record", 
+        medium: "プロフィール記録",
         year: "2024",
         description:
-          "A compact personal web piece built from childhood images, memory fragments, and the strange distance between an earlier self and the present.",
+          "幼少期の写真と記憶の断片、そして過去の自分と現在との不思議な距離感から構成した、コンパクトな個人Web作品。",
         url: `${base}projects/pi1/wfprofile/index.html`
       },
       { 
         id: "cut-marks",
         title: "Cut Marks", 
-        medium: "Video Essay", 
+        medium: "映像エッセイ",
         year: "2025",
         description:
-          "A study of rhythm, interruption, and invisible edits that asks how much meaning can live inside a single cut."
+          "リズム、中断、目に見えない編集を探り、ひとつのカットにどれほどの意味を宿せるのかを問いかける作品。"
       }
     ]
   },
@@ -53,12 +52,11 @@ export const members = [
     name2: "Byoungsoo",
     realname: "김 병수",
     realnameLang: "ko",
-    role: "Art Direction",
+    role: "アートディレクション",
     bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
     image: memberResumeImage("pi2"),
     accent: "#d6d1c7",
     profile: {
-      studentId: "student-2",
       template: "mint",
       windowStyle: {
         "--profile-window-card-border": "#4bc5ad"
@@ -75,18 +73,18 @@ export const members = [
       {
         id: "table-for-nine",
         title: "Table for Nine",
-        medium: "Set Piece",
+        medium: "セット作品",
         year: "2026",
         description:
-          "A staged table environment where props, empty seats, and small gestures suggest a gathering that has just moved out of frame."
+          "小道具や空席、ささやかな気配によって、集いの場がたった今フレームの外へ移ったかのように感じさせるテーブル空間。"
       },
       {
         id: "borrowed-room",
         title: "Borrowed Room",
-        medium: "Photo Direction",
+        medium: "フォトディレクション",
         year: "2025",
         description:
-          "A quiet photo sequence that treats an ordinary room as a temporary theater for memory, color, and borrowed intimacy."
+          "ありふれた部屋を、記憶と色彩、借りものの親密さが宿る一時的な劇場として捉えた静かな写真作品。"
       }
     ]
   },
@@ -96,12 +94,11 @@ export const members = [
     name2: "Shibun",
     realname: "郭 紫雯",
     realnameLang: "zh",
-    role: "Creative Direction",
+    role: "クリエイティブディレクション",
     bio: "Aoiは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
     image: memberResumeImage("pw1"),
     accent: "#ebe6dc",
     profile: {
-      studentId: "student-3",
       template: "soda",
       windowStyle: {
         "--profile-window-line": "#ffd1e4"
@@ -118,18 +115,18 @@ export const members = [
       {
         id: "room-tone",
         title: "Room Tone",
-        medium: "Short Film",
+        medium: "短編映画",
         year: "2026",
         description:
-          "A short film that follows campus light, pauses, and residual sound as evidence of a place between ordinary days."
+          "キャンパスの光や静かな間、残響をたどりながら、何気ない日々の狭間にある場所の痕跡を映した短編映画。"
       },
       {
         id: "archive-of-light",
         title: "Archive of Light",
-        medium: "Installation",
+        medium: "インスタレーション",
         year: "2025",
         description:
-          "An installation that gathers projected fragments and reflective surfaces into a loose archive of passage, delay, and brightness."
+          "投影された断片と反射する面を集め、移ろい、遅れ、光のゆるやかなアーカイブを形づくるインスタレーション。"
       }
     ],
   }
@@ -140,12 +137,11 @@ export const members = [
     name2: "Hao",
     realname: "董 豪",
     realnameLang: "zh",
-    role: "Photography",
+    role: "写真",
     bio: "Hanaは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
     image: memberResumeImage("pw2"),
     accent: "#d6d1c7",
     profile: {
-      studentId: "student-4",
       template: "candy",
       windowStyle: {
         "--profile-window-header": "linear-gradient(90deg, #ff8fab, #ffc2d1)"
@@ -162,10 +158,10 @@ export const members = [
       {
         id: "after-the-bell",
         title: "After the Bell",
-        medium: "Photo Series",
+        medium: "写真シリーズ",
         year: "2026",
         description:
-          "A photo series about the suspended atmosphere after classes end, when corridors keep the traces of movement."
+          "授業が終わり、人の動きの痕跡だけが廊下に残る、宙づりのような空気を捉えた写真シリーズ。"
       },
       {
         id: "blue-hallway",
@@ -173,7 +169,7 @@ export const members = [
         medium: "Zine",
         year: "2025",
         description:
-          "A small-format zine collecting blurred passageways, cool light, and portraits that sit between documentation and memory."
+          "ぼやけた通路、冷たい光、記録と記憶の間にたたずむポートレートを集めた小型のZINE。"
       }
     ]
   },
@@ -183,12 +179,11 @@ export const members = [
     name2: "Gen",
     realname: "李 ゲン",
     realnameLang: "zh",
-    role: "Motion Design",
+    role: "モーションデザイン",
     bio: "Renは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
     image: memberResumeImage("pw3"),
     accent: "#d8d4ca",
     profile: {
-      studentId: "student-5",
       template: "mint",
       windowStyle: {
         "--profile-window-title": "#0f8c7a"
@@ -205,18 +200,18 @@ export const members = [
       {
         id: "signal-study",
         title: "Signal Study",
-        medium: "Motion Poster",
+        medium: "モーションポスター",
         year: "2026",
         description:
-          "A motion poster built from pulsing typography, timing shifts, and graphic signals that turn reading into a moving act."
+          "脈打つタイポグラフィ、タイミングの変化、グラフィックの信号によって、読む行為そのものを動きへ変えるモーションポスター。"
       },
       {
         id: "nine-seconds",
         title: "Nine Seconds",
-        medium: "Title Sequence",
+        medium: "タイトルシーケンス",
         year: "2025",
         description:
-          "A title sequence experiment that compresses identity, pace, and transition into a short burst of moving type."
+          "アイデンティティ、速度、変化を、短く弾ける文字の動きへ凝縮したタイトルシーケンスの実験。"
       }
     ]
   },
@@ -226,12 +221,11 @@ export const members = [
     name2: "Shou",
     realname: "リョウ ショウ",
     realnameLang: "zh",
-    role: "Music",
+    role: "音楽",
     bio: "Mioはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
     image: memberResumeImage("pw4"),
     accent: "#ece7de",
     profile: {
-      studentId: "student-6",
       template: "soda",
       windowStyle: {
         "--profile-window-border": "#4262d9"
@@ -248,18 +242,18 @@ export const members = [
       {
         id: "dust-loop",
         title: "Dust Loop",
-        medium: "Music Piece",
+        medium: "音楽作品",
         year: "2026",
         description:
-          "A layered sound piece where field recordings, soft static, and repeated tones create a room-like sense of time."
+          "フィールドレコーディング、柔らかなノイズ、反復する音を重ね、部屋のような時間感覚を生み出すサウンド作品。"
       },
       {
         id: "courtyard-drift",
         title: "Courtyard Drift",
-        medium: "Music",
+        medium: "音楽",
         year: "2025",
         description:
-          "A gentle composition drawn from outdoor resonance, footsteps, and electronic texture, drifting between public space and interior feeling."
+          "屋外の響き、足音、電子的な質感から紡ぎ、公共空間と内面的な感覚の間を漂う穏やかな楽曲。"
       }
     ]
   },
@@ -269,12 +263,11 @@ export const members = [
     name2: "Shusei",
     realname: "林 秋静",
     realnameLang: "zh",
-    role: "Web Engineering",
+    role: "Webエンジニアリング",
     bio: "Yutoはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
     image: memberResumeImage("pw5"),
     accent: "#cfcac0",
     profile: {
-      studentId: "student-7",
       template: "candy",
       windowStyle: {
         "--profile-window-card-bg": "#fffdfd"
@@ -291,18 +284,18 @@ export const members = [
       {
         id: "soft-cursor",
         title: "Soft Cursor",
-        medium: "Interactive Web",
+        medium: "インタラクティブWeb",
         year: "2026",
         description:
-          "An interactive browser study focused on cursor behavior, quiet transitions, and the tactile feeling of digital space."
+          "カーソルの動き、静かなトランジション、デジタル空間の触覚的な感覚に焦点を当てたインタラクティブなブラウザ作品。"
       },
       {
         id: "index-room",
         title: "Index Room",
-        medium: "Archive Site",
+        medium: "アーカイブサイト",
         year: "2025",
         description:
-          "An archive interface that treats indexes as rooms, letting documents, images, and paths rearrange into a browsable floor plan."
+          "索引を部屋として捉え、文書や画像、経路を閲覧可能なフロアプランへ組み替えるアーカイブインターフェース。"
       }
     ]
   },
@@ -312,12 +305,11 @@ export const members = [
     name2: "Seizenen",
     realname: "娄 世前沿",
     realnameLang: "zh",
-    role: "Graphic Design",
+    role: "グラフィックデザイン",
     bio: "Rikaは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
     image: memberResumeImage("pw6"),
     accent: "#e5e0d6",
     profile: {
-      studentId: "student-8",
       template: "mint",
       windowStyle: {
         "--profile-window-qa-bg": "#f5fffc"
@@ -334,18 +326,18 @@ export const members = [
       {
         id: "folded-index",
         title: "Folded Index",
-        medium: "Poster Set",
+        medium: "ポスターセット",
         year: "2026",
         description:
-          "A poster system using folds, strict grids, and oversized marks to turn printed space into a navigable index."
+          "折り目、厳格なグリッド、大きな記号を用いて、印刷された空間をたどることのできる索引へ変えるポスターシステム。"
       },
       {
         id: "margin-notes",
         title: "Margin Notes",
-        medium: "Book Design",
+        medium: "ブックデザイン",
         year: "2025",
         description:
-          "A book design experiment where margins carry secondary voices, quiet annotations, and the rhythm of looking again."
+          "余白にもうひとつの声や静かな注釈、見返すリズムを宿したブックデザインの実験。"
       }
     ]
   },

@@ -9,7 +9,7 @@ body {
   height: 100vh;
   /* 平成ポップをイメージしたグラデーション背景 */
   background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #e8dbfc 100%);
-  font-family: 'Comic Sans MS', 'Meiryo', sans-serif;
+  font-family: 'Comic Neue', 'Meiryo', sans-serif;
   overflow: hidden;
   position: relative;
 }

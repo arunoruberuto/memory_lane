@@ -6,7 +6,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles["footer__inner"]}>
         <div>
-          <p className={styles["footer__eyebrow"]}>Graduation Showcase</p>
+          <p className={styles["footer__eyebrow"]}>卒業作品展</p>
           <p className={styles["footer__headline"]}>
             別のページで
             <br/>また会おう。

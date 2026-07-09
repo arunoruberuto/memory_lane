@@ -39,15 +39,15 @@ export function ConceptSection() {
             }
           />
           <div className={styles["concept-section__copy-grid"]}>
-            <p className={styles["concept-section__copy-label"]}>Curatorial Note</p>
+            <p className={styles["concept-section__copy-label"]}>キュレーターズノート</p>
             <div className={styles["concept-section__copy"]}>
               <p>
-                This site treats the graduation project as an exhibition wall: names, photographs,
-                music, and fragments of process are arranged with enough silence to feel intentional.
+                このサイトでは、卒業制作をひとつの展示壁として捉えています。名前、写真、音楽、
+                そして制作過程の断片を、意図が感じられる静かな余白とともに配置しています。
               </p>
               <p>
-                The wireframe hierarchy stays intact, but each section is paced like a gallery walk:
-                a large visual opening, a conceptual pause, then member discovery and photographic highlights.
+                ワイヤーフレームの構成を保ちながら、各セクションをギャラリーを巡るようなリズムで展開します。
+                大きなビジュアルから始まり、コンセプトに立ち止まり、メンバーとの出会い、そして写真のハイライトへと続きます。
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@
   overflow: hidden;
   background:
     linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 42%, #d7f6ef 72%, #e8dbfc 100%);
-  font-family: "Comic Sans MS", "Meiryo", var(--font-sans);
+  font-family: "Comic Neue", "Meiryo", var(--font-sans);
 }
 
 .profiles-page__desktop {

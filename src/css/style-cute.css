@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap");
+
+/* Kawaii theme
+   The default theme remains the source of layout and motion behavior. */
+
+:root[data-theme="kawaii"] {
+  --color-paper: #fff8fc;
+  --color-ink: #5b3b52;
+  --color-mist: #ffe1ed;
+  --color-graphite: #885f7a;
+  --color-border-soft: rgb(255 117 163 / 22%);
+  --color-border: rgb(238 91 145 / 32%);
+  --color-border-strong: rgb(224 74 133 / 48%);
+  --color-player-bg: rgb(255 246 251 / 92%);
+  --color-paper-muted: rgb(255 248 252 / 78%);
+  --shadow-hairline:
+    0 0 0 2px rgb(255 255 255 / 90%),
+    0 0 0 4px rgb(255 125 170 / 28%),
+    0 0.75rem 1.8rem rgb(210 83 137 / 16%);
+  --font-sans: "Comic Neue", "Zen Maru Gothic", "Trebuchet MS", cursive;
+  --font-display: "Comic Neue", "Zen Maru Gothic", "Trebuchet MS", cursive;
+  --font-realname-en: "Comic Neue", "Trebuchet MS", cursive;
+  --font-realname-ja: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+}
+
+:root[data-theme="kawaii"] body {
+  background:
+    radial-gradient(circle at 12% 14%, rgb(255 255 255 / 92%) 0 0.35rem, transparent 0.4rem),
+    radial-gradient(circle at 88% 22%, rgb(255 255 255 / 75%) 0 0.25rem, transparent 0.3rem),
+    linear-gradient(135deg, #fff0f7 0%, #ffd9e8 46%, #eee2ff 100%);
+  background-size: 5rem 5rem, 4rem 4rem, auto;
+}
+
+:root[data-theme="kawaii"] body::before {
+  opacity: 0.48;
+  background-image:
+    radial-gradient(circle, rgb(255 112 164 / 24%) 0 2px, transparent 2.5px),
+    radial-gradient(circle, rgb(162 122 221 / 16%) 0 2px, transparent 2.5px);
+  background-position: 0 0, 1.75rem 1.75rem;
+  background-size: 3.5rem 3.5rem;
+  mask-image: linear-gradient(to bottom, transparent, black 8%, black 90%, transparent);
+}
+
+:root[data-theme="kawaii"] ::selection {
+  background: #ff6fa8;
+  color: #fff;
+}
+
+/* Header and navigation */
+:root[data-theme="kawaii"] [class^="_header_"] {
+  border-bottom: 2px solid rgb(255 121 171 / 40%);
+  background: rgb(255 247 252 / 86%);
+  box-shadow: 0 0.5rem 1.5rem rgb(214 91 143 / 10%);
+}
+
+:root[data-theme="kawaii"] [class*="header__brand-title"] {
+  color: #ef4f91;
+  text-shadow: 2px 2px 0 #fff, 3px 3px 0 #ffc1d8;
+}
+
+:root[data-theme="kawaii"] [class*="header__nav-link"] {
+  padding: 0.35rem 0.65rem 0.55rem;
+  border-radius: 999px;
+}
+
+:root[data-theme="kawaii"] [class*="header__nav-link"]:hover {
+  background: #ffe3ef;
+  color: #e24483;
+}
+
+:root[data-theme="kawaii"] [class*="header__nav-rule"] {
+  right: 0.65rem;
+  bottom: 0.2rem;
+  left: 0.65rem;
+  width: auto;
+  height: 2px;
+  border-radius: 999px;
+  background: #ff5f9e;
+}
+
+/* Shared titles, labels, frames, and controls */
+:root[data-theme="kawaii"] [class*="section-label__title"],
+:root[data-theme="kawaii"] [class*="hero__title"],
+:root[data-theme="kawaii"] [class*="gallery-title"],
+:root[data-theme="kawaii"] [class*="list-title"],
+:root[data-theme="kawaii"] [class*="footer__headline"] {
+  color: #e84f8d;
+  letter-spacing: -0.035em;
+  text-shadow: 3px 3px 0 #fff, 5px 5px 0 rgb(255 164 196 / 55%);
+}
+
+:root[data-theme="kawaii"] [class*="eyebrow"],
+:root[data-theme="kawaii"] [class*="copy-label"] {
+  color: #a95d83;
+}
+
+:root[data-theme="kawaii"] [class*="media-frame_"],
+:root[data-theme="kawaii"] [class*="image-frame"],
+:root[data-theme="kawaii"] [class*="artwork-frame"] {
+  border: 3px solid #fff;
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-hairline);
+}
+
+:root[data-theme="kawaii"] [class*="control_"],
+:root[data-theme="kawaii"] [class*="lightbox-close"],
+:root[data-theme="kawaii"] [class*="music-player__toggle"] {
+  border: 2px solid #f17ca9;
+  border-radius: 999px;
+  background: #fff8fc;
+  color: #d84480;
+  box-shadow: 0 0.3rem 0 #f7b1cc;
+}
+
+:root[data-theme="kawaii"] [class*="control_"]:hover,
+:root[data-theme="kawaii"] [class*="lightbox-close"]:hover,
+:root[data-theme="kawaii"] [class*="music-player__toggle"]:hover,
+:root[data-theme="kawaii"] [class*="music-player__toggle--active"] {
+  background: #ff75aa;
+  color: #fff;
+}
+
+/* Home hero */
+:root[data-theme="kawaii"] [class*="hero__poster"] {
+  border: 0.35rem solid #fff;
+  border-radius: 1rem;
+  box-shadow:
+    0 0 0 3px #f6a5c4,
+    0.8rem 0.8rem 0 rgb(207 135 222 / 22%);
+}
+
+:root[data-theme="kawaii"] [class*="hero__poster-image"] {
+  filter: saturate(0.82) contrast(0.96);
+}
+
+:root[data-theme="kawaii"] [class*="hero__poster-tint"] {
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+}
+
+:root[data-theme="kawaii"] [class*="hero__copy-grid"],
+:root[data-theme="kawaii"] [class*="copy-grid"] {
+  border-top: 3px dotted #f39abd;
+}
+
+:root[data-theme="kawaii"] [class*="marquee_"] {
+  border-block: 2px dashed #ee8eb4;
+  background: rgb(255 255 255 / 44%);
+  color: #d85990;
+  opacity: 0.82;
+}
+
+/* Home sections and cards */
+:root[data-theme="kawaii"] [class^="_concept-section_"],
+:root[data-theme="kawaii"] [class^="_member-grid_"],
+:root[data-theme="kawaii"] [class^="_photo-highlights_"],
+:root[data-theme="kawaii"] [class*="gallery-section"],
+:root[data-theme="kawaii"] [class*="list-section"] {
+  background: rgb(255 255 255 / 18%);
+}
+
+:root[data-theme="kawaii"] [class*="member-grid__card"] {
+  padding: 0.85rem;
+  border: 2px dashed #f08eb5;
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 72%);
+  box-shadow: 0.6rem 0.6rem 0 rgb(230 132 177 / 16%);
+}
+
+:root[data-theme="kawaii"] [class*="member-grid__image-frame"] {
+  border: 0.25rem solid #fff;
+  border-radius: 1rem;
+}
+
+:root[data-theme="kawaii"] [class*="member-grid__name"],
+:root[data-theme="kawaii"] [class*="member-grid__realname"] {
+  color: #fff;
+  text-shadow: 0 2px 6px rgb(92 27 63 / 70%);
+  mix-blend-mode: normal;
+}
+
+:root[data-theme="kawaii"] [class*="member-grid__meta"] {
+  color: #d34e87;
+}
+
+:root[data-theme="kawaii"] [class*="photo-highlights__card"] {
+  padding: 0.75rem;
+  border: 2px dashed #ef94b7;
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 68%);
+}
+
+/* Photos */
+:root[data-theme="kawaii"] [class*="photos-page__gallery-grid"] article {
+  padding: 0.75rem;
+  border: 2px dashed #ee91b5;
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 72%);
+  box-shadow: 0.55rem 0.55rem 0 rgb(207 135 222 / 16%);
+}
+
+:root[data-theme="kawaii"] [class*="photos-page__lightbox-panel"] {
+  border: 4px solid #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 4px #f48fb8, 0 2rem 6rem rgb(109 48 83 / 35%);
+}
+
+/* Music */
+:root[data-theme="kawaii"] [class*="music-page__disc"] {
+  border-color: #fff;
+  box-shadow:
+    0 0 0 4px #f18fb7,
+    0 0 0 9px rgb(255 255 255 / 72%),
+    0 1.5rem 4rem rgb(169 72 121 / 22%);
+}
+
+:root[data-theme="kawaii"] [class*="track-list_"] {
+  border-color: #ed94b7;
+}
+
+:root[data-theme="kawaii"] [class*="track-list__track"] {
+  padding-inline: 0.75rem;
+  border-radius: 1rem;
+}
+
+:root[data-theme="kawaii"] [class*="track-list__track"]:hover {
+  color: #fff;
+}
+
+:root[data-theme="kawaii"] [class^="_music-player_"] {
+  border-top: 2px solid #f097ba;
+  background: rgb(255 245 251 / 94%);
+}
+
+:root[data-theme="kawaii"] [class^="_music-player_"]::after {
+  background: rgb(255 245 251 / 78%);
+}
+
+:root[data-theme="kawaii"] [class*="music-player__progress"] {
+  border-radius: 999px;
+  accent-color: #ed5d98;
+}
+
+/* Footer */
+:root[data-theme="kawaii"] [class^="_footer_"] {
+  border-top: 3px dotted #ef94b7;
+  background: rgb(255 255 255 / 38%);
+}
+
+@media (max-width: 767px) {
+  :root[data-theme="kawaii"] [class*="header__theme-label"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  :root[data-theme="kawaii"] [class*="member-grid__card"],
+  :root[data-theme="kawaii"] [class*="photo-highlights__card"] {
+    box-shadow: 0.35rem 0.35rem 0 rgb(230 132 177 / 16%);
+  }
+}
