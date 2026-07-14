@@ -5,7 +5,6 @@ import { photos } from "@/data/photos";
 import styles from "./PhotosPage.module.css";
 
 const base = import.meta.env.BASE_URL;
-const galleryAspects = ["landscape", "portrait", "square", "wide", "landscape", "portrait"];
 
 function shufflePhotos(photoList) {
   const shuffled = [...photoList];
@@ -67,7 +66,7 @@ export function PhotosPage() {
             </div>
           </div>
           <MediaFrame
-            src={`${base}images/photos/007.jpg`}
+            src={`${base}images/photos/007.webp`}
             alt="Photo 007"
             aspect="wide"
             caption="２年間の記憶をここに"
@@ -88,26 +87,19 @@ export function PhotosPage() {
           </div>
 
           <div className={styles["photos-page__gallery-grid"]}>
-            {shuffledPhotos.map((photo, index) => (
+            {shuffledPhotos.map((photo) => (
               <article
                 key={photo.id}
                 role="button"
                 tabIndex={0}
                 onClick={() => setSelectedPhoto(photo)}
                 onKeyDown={(event) => handlePhotoKeyDown(event, photo)}
-                className={
-                  index % 3 === 1
-                    ? styles["photos-page__gallery-item--offset-small"]
-                    : index % 3 === 2
-                      ? styles["photos-page__gallery-item--offset-large"]
-                      : ""
-                }
               >
-                <MediaFrame
+                <img
                   src={photo.image}
                   alt={photo.title}
-                  aspect={galleryAspects[index % galleryAspects.length]}
-                  caption={`${String(index + 1).padStart(2, "0")} / ${photo.caption}`}
+                  loading="lazy"
+                  className={styles["photos-page__gallery-image"]}
                 />
                 <h3 className={styles["photos-page__photo-title"]}>
                   {photo.title}
