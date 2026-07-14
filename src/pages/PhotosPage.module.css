@@ -179,13 +179,6 @@
   text-transform: uppercase;
 }
 
-.photos-page__lightbox-caption {
-  max-width: 46rem;
-  color: var(--color-graphite);
-  font-size: 0.9375rem;
-  line-height: 1.8;
-}
-
 @media (min-width: 768px) {
   .photos-page__hero-section {
     padding: 10rem 2rem 7rem;

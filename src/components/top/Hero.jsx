@@ -1,23 +1,12 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { AppImage as Image } from "@/components/common/AppImage";
-import { members } from "@/data/members";
 import { Marquee } from "@/components/common/Marquee";
 import { easeOutExpo, revealContainer, revealItem } from "@/components/common/motionPresets";
 import styles from "./Hero.module.css";
-
-const posterPlacements = [
-  styles["hero__poster--one"],
-  styles["hero__poster--two"],
-  styles["hero__poster--three"],
-  styles["hero__poster--four"],
-  styles["hero__poster--five"]
-];
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const titleY = useTransform(scrollYProgress, [0, 0.28], ["0%", "18%"]);
-  const posterY = useTransform(scrollYProgress, [0, 0.28], ["0%", "-10%"]);
 
   return (
     <section className={styles.hero}>
@@ -27,30 +16,15 @@ export function Hero() {
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.9, ease: easeOutExpo, delay: 0.35 }}
       >
-        <Marquee text="PIPW SATO GRADUATION EXBITION" />
+        <Marquee text="PIPW SATO GRADUATION EXHIBITION" />
       </motion.div>
-
-      {/* <motion.div className={styles["hero__poster-layer"]} style={{ y: posterY }}>
-        {members.slice(0, 5).map((member, index) => (
-          <motion.div
-            key={member.id}
-            className={[styles["hero__poster"], posterPlacements[index]].join(" ")}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 80, rotate: -2 }}
-            animate={{ opacity: 0.88, y: 0, rotate: 0 }}
-            transition={{ duration: 0.92, delay: 0.55 + index * 0.1, ease: easeOutExpo }}
-          >
-            <Image className={styles["hero__poster-image"]} src={member.image} alt="" fill sizes="18vw" />
-            <div className={styles["hero__poster-tint"]} style={{ backgroundColor: member.accent, opacity: 0.52 }} />
-          </motion.div>
-        ))}
-      </motion.div> */}
 
       <motion.div
         className={styles["hero__content"]}
         variants={revealContainer}
         initial={shouldReduceMotion ? false : "hidden"}
         animate="visible"
-        style={{ y: titleY }}
+        style={shouldReduceMotion ? undefined : { y: titleY }}
       >
         <motion.p
           className={styles["hero__eyebrow"]}
@@ -63,9 +37,9 @@ export function Hero() {
           variants={revealItem}
         >
           二年間の<ruby>記憶<rt>メモリー</rt></ruby>を、
-          <br/>ここに集めて──
-          <br/>ようこそ、
-          <br/>僕たちの<ruby>軌道<rt>レーン</rt></ruby>へ。
+          <br />ここに集めて──
+          <br />ようこそ、
+          <br />僕たちの<ruby>軌道<rt>レーン</rt></ruby>へ。
         </motion.h1>
         <motion.div
           className={styles["hero__copy-grid"]}

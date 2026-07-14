@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { AppImage as Image } from "@/components/common/AppImage";
 import { photos } from "@/data/photos";
 import { SectionLabel } from "@/components/common/SectionLabel";
@@ -6,14 +8,20 @@ import { easeOutExpo } from "@/components/common/motionPresets";
 import { useHorizontalCarousel } from "./useHorizontalCarousel";
 import styles from "./PhotoHighlights.module.css";
 
-const orientationClasses = {
-  landscape: styles["photo-highlights__image-frame--landscape"],
-  portrait: styles["photo-highlights__image-frame--portrait"],
-  wide: styles["photo-highlights__image-frame--wide"]
-};
+function selectRandomPhotos(photoList, count) {
+  const shuffled = [...photoList];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+
+  return shuffled.slice(0, count);
+}
 
 export function PhotoHighlights() {
   const shouldReduceMotion = useReducedMotion();
+  const highlightedPhotos = useMemo(() => selectRandomPhotos(photos, 8), []);
   const {
     containerRef,
     canScrollPrevious,
@@ -58,34 +66,37 @@ export function PhotoHighlights() {
         viewport={{ once: true, margin: "-12% 0px" }}
         transition={{ duration: 0.82, ease: easeOutExpo }}
       >
-        {photos.map((photo, index) => (
+        {highlightedPhotos.map((photo) => (
           <article
             key={photo.id}
-            className={[
-              styles["photo-highlights__card"],
-              photo.orientation === "portrait" ? styles["photo-highlights__card--portrait"] : ""
-            ].filter(Boolean).join(" ")}
+            className={styles["photo-highlights__card"]}
           >
-            <div className={[styles["photo-highlights__image-frame"], orientationClasses[photo.orientation]].join(" ")}>
+            <div className={styles["photo-highlights__image-frame"]}>
               <Image
                 src={photo.image}
-                alt={photo.title}
+                alt={photo.alt}
                 fill
                 sizes="(min-width: 768px) 42rem, 78vw"
                 className={styles["photo-highlights__image"]}
               />
               <span className={styles["photo-highlights__index"]}>
-                {String(index + 1).padStart(2, "0")}
+                {photo.id.replace("photo-", "")}
               </span>
             </div>
             <div className={styles["photo-highlights__caption-grid"]}>
               <h3 className={styles["photo-highlights__title"]}>
                 {photo.title}
               </h3>
-              <p className={styles["photo-highlights__caption"]}>{photo.caption}</p>
             </div>
           </article>
         ))}
+        <Link
+          className={[styles["photo-highlights__card"], styles["photo-highlights__more-link"]].join(" ")}
+          to="/photos"
+        >
+          <span className={styles["photo-highlights__more-arrow"]} aria-hidden="true">→</span>
+          <span>PHOTOSページへ。</span>
+        </Link>
       </motion.div>
     </section>
   );

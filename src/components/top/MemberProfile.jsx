@@ -182,7 +182,7 @@ export function MemberProfile({ member, otherMembers }) {
                 <div className={styles["member-profile__member-image-frame"]}>
                   <Image
                     src={otherMember.image}
-                    alt={`${otherMember.name1} ${otherMember.name2} portrait placeholder`}
+                    alt={`${otherMember.name1} ${otherMember.name2}のポートレート`}
                     fill
                     sizes="(min-width: 768px) 25vw, 100vw"
                     className={styles["member-profile__member-image"]}

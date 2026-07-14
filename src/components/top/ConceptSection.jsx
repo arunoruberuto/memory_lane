@@ -14,10 +14,10 @@ export function ConceptSection() {
       <div className={styles["concept-section__inner"]}>
         <div className={styles["concept-section__media-column"]}>
           <MediaFrame
-            src={`${base}images/placeholders/wide.svg`}
-            alt="Placeholder image representing the graduation exhibition concept"
+            src={`${base}images/photos/007.webp`}
+            alt="学生レクリエーション2024"
             aspect="wide"
-            caption="Concept image area defined by the wireframe. Replace with exhibition photography."
+            caption="学生レクリエーション2024"
             className={styles["concept-section__media-frame"]}
           />
         </div>
@@ -29,12 +29,10 @@ export function ConceptSection() {
           transition={{ duration: 0.9, ease: easeOutExpo }}
         >
           <SectionLabel
-            eyebrow="Concept / 画像とテキスト"
+            eyebrow="Concept / 展示コンセプト"
             title={
               <>
-                卒業前の
-                <br />
-                ラストページ
+                エピローグ
               </>
             }
           />
@@ -42,12 +40,10 @@ export function ConceptSection() {
             <p className={styles["concept-section__copy-label"]}>Curatorial Note</p>
             <div className={styles["concept-section__copy"]}>
               <p>
-                This site treats the graduation project as an exhibition wall: names, photographs,
-                music, and fragments of process are arranged with enough silence to feel intentional.
-              </p>
-              <p>
-                The wireframe hierarchy stays intact, but each section is paced like a gallery walk:
-                a large visual opening, a conceptual pause, then member discovery and photographic highlights.
+                名前、写真、音楽、制作の断片をひとつの展示空間に並べ、
+                8人で過ごした2年間の記憶をたどります。<br/>
+                一人ひとりの視点と、それぞれの場所に残った空気を、
+                ギャラリーを歩くような流れでゆっくりと見つけてください。
               </p>
             </div>
           </div>

@@ -67,7 +67,7 @@ export function PhotosPage() {
           </div>
           <MediaFrame
             src={`${base}images/photos/007.webp`}
-            alt="Photo 007"
+            alt="卒業までの日々を記録したクラス写真"
             aspect="wide"
             caption="２年間の記憶をここに"
             className={styles["photos-page__media-frame"]}
@@ -82,7 +82,7 @@ export function PhotosPage() {
               すべての写真
             </h2>
             <p className={styles["photos-page__gallery-note"]}>
-              public/images/photos から画像が読み込まれました。
+              54枚の写真をランダムに並べています。
             </p>
           </div>
 
@@ -97,7 +97,7 @@ export function PhotosPage() {
               >
                 <img
                   src={photo.image}
-                  alt={photo.title}
+                  alt={photo.alt}
                   loading="lazy"
                   className={styles["photos-page__gallery-image"]}
                 />
@@ -115,7 +115,7 @@ export function PhotosPage() {
           className={styles["photos-page__lightbox"]}
           role="dialog"
           aria-modal="true"
-          aria-labelledby="photos-lightbox-title"
+          aria-label="写真プレビュー"
           onClick={() => setSelectedPhoto(null)}
         >
           <div
@@ -132,7 +132,7 @@ export function PhotosPage() {
             </button>
             <img
               src={selectedPhoto.image}
-              alt={selectedPhoto.title}
+              alt={selectedPhoto.alt}
               className={styles["photos-page__lightbox-image"]}
             />
             <div className={styles["photos-page__lightbox-text"]}>
@@ -142,9 +142,6 @@ export function PhotosPage() {
               >
                 {selectedPhoto.title}
               </h2>
-              <p className={styles["photos-page__lightbox-caption"]}>
-                {selectedPhoto.caption}
-              </p>
             </div>
           </div>
         </div>

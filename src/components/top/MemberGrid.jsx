@@ -47,7 +47,7 @@ export function MemberGrid() {
     <section className={styles["member-grid"]} id="members">
       <div className={styles["member-grid__inner"]}>
         <div className={styles["member-grid__header"]}>
-          <SectionLabel eyebrow="Members / 3x3 Gallery" title="Eight Members" />
+          <SectionLabel eyebrow="Members / 4x2 Gallery" title="八人のメンバー" />
           <p className={styles["member-grid__description"]}>
             The homepage centerpiece is an exhibition wall, not a team-card list.
           </p>

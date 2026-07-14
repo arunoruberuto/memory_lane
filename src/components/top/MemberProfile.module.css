@@ -244,7 +244,7 @@
 
 .member-profile__member-image {
   object-fit: cover;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   transition:
     filter 700ms,
     transform 700ms;

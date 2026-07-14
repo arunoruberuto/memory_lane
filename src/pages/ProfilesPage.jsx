@@ -4,7 +4,6 @@ import styles from "./ProfilesPage.module.css";
 
 const rosterOrder = ["pi1", "pi2", "pw1", "pw2", "pw3", "pw4", "pw5", "pw6"];
 const avatarMarks = ["PI1", "PI2", "PW1", "PW2", "PW3", "PW4", "PW5", "PW6"];
-const defaultPhoto = `${import.meta.env.BASE_URL}images/placeholders/portrait.svg`;
 
 function getDisplayName(member) {
   return `${member.name1} ${member.name2}`;
@@ -124,7 +123,7 @@ export function ProfilesPage() {
             <div className={styles["profiles-page__profile-card"]}>
               <figure className={styles["profiles-page__photo-box"]}>
                 <img
-                  src={selectedMember.image || defaultPhoto}
+                  src={selectedMember.image}
                   alt={`${getDisplayName(selectedMember)} profile`}
                 />
                 <figcaption className={styles["profiles-page__photo-tag"]}>
