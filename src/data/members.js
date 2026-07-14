@@ -8,8 +8,8 @@ export const members = [
     name2: "Norbert",
     realname: "Alfonsus Ferdinand Norbert",
     realnameLang: "en",
-    role: "Film Editing",
-    bio: "Soraは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
+    role: "Leader",
+    bio: "アルフォンスは音楽家のような呼吸感で映像をつなぎ、小さな間も劇的な転換と同じくらい大切に感じさせる。",
     image: memberResumeImage("pi1"),
     accent: "#ebe6dc",
     profile: {
@@ -53,8 +53,8 @@ export const members = [
     name2: "Byoungsoo",
     realname: "김 병수",
     realnameLang: "ko",
-    role: "Art Direction",
-    bio: "Meiはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
+    role: "Member",
+    bio: "キムはセット、オブジェ、小さな儀式を組み合わせ、どこか見覚えがありながら少し不可能にも感じられる視覚世界をつくる。",
     image: memberResumeImage("pi2"),
     accent: "#d6d1c7",
     profile: {
@@ -96,8 +96,8 @@ export const members = [
     name2: "Shibun",
     realname: "郭 紫雯",
     realnameLang: "zh",
-    role: "Creative Direction",
-    bio: "Aoiは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
+    role: "Profile Designer",
+    bio: "カクは静かな観察からビジュアルシステムを組み立て、ありふれたキャンパスの風景を構成された映画的な断片へと置き換える。",
     image: memberResumeImage("pw1"),
     accent: "#ebe6dc",
     profile: {
@@ -140,8 +140,8 @@ export const members = [
     name2: "Hao",
     realname: "董 豪",
     realnameLang: "zh",
-    role: "Photography",
-    bio: "Hanaは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
+    role: "Member",
+    bio: "トウは人と人とのあいだにある空間を撮影し、距離、ぼかし、沈黙を能動的な構図の道具として用いる。",
     image: memberResumeImage("pw2"),
     accent: "#d6d1c7",
     profile: {
@@ -183,8 +183,8 @@ export const members = [
     name2: "Gen",
     realname: "李 ゲン",
     realnameLang: "zh",
-    role: "Motion Design",
-    bio: "Renは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
+    role: "Member",
+    bio: "リは、タイポグラフィが静止したキャプションではなく生きている表面のように振る舞う、動的なアイデンティティを設計する。",
     image: memberResumeImage("pw3"),
     accent: "#d8d4ca",
     profile: {
@@ -226,8 +226,8 @@ export const members = [
     name2: "Shou",
     realname: "リョウ ショウ",
     realnameLang: "zh",
-    role: "Music",
-    bio: "Mioはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
+    role: "Photo Designer",
+    bio: "リョウはフィールドレコーディングと柔らかな電子音の質感を重ね、建築的でありながら親密に感じられる音楽をつくる。",
     image: memberResumeImage("pw4"),
     accent: "#ece7de",
     profile: {
@@ -269,8 +269,8 @@ export const members = [
     name2: "Shusei",
     realname: "林 秋静",
     realnameLang: "zh",
-    role: "Web Engineering",
-    bio: "Yutoはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
+    role: "Sub Leader",
+    bio: "リンはブラウザを展示室として捉え、インタラクション、間合い、パフォーマンスをひとつの面へと形づくる。",
     image: memberResumeImage("pw5"),
     accent: "#cfcac0",
     profile: {
@@ -280,7 +280,7 @@ export const members = [
         "--profile-window-card-bg": "#fffdfd"
       },
       astro: "おとめ座",
-      birthday: "9月12日",
+      birthday: "9月2日",
       q1: "ずっと触っていたくなるようなWeb作品を、時間を気にせず作り込みたい。",
       q2: "同じ画面をのぞき込みながら考えた時間が、いちばんの宝物です。"
     },
@@ -312,8 +312,8 @@ export const members = [
     name2: "Seizenen",
     realname: "娄 世前沿",
     realnameLang: "zh",
-    role: "Graphic Design",
-    bio: "Rikaは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
+    role: "Member",
+    bio: "ロは抑制されたグリッド、大きなマーク、紙のような余白を使い、静かでありながら意思のある構成をつくる。",
     image: memberResumeImage("pw6"),
     accent: "#e5e0d6",
     profile: {
