@@ -1,5 +1,68 @@
 @charset "utf-8";
 
 body {
+  background-color: darkslategray;
+  color: aliceblue;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  background: linear-gradient(90deg, lightseagreen, #293333);
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0.5em;
+  margin: 0 auto;
+}
+
+h2 {
+  color: lightseagreen;
+  font-size: 16px;
+  margin-bottom: -18px;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: underline dotted;
+  color: lightseagreen;
+}
+
+a:hover {
+  text-decoration: underline dotted;
+  color: gold;
+}
+
+a:visited {
+  text-decoration: underline solid;
+  color: silver;
+}
+
+rt {
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+.profile {
+  background-color: #293333;
+  width: 960px;
+  padding: 10px 100px 50px 100px;
+  margin: 0 auto;
+}
+
+.profile__main-visual img {
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+.profile__image {
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
+
+.profile__image img {
+  width: 600px;
 }

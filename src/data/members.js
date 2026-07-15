@@ -1,7 +1,9 @@
+import { getWfByMemberId } from "@/data/wf";
+
 const base = import.meta.env.BASE_URL;
 const memberResumeImage = (id) => `${base}images/resume/${id}.webp`;
 
-export const members = [
+const memberDefinitions = [
   {
     id: "pi1",
     name1: "Alfonsus",
@@ -350,6 +352,11 @@ export const members = [
     ]
   },
 ];
+
+export const members = memberDefinitions.map((member) => ({
+  ...member,
+  wf: getWfByMemberId(member.id),
+}));
 
 export function getMemberById(id) {
   return members.find((member) => member.id === id);

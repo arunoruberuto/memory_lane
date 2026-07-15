@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AppImage as Image } from "@/components/common/AppImage";
 import { MediaFrame } from "@/components/common/MediaFrame";
 import { Marquee } from "@/components/common/Marquee";
-import { easeOutExpo, revealContainer, revealItem } from "@/components/common/motionPresets";
-import { useEffect, useState } from "react";
+import { revealContainer, revealItem } from "@/components/common/motionPresets";
+import { MemberWf } from "./MemberWf";
 import styles from "./MemberProfile.module.css";
 
 export function MemberProfile({ member, otherMembers }) {
@@ -15,30 +15,6 @@ export function MemberProfile({ member, otherMembers }) {
     longestNamePartLength >= 8 || memberName.replace(/\s/g, "").length >= 14
       ? styles["member-profile__hero-title--compact"]
       : "";
-  const [selectedWork, setSelectedWork] = useState(null);
-
-  useEffect(() => {
-    if (!selectedWork) {
-      return undefined;
-    }
-
-    const originalOverflow = document.body.style.overflow;
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedWork(null);
-      }
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedWork]);
-
   return (
     <>
       <section className={styles["member-profile__hero-section"]}>
@@ -87,74 +63,7 @@ export function MemberProfile({ member, otherMembers }) {
         </motion.div>
       </section>
 
-      <section className={styles["member-profile__section"]}>
-        <div className={styles["member-profile__statement-grid"]}>
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.82, ease: easeOutExpo }}
-          >
-            <p className={styles["member-profile__eyebrow"]}>
-              Text Area / Statement
-            </p>
-            <p className={styles["member-profile__statement"]}>
-              {member.statement}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className={styles["member-profile__works-panel"]}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.82, ease: easeOutExpo, delay: 0.08 }}
-          >
-            <p className={styles["member-profile__eyebrow"]}>
-              個人エリア / Works
-            </p>
-            <ul className={styles["member-profile__works-list"]}>
-              {member.works.map((work) => (
-                <li key={work.id ?? work.title} className={styles["member-profile__work-item"]}>
-                  <div>
-                    <p className={styles["member-profile__work-title"]}>
-                      {work.description || work.url ? (
-                        <button
-                          type="button"
-                          className={styles["member-profile__work-link"]}
-                          onClick={() => setSelectedWork(work)}
-                        >
-                          {work.title}
-                        </button>
-                      ) : (
-                        <span>{work.title}</span>
-                      )}
-                    </p>
-
-                    <p className={styles["member-profile__work-medium"]}>
-                      {work.medium}
-                    </p>
-                  </div>
-
-                  <p className={styles["member-profile__work-year"]}>
-                    {work.year}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <div className={styles["member-profile__tags"]}>
-              {member.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className={styles["member-profile__tag"]}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <MemberWf key={member.id} member={member} />
 
       <section className={styles["member-profile__section"]}>
         <div className={styles["member-profile__related-inner"]}>
@@ -198,84 +107,6 @@ export function MemberProfile({ member, otherMembers }) {
           </div>
         </div>
       </section>
-
-      {selectedWork && (
-        <div
-          className={styles["member-profile__modal-overlay"]}
-          onClick={() => setSelectedWork(null)}
-        >
-          <motion.div
-            className={styles["member-profile__modal"]}
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="work-modal-title"
-            aria-describedby={selectedWork.description ? "work-modal-description" : undefined}
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.3,
-              ease: easeOutExpo,
-            }}
-          >
-            <div className={styles["member-profile__modal-header"]}>
-              <p className={styles["member-profile__modal-eyebrow"]}>
-                Work Detail
-              </p>
-              <button
-                type="button"
-                className={styles["member-profile__modal-close"]}
-                onClick={() => setSelectedWork(null)}
-                aria-label="Close work detail"
-              >
-                x
-              </button>
-            </div>
-
-            <h2
-              id="work-modal-title"
-              className={styles["member-profile__modal-title"]}
-            >
-              {selectedWork.title}
-            </h2>
-            <div className={styles["member-profile__modal-meta"]}>
-              <span>{selectedWork.medium}</span>
-              <span>{selectedWork.year}</span>
-            </div>
-
-            {selectedWork.description && (
-              <p
-                id="work-modal-description"
-                className={styles["member-profile__modal-description"]}
-              >
-                {selectedWork.description}
-              </p>
-            )}
-
-            <div className={styles["member-profile__modal-actions"]}>
-              {selectedWork.url && (
-                <a
-                  className={styles["member-profile__modal-action"]}
-                  href={selectedWork.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Launch Site
-                </a>
-              )}
-
-              <button
-                type="button"
-                className={styles["member-profile__modal-action"]}
-                onClick={() => setSelectedWork(null)}
-              >
-                Close
-              </button>
-            </div>
-
-          </motion.div>
-        </div>
-      )}
 
     </>
   );
