@@ -1,0 +1,32 @@
+.section-label__eyebrow {
+  margin-bottom: 1.25rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.section-label__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 8vw, 7.625rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.section-label--center {
+  text-align: center;
+}
+
+.section-label__title-clip {
+  display: inline-block;
+  padding-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.section-label__title-text {
+  display: block;
+}

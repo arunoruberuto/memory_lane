@@ -1,0 +1,169 @@
+.profile-room-button {
+  --profile-room-button-size: 3.35rem;
+  --profile-room-button-open-width: max-content;
+  --profile-room-button-default-bg: var(--color-paper-muted);
+  --profile-room-button-default-color: var(--color-ink);
+  --profile-room-button-default-border: var(--color-border-strong);
+  --profile-room-button-hover-bg: #fff0f5;
+  --profile-room-button-hover-color: #fff;
+  --profile-room-button-hover-border: #ff477e;
+  --profile-room-button-hover-face: linear-gradient(135deg, #ff758c 0%, #ff7eb3 48%, #94ebd9 100%);
+  --profile-room-button-focus: #ff477e;
+  position: fixed;
+  right: 1rem;
+  bottom: calc(15rem + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  display: inline-grid;
+  width: auto;
+  min-width: var(--profile-room-button-size);
+  max-width: var(--profile-room-button-size);
+  height: var(--profile-room-button-size);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--profile-room-button-default-border);
+  border-radius: 999px;
+  background: var(--profile-room-button-default-bg);
+  box-shadow:
+    var(--shadow-hairline),
+    0 0.65rem 1.5rem rgb(17 17 15 / 14%);
+  color: var(--profile-room-button-default-color);
+  cursor: pointer;
+  perspective: 680px;
+  transition:
+    max-width 420ms var(--ease-exhibition),
+    border-color 320ms var(--ease-exhibition),
+    box-shadow 320ms var(--ease-exhibition),
+    background 320ms var(--ease-exhibition),
+    color 320ms var(--ease-exhibition),
+    transform 320ms var(--ease-exhibition);
+  animation: profile-room-button-float 4.8s ease-in-out infinite;
+}
+
+.profile-room-button:hover,
+.profile-room-button:focus-visible {
+  max-width: 14rem;
+  border-color: var(--profile-room-button-hover-border);
+  background: var(--profile-room-button-hover-bg);
+  color: var(--profile-room-button-hover-color);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 76%),
+    0 0.85rem 1.75rem rgb(255 71 126 / 24%),
+    0.32rem 0.32rem 0 rgb(255 71 126 / 30%);
+}
+
+.profile-room-button--return {
+  --profile-room-button-default-bg: #fff0f5;
+  --profile-room-button-default-color: #ff477e;
+  --profile-room-button-default-border: #ff758c;
+  --profile-room-button-hover-bg: var(--color-paper-muted);
+  --profile-room-button-hover-color: var(--color-ink);
+  --profile-room-button-hover-border: var(--color-ink);
+  --profile-room-button-hover-face: linear-gradient(135deg, var(--color-paper) 0%, #fff 54%, var(--color-mist) 100%);
+  --profile-room-button-focus: var(--color-ink);
+  bottom: calc(7.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+.profile-room-button:focus-visible {
+  outline: 2px solid var(--profile-room-button-focus);
+  outline-offset: 4px;
+}
+
+.profile-room-button__card {
+  position: relative;
+  display: block;
+  width: max-content;
+  min-width: var(--profile-room-button-size);
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 520ms var(--ease-exhibition);
+}
+
+.profile-room-button:hover .profile-room-button__card,
+.profile-room-button:focus-visible .profile-room-button__card {
+  transform: rotateY(180deg);
+}
+
+.profile-room-button__face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: var(--profile-room-button-size);
+  height: var(--profile-room-button-size);
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.profile-room-button__face--back {
+  position: relative;
+  width: max-content;
+  min-width: var(--profile-room-button-size);
+  padding: 0 1.15rem;
+  background: var(--profile-room-button-hover-face);
+  color: var(--profile-room-button-hover-color);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  text-shadow: 0 1px 0 rgb(217 47 116 / 40%);
+  transform: rotateY(180deg);
+  white-space: nowrap;
+}
+
+.profile-room-button--return .profile-room-button__face--back {
+  text-shadow: none;
+}
+
+.profile-room-button__return-icon {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+@keyframes profile-room-button-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.28rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-room-button {
+    right: 2rem;
+    bottom: calc(7.25rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .profile-room-button--return {
+    bottom: calc(7.35rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 760px) {
+  .profile-room-button--return {
+    right: 0.75rem;
+    bottom: calc(10rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .profile-room-button--return {
+    bottom: calc(6.1rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-room-button {
+    animation: none;
+  }
+
+  .profile-room-button__card {
+    transition: none;
+  }
+}

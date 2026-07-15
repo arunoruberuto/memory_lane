@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: "Poppins", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  background-color: lightcyan;
+  color: black;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: "Meiryo", "MS PGothic", sans-serif;
+}
+
+p {
+  margin-top: -10px;
+  margin-bottom: 40px;
+  font-size: 22px;
+}
+
+.profile {
+  margin: 0 auto;
+  padding: 10px 100px 50px 100px;
+  width: 960px;
+  background-color: beige;
+  border-radius: 20px;
+}
+
+.profile__main-visual {
+  width: 960px;
+  margin-bottom: 40px;
+}
+
+.profile__main-visual img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.profile__image {
+  margin-top: -30px;
+  margin-bottom: 50px;
+}
+
+.profile__image img {
+  width: 600px;
+  border-radius: 10px;
+}
+
+img {
+  transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+}

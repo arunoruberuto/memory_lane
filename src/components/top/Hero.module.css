@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 7rem 1rem 0;
+  overflow: hidden;
+}
+
+.hero__marquee {
+  position: absolute;
+  inset-inline: 0;
+  top: 18vh;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-3deg);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100svh - 8rem);
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 4rem;
+}
+
+.hero__eyebrow {
+  max-width: 20rem;
+  margin-bottom: 1.75rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1.625;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  max-width: 13ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 12vw, 8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.1rem;
+  text-transform: uppercase;
+}
+.hero__title ruby {
+  ruby-align: center;
+}
+.hero__title ruby rt {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  margin-block-end: 0.2em;
+}
+
+.hero__copy-grid {
+  display: grid;
+  max-width: 64rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  gap: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero__copy-label {
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.hero__copy {
+  font-size: 1.125rem;
+  line-height: 2;
+}
+
+.hero__scroll-prompt {
+  position: absolute;
+  right: 1rem;
+  bottom: 2rem;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 3rem;
+  background-color: rgb(17 17 15 / 50%);
+  transform-origin: top;
+  animation: hero-scroll-line 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  46% {
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 8rem;
+  }
+
+  .hero__marquee {
+    top: 22vh;
+  }
+
+  .hero__content {
+    padding-bottom: 5rem;
+  }
+
+  .hero__eyebrow {
+    max-width: none;
+  }
+
+  .hero__copy-grid {
+    grid-template-columns: 0.35fr 0.65fr;
+  }
+
+  .hero__copy {
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  .hero__scroll-prompt {
+    right: 2rem;
+    display: flex;
+  }
+}

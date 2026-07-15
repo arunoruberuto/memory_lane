@@ -1,0 +1,66 @@
+.sidebar-menu {
+  width: 260px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-right: 3px solid #ff758c;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 4px 0 15px rgba(255, 117, 140, 0.15);
+  overflow-y: auto;
+}
+
+.menu-title {
+  font-size: 18px;
+  color: #ff477e;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px dashed #ff477e;
+  padding-bottom: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 2px solid #ffccd5;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s,
+    background 0.2s;
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(255, 71, 126, 0.2);
+  border-color: #ff477e;
+}
+
+.menu-item:focus-visible {
+  outline: 2px solid #ff477e;
+  outline-offset: 3px;
+}
+
+.menu-item--active {
+  background: #fff0f5;
+  border-color: #ff477e;
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(255, 71, 126, 0.25);
+}
+
+.menu-icon {
+  font-size: 24px;
+}
+
+.menu-name {
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+}

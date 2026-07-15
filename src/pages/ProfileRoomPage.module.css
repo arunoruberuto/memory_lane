@@ -1,0 +1,168 @@
+.profile-room-page {
+  min-height: 100svh;
+  padding: 1rem 1rem 8.75rem;
+  overflow-x: hidden;
+  background:
+    linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 42%, #d7f6ef 72%, #e8dbfc 100%);
+  font-family: "Comic Sans MS", "Meiryo", var(--font-sans);
+}
+
+.profile-room-page__workspace {
+  display: flex;
+  min-height: min(44rem, calc(100svh - 10.75rem));
+  overflow: hidden;
+  border: 3px solid #ff758c;
+  border-radius: 12px;
+  background: rgb(255 240 245 / 62%);
+  box-shadow: 8px 8px 0 rgb(255 71 126 / 24%);
+}
+
+@media (min-width: 961px) {
+  .profile-room-page {
+    height: 100svh;
+    min-height: 0;
+    padding-bottom: 7rem;
+    overflow-y: hidden;
+  }
+
+  .profile-room-page__workspace {
+    height: calc(100svh - 8rem);
+    min-height: 0;
+  }
+
+  .profile-room-page__workspace :global(.book-container) {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1120px) {
+  .profile-room-page__workspace {
+    overflow-x: hidden;
+  }
+
+  .profile-room-page__workspace :global(.book-container) {
+    padding: 2rem 1rem;
+    overflow: hidden;
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.82);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 960px) {
+  .profile-room-page__workspace {
+    flex-direction: column;
+  }
+
+  .profile-room-page__workspace :global(.sidebar-menu) {
+    width: 100%;
+    max-height: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 3px solid #ff758c;
+  }
+
+  .profile-room-page__workspace :global(.menu-title) {
+    flex: 0 0 auto;
+    padding: 0 0.85rem 0 0;
+    margin: 0;
+    border-right: 2px dashed #ff477e;
+    border-bottom: 0;
+    white-space: nowrap;
+  }
+
+  .profile-room-page__workspace :global(.menu-item) {
+    width: auto;
+    min-width: max-content;
+    min-height: 3rem;
+  }
+
+  .profile-room-page__workspace :global(.menu-item:hover),
+  .profile-room-page__workspace :global(.menu-item:focus-visible),
+  .profile-room-page__workspace :global(.menu-item--active) {
+    transform: translateY(-2px);
+  }
+
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.82 + 4rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .profile-room-page {
+    padding: 0.65rem 0.55rem 10.75rem;
+  }
+
+  .profile-room-page__workspace {
+    min-height: auto;
+  }
+
+  .profile-room-page__workspace :global(.sidebar-menu) {
+    padding: 0.75rem;
+  }
+
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.6 + 2rem);
+    padding: 1rem 0;
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.6);
+  }
+}
+
+@media (max-width: 430px) {
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.48 + 1.5rem);
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.48);
+  }
+}
+
+@media (max-width: 390px) {
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.44 + 1.5rem);
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.44);
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.4 + 1.25rem);
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.4);
+  }
+}
+
+@media (max-width: 330px) {
+  .profile-room-page__workspace :global(.book-container) {
+    min-height: calc(600px * 0.36 + 1.25rem);
+  }
+
+  .profile-room-page__workspace :global(.profile-book) {
+    transform: scale(0.36);
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .profile-room-page {
+    padding-bottom: 7rem;
+  }
+
+  .profile-room-page__workspace :global(.sidebar-menu) {
+    max-height: 5.5rem;
+  }
+}

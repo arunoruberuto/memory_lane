@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Lane</title>
+</head>
+
+<body>
+  <script>
+    (function redirectToGithubPagesSpa(location) {
+      var basePath = "/memory_lane/";
+
+      if (!location.pathname.startsWith(basePath)) {
+        location.replace(basePath);
+        return;
+      }
+
+      var routePath = location.pathname.slice(basePath.length);
+      var routeQuery = location.search
+        ? "&" + location.search.slice(1).replace(/&/g, "~and~")
+        : "";
+
+      location.replace(
+        location.origin + basePath + "?/" + routePath + routeQuery + location.hash
+      );
+    })(window.location);
+  </script>
+</body>
+
+</html>

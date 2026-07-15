@@ -1,0 +1,148 @@
+/* for push */
+.music-page__hero-section {
+  padding: 8rem 1rem 5rem;
+}
+
+.music-page__hero-grid {
+  display: grid;
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+  gap: 3.5rem;
+}
+
+.music-page__copy-grid {
+  display: grid;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  gap: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.music-page__copy-label {
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.music-page__copy {
+  font-size: 1.125rem;
+  line-height: 2;
+}
+
+.music-page__disc-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+}
+
+.music-page__disc {
+  position: relative;
+  width: min(72vw, 34rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid var(--color-paper);
+  box-shadow: 0 1.5rem 4rem rgb(21 20 18 / 18%);
+}
+
+.music-page__disc--playing .music-page__disc-artwork {
+  animation-play-state: running;
+}
+
+.music-page__disc-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: music-page-disc-spin 10s linear infinite;
+  animation-play-state: paused;
+  object-fit: cover;
+}
+
+.music-page__disc-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 70%);
+  background-color: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 0.45rem rgb(21 20 18 / 12%),
+    0 0 0 0.45rem rgb(255 255 255 / 45%);
+  transform: translate(-50%, -50%);
+}
+
+.music-page__list-section {
+  padding: 5rem 1rem;
+}
+
+.music-page__list-inner {
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.music-page__list-header {
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+}
+
+.music-page__list-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.music-page__list-title {
+  font-family: var(--font-display);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .music-page__hero-section {
+    padding: 8rem 2rem 7rem;
+  }
+
+  .music-page__copy-grid {
+    grid-template-columns: 0.32fr 0.68fr;
+  }
+
+  .music-page__copy {
+    font-size: 1.2rem;
+    line-height: 2;
+  }
+
+  .music-page__list-section {
+    padding: 7rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .music-page__hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: end;
+  }
+
+  .music-page__disc-stage {
+    justify-content: flex-end;
+  }
+}
+
+@keyframes music-page-disc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

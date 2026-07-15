@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ プロフィール帳 ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="desktop">
+    
+    <div class="desktop-icon" onclick="openStudentWindow('student-1')">
+      <div class="avatar-frame">🐱</div>
+      <span>PW-001のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-2')">
+      <div class="avatar-frame">🐰</div>
+      <span>PW-002のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-3')">
+      <div class="avatar-frame">🦊</div>
+      <span>PW-003のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-4')">
+      <div class="avatar-frame">🐻</div>
+      <span>PW-004のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-5')">
+      <div class="avatar-frame">🐶</div>
+      <span>PW-005のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-6')">
+      <div class="avatar-frame">🐼</div>
+      <span>PW-006のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-7')">
+      <div class="avatar-frame">🐭</div>
+      <span>PI-001のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-8')">
+      <div class="avatar-frame">🐨</div>
+      <span>PI-002のページ</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openStudentWindow('student-9')">
+      <div class="avatar-frame">🐯</div>
+      <span>PI-003のページ</span>
+    </div>
+
+  </div>
+
+  <div id="student-window" class="window" style="display: none; top: 60px; left: 120px;">
+        <div class="window-header" id="win-header">
+            <span id="win-title">✨ みんなのプロフィール ✨</span>
+            <div class="window-controls">
+                <button class="close-btn" onclick="closeStudentWindow()">X</button>
+            </div>
+        </div>
+        
+        <div class="window-content">
+            <div class="profile-card">
+                
+                <div class="photo-box">
+                    <img id="val-photo" src="" alt="プロフィール写真">
+                    <span class="photo-tag">MY PHOTO</span>
+                </div>
+
+                <div class="card-title">🌸 みんなのプロフィール 🌸</div>
+                
+                <div class="profile-row">
+                    <label>なまえ：</label>
+                    <span class="underline-value" id="val-name"></span>
+                </div>
+                <div class="profile-row">
+                    <label>星座：</label>
+                    <span class="underline-value" id="val-astro"></span>
+                </div>
+                <div class="profile-row">
+                    <label>誕生日</label>
+                    <span class="underline-value" id="val-birthday"></span>
+                </div>
+
+                <div class="q-a-section">
+                    <h4>💌 Questions</h4>
+                    <p><b>Q1: もしも100万円あったら何する？</b></p>
+                    <p id="val-q1" class="q-a-answer"></p>
+                    
+                    <p><b>Q2: みんなへのメッセージ：</b></p>
+                    <p id="val-q2" class="q-a-answer"></p>
+                </div>
+            </div>
+        </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

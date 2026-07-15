@@ -1,0 +1,235 @@
+.photos-page__hero-section {
+  padding: 8rem 1rem 5rem;
+}
+
+.photos-page__hero-grid {
+  display: grid;
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+  gap: 3.5rem;
+}
+
+.photos-page__copy-grid {
+  display: grid;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  gap: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.photos-page__copy {
+  font-size: 1.125rem;
+  line-height: 2;
+}
+
+.photos-page__gallery-section {
+  padding: 5rem 1rem;
+}
+
+.photos-page__gallery-inner {
+  max-width: var(--layout-max);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.photos-page__gallery-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  gap: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.photos-page__gallery-title {
+  order: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.375rem, 6vw, 6.375rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.photos-page__gallery-note {
+  order: 3;
+  display: none;
+  max-width: 20rem;
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1.625;
+  letter-spacing: 0.26em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.photos-page__gallery-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+.photos-page__gallery-grid article {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2rem;
+  break-inside: avoid;
+  cursor: zoom-in;
+}
+
+.photos-page__gallery-grid article:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 0.5rem;
+}
+
+.photos-page__gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: var(--color-mist);
+  box-shadow: var(--shadow-hairline);
+  transition: transform 700ms var(--ease-exhibition);
+}
+
+.photos-page__gallery-grid article:hover .photos-page__gallery-image {
+  transform: scale(1.015);
+}
+
+.photos-page__copy-label {
+  color: var(--color-graphite);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.photos-page__photo-title {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 800;
+  /* letter-spacing: -0.06em; */
+  text-transform: uppercase;
+}
+
+.photos-page__lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background-color: rgb(17 17 15 / 82%);
+  cursor: zoom-out;
+}
+
+.photos-page__lightbox-panel {
+  position: relative;
+  width: min(100%, 68rem);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  background-color: var(--color-paper);
+  box-shadow: 0 2rem 6rem rgb(0 0 0 / 35%);
+  cursor: default;
+}
+
+.photos-page__lightbox-close {
+  position: absolute;
+  z-index: 1;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 42%);
+  background-color: rgb(17 17 15 / 62%);
+  color: white;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.photos-page__lightbox-close:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 0.25rem;
+}
+
+.photos-page__lightbox-image {
+  display: block;
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  background-color: var(--color-ink);
+}
+
+.photos-page__lightbox-text {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.photos-page__lightbox-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 3rem);
+  line-height: 0.95;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .photos-page__hero-section {
+    padding: 10rem 2rem 7rem;
+  }
+
+  .photos-page__copy-grid {
+    grid-template-columns: 0.32fr 0.68fr;
+  }
+
+  .photos-page__copy {
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  .photos-page__gallery-section {
+    padding: 7rem 2rem;
+  }
+
+  .photos-page__gallery-note {
+    display: block;
+  }
+
+  .photos-page__gallery-grid {
+    column-count: 2;
+  }
+
+  .photos-page__lightbox {
+    padding: 2rem;
+  }
+
+  .photos-page__lightbox-panel {
+    max-height: calc(100vh - 4rem);
+  }
+
+  .photos-page__lightbox-text {
+    padding: 1.75rem 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .photos-page__hero-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: end;
+  }
+
+  .photos-page__media-frame {
+    transform: translateY(2rem);
+  }
+
+  .photos-page__gallery-grid {
+    column-count: 4;
+  }
+
+}

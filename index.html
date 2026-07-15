@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A premium motion-driven graduation showcase for members, photography, and music." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=LINE+Seed+JP:wght@100;400;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <title>Memory Lane / グループ秋卒業プロジェクト</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    (function restoreGithubPagesRoute(location) {
+      if (location.search[1] !== "/") {
+        return;
+      }
+
+      var restoredPath = location.search
+        .slice(1)
+        .split("&")
+        .map(function decodePathPart(part) {
+          return part.replace(/~and~/g, "&");
+        })
+        .join("?");
+
+      window.history.replaceState(
+        null,
+        "",
+        location.pathname.slice(0, -1) + restoredPath + location.hash
+      );
+    })(window.location);
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
