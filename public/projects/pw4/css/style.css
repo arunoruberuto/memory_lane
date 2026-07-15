@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*必ず最初に指定する！文字コートの設定*/
+
+body {
+  margin: 0;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;/*字体*/
+  background-color: #252525;/*背景色*/
+  color: #fdeff2;/*文字の色*/
+}
+h2 {
+  font-size: 16px;
+}
+p {
+  margin-top: -10px;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px 100px 50px 100px; /*上、右、下、左 */
+  background-color: #95483f;/*背景色*/
+}
+.mainvisual {
+  width: 960px;
+  margin-bottom: 80px;
+}
+.mainvisual img {
+  width: 100%;/*.mainvisualで設定した960pxのサイズを１００％使う設定（960px入れ物をフルに使う指定の仕方）*/
+}
+.image{
+  margin-top: -30px;
+  margin-bottom: 50px;
+}
+.image img {
+  width: 600px;
+}
+.logo {
+  margin-top: 100px;
+  text-align: right;
+}

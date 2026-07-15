@@ -1,7 +1,7 @@
 const base = import.meta.env.BASE_URL;
 
 const musicPath = (fileName) => `${base}music/${fileName}.mp3`;
-const artworkPath = (fileName) => `${base}images/artworks/${fileName}.jpg`;
+const artworkPath = (fileName) => `${base}images/artworks/${fileName}.webp`;
 
 export const tracks = [
   {
