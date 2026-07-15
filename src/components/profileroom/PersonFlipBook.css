@@ -1,0 +1,418 @@
+.person-flipbook {
+  /* nothing else should touch this element's transform/perspective —
+     keeping it completely plain is what makes the flip feel exactly
+     like the pokemon book's */
+}
+
+.person-flipbook-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.three-page-curl {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  overflow: visible;
+  filter: drop-shadow(0 12px 18px rgba(128, 51, 76, 0.16));
+}
+
+.three-page-curl canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* keep react-pageflip's own wrapper from clipping shadows */
+.stf__parent {
+  overflow: visible !important;
+}
+
+/* same shadow/radius values as the pokemon book's .page, just a
+   softer pink-tinted gradient instead of gray — no border, that's
+   what was making pages feel stiff */
+.page {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.95), transparent 34%),
+    linear-gradient(145deg, #ffffff 0%, #fff8fb 52%, #fbeef2 100%);
+  border-radius: 5px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 117, 140, 0.08);
+  overflow: hidden;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.38) 38%,
+      rgba(176, 78, 105, 0.14) 56%,
+      rgba(255, 255, 255, 0) 78%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(255, 255, 255, 0.38),
+      rgba(255, 255, 255, 0) 28%
+    );
+  transition: opacity 0.18s ease;
+}
+
+.is-paper-turning .page.--soft:not(.--simple) {
+  box-shadow:
+    0 10px 24px rgba(123, 48, 74, 0.16),
+    inset 18px 0 26px rgba(255, 255, 255, 0.22),
+    inset -22px 0 28px rgba(128, 51, 76, 0.08);
+  filter: saturate(0.98) contrast(0.99);
+}
+
+.is-paper-turning .page.--soft:not(.--simple)::after {
+  opacity: 1;
+}
+
+.end-sheet {
+  color: #fff;
+}
+
+.end-sheet-content {
+  padding: 0;
+  border-radius: 5px;
+}
+
+.page-content {
+  width: 100%;
+  height: 100%;
+  padding: clamp(14px, 3vw, 28px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.photo-page-content,
+.info-page-content,
+.qa-page-content {
+  position: relative;
+}
+
+.photo-page-content::before,
+.info-page-content::before,
+.qa-page-content::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed rgba(255, 117, 140, 0.22);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* --- personal cover page (page 0, opens automatically) --- */
+.person-cover {
+  border-radius: 5px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.person-cover-icon {
+  font-size: 64px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+.person-cover-name {
+  font-size: clamp(20px, 3vw, 28px);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+.person-cover-hint {
+  margin-top: 30px;
+  font-size: 13px;
+  opacity: 0.9;
+  animation: personCoverHintBounce 1.5s infinite;
+}
+@keyframes personCoverHintBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* --- photo page --- */
+.photo-box {
+  width: clamp(132px, 23vw, 176px);
+  height: clamp(132px, 23vw, 176px);
+  margin: 0 auto 18px auto;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  padding: 6px;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(from 20deg, #ff758c, #ffd166, #8ecae6, #ff758c) border-box;
+  background-clip: padding-box, border-box;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow:
+    0 12px 22px rgba(123, 48, 74, 0.16),
+    0 0 0 7px rgba(255, 255, 255, 0.78);
+}
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.photo-tag {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff477e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 8px rgba(123, 48, 74, 0.18);
+}
+.deco-space {
+  margin-top: 25px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 240, 245, 0.95));
+  border: 2px dotted rgba(255, 117, 140, 0.75);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+.deco-space > .card-subtitle,
+.deco-space > .handwritten-text {
+  display: none;
+}
+.life-motto-title {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px dotted currentColor;
+}
+.life-motto-text {
+  position: relative;
+  margin: 0;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 900;
+  text-align: center;
+  box-shadow:
+    0 7px 14px rgba(123, 48, 74, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+.life-motto-text::before,
+.life-motto-text::after {
+  content: "“";
+  position: absolute;
+  color: currentColor;
+  opacity: 0.24;
+  font-size: 28px;
+  line-height: 1;
+}
+.life-motto-text::before {
+  left: 7px;
+  top: 5px;
+}
+.life-motto-text::after {
+  content: "”";
+  right: 7px;
+  bottom: -3px;
+}
+.card-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.handwritten-text {
+  font-size: 15px;
+  font-weight: bold;
+}
+.mini-decorations {
+  margin-top: 15px;
+  font-size: 20px;
+  letter-spacing: 10px;
+}
+
+/* --- info page --- */
+.card-title {
+  text-align: center;
+  font-size: clamp(16px, 2.4vw, 22px);
+  margin-bottom: 18px;
+  border-bottom: 2px dotted currentColor;
+  padding-bottom: 7px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.85);
+}
+.profile-row {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #444;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.68);
+  border-radius: 8px;
+  padding: 9px 11px;
+  box-shadow: 0 4px 10px rgba(123, 48, 74, 0.06);
+}
+
+.info-page-content > .profile-row {
+  display: none;
+}
+
+.profile-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-list .profile-row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+  padding: 11px 13px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.84), rgba(255, 248, 251, 0.82)),
+    radial-gradient(circle at 96% 20%, rgba(255, 117, 140, 0.12), transparent 28%);
+  border: 1px solid rgba(255, 117, 140, 0.13);
+}
+
+.profile-row label {
+  font-weight: bold;
+}
+
+.profile-list .profile-row label {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.underline-value {
+  min-width: 0;
+  border-bottom: 2px solid #bce6ff;
+  padding: 1px 10px 3px;
+  color: #333;
+  font-weight: bold;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+/* --- Q&A page(s) --- */
+.qa-page-content {
+  justify-content: center;
+  padding: 30px 32px;
+}
+
+.qa-page-content .card-title {
+  min-height: 36px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.q-a-section {
+  background:
+    linear-gradient(90deg, rgba(255, 117, 140, 0.08) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0,
+      rgba(255, 255, 255, 0.96) 27px,
+      rgba(188, 230, 255, 0.45) 28px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(240, 248, 255, 0.9));
+  background-size: 100% 100%, 100% 28px, 100% 100%;
+  background-position: 20px 0, 0 0, 0 0;
+  border-radius: 8px;
+  padding: 14px 16px 13px 24px;
+  border: 1px dashed rgba(112, 184, 224, 0.72);
+  text-align: left;
+  box-shadow:
+    0 8px 16px rgba(65, 121, 153, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.68);
+  width: 100%;
+  height: 224px;
+  overflow: hidden;
+}
+
+.qa-item {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 9px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(112, 184, 224, 0.24);
+}
+
+.qa-item:first-child {
+  padding-top: 0;
+}
+
+.qa-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.qa-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow:
+    0 3px 7px rgba(123, 48, 74, 0.18),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.qa-copy {
+  min-width: 0;
+}
+
+.qa-question,
+.q-a-answer {
+  font-size: 11.5px;
+  line-height: 1.36;
+  margin: 0;
+}
+
+.qa-question {
+  color: #4f6670;
+  font-weight: 900;
+}
+
+.q-a-answer {
+  color: #ff477e;
+  margin-top: 3px;
+  font-weight: bold;
+}
