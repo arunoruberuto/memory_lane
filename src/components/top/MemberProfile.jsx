@@ -80,7 +80,7 @@ export function MemberProfile({ member, otherMembers }) {
               src={member.image}
               alt={`${memberName} profile image`}
               aspect="portrait"
-              caption="人物紹介メインビジュアル"
+              // caption="人物紹介メインビジュアル"
               className={styles["member-profile__profile-image"]}
             />
           </motion.div>

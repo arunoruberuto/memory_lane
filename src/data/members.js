@@ -1,5 +1,5 @@
 const base = import.meta.env.BASE_URL;
-const memberResumeImage = (id) => `${base}images/resume/${id}.jpg`;
+const memberResumeImage = (id) => `${base}images/resume/${id}.webp`;
 
 export const members = [
   {
@@ -35,7 +35,7 @@ export const members = [
         year: "2024",
         description:
           "A compact personal web piece built from childhood images, memory fragments, and the strange distance between an earlier self and the present.",
-        url: `${base}projects/pi1/wfprofile/index.html`
+        url: `${base}projects/pi1/index.html`
       },
       { 
         id: "cut-marks",
