@@ -374,7 +374,8 @@ function PersonFlipBook({ person }) {
     );
 
     // Halaman Q&A
-    const questionGroups = chunk(QUESTIONS, QUESTIONS_PER_PAGE);
+    const questionsPerPage = person.questionsPerPage ?? QUESTIONS_PER_PAGE;
+    const questionGroups = chunk(QUESTIONS, questionsPerPage);
     questionGroups.forEach((group, i) => {
       built.push(
         <Page key={`qa-${i}`}>
@@ -392,7 +393,7 @@ function PersonFlipBook({ person }) {
                     className="qa-number"
                     style={{ background: person.color }}
                   >
-                    {i * QUESTIONS_PER_PAGE + questionIndex + 1}
+                    {i * questionsPerPage + questionIndex + 1}
                   </div>
                   <div className="qa-copy">
                     <p className="qa-question">{question.label}</p>

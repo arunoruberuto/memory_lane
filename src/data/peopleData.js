@@ -173,6 +173,7 @@ const peopleData = [
     astro: "おとめ座 ♍",
     class: "PW05",
     photo: profileRoomImagePath("PW05.webp"),
+    questionsPerPage: 2,
     answers: {
       q1: "心の問題はさておき、戻れるならたぶんまた同じルートを選ぶと思う。ほどよい気温の時期に就活できるのはありがたいし、春生という正統派スケジュールからズレているぶん、ちょっとしたレア体験でもある。",
       q2: "「Beam me up, Scotty!（転送を頼む）」を連呼します。……作品が違う？ドンマイ、ドンマイ。",
