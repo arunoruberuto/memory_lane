@@ -9,10 +9,18 @@
 }
 
 .member-wf__header {
-  display: grid;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
   padding-bottom: 2rem;
-  gap: 1rem;
+  gap: 2rem;
   border-bottom: 1px solid var(--color-border);
+}
+
+.member-wf__heading {
+  display: grid;
+  gap: 1rem;
 }
 
 .member-wf__eyebrow,
@@ -33,6 +41,47 @@
   font-weight: 800;
   letter-spacing: -0.08em;
   overflow-wrap: anywhere;
+}
+
+.member-wf__theme-toggle {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--color-border-strong);
+}
+
+.member-wf__theme-button {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background-color 160ms,
+    color 160ms;
+}
+
+.member-wf__theme-button + .member-wf__theme-button {
+  border-left: 1px solid var(--color-border-strong);
+}
+
+.member-wf__theme-button:hover,
+.member-wf__theme-button:focus-visible {
+  background-color: var(--color-mist);
+}
+
+.member-wf__theme-button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.member-wf__theme-button--active,
+.member-wf__theme-button--active:hover,
+.member-wf__theme-button--active:focus-visible {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
 }
 
 .member-wf__main-visual {
@@ -90,6 +139,7 @@
 
 .member-wf__answer {
   min-width: 0;
+  margin-left: 3.25rem;
 }
 
 .member-wf__answer > p {
@@ -119,6 +169,22 @@
   border: 1px solid var(--color-border);
   background-color: var(--color-mist);
   object-fit: contain;
+}
+
+.member-wf__original {
+  margin-top: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+}
+
+.member-wf__original iframe {
+  display: block;
+  width: 100%;
+  height: min(80vh, 56rem);
+  min-height: 36rem;
+  border: 0;
+  background-color: #fff;
 }
 
 .member-wf__special {
@@ -171,14 +237,13 @@
     padding: 7rem 2rem;
   }
 
-  .member-wf__header {
-    grid-template-columns: 0.3fr 0.7fr;
-    align-items: end;
-  }
-
   .member-wf__question {
     grid-template-columns: 0.42fr 0.58fr;
     gap: 3rem;
+  }
+
+  .member-wf__answer {
+    margin-left: 0;
   }
 
   .member-wf__images {

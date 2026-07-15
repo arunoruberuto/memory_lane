@@ -1,4 +1,18 @@
-const base = import.meta.env?.BASE_URL ?? "/";
+const projectImages = import.meta.glob("../projects/*/images/*", {
+  eager: true,
+  import: "default",
+  query: "?url",
+});
+const projectPages = import.meta.glob("../projects/*/index.html", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+});
+const projectStyles = import.meta.glob("../projects/*/css/style.css", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+});
 
 export const wfQuestions = [
   {
@@ -994,16 +1008,39 @@ const rawWfByMemberId = {
   }
 };
 
-const resolveProjectImage = (memberId, image) => ({
-  ...image,
-  src: `${base}projects/${memberId}/images/${image.file}`,
-});
+const resolveProjectImage = (memberId, image) => {
+  const imagePath = `../projects/${memberId}/images/${image.file}`;
+
+  return {
+    ...image,
+    src: projectImages[imagePath],
+  };
+};
+
+const resolveOriginalPage = (memberId) => {
+  const page = projectPages[`../projects/${memberId}/index.html`];
+  const style = projectStyles[`../projects/${memberId}/css/style.css`];
+
+  return page
+    .replace(
+      /<link\s+rel=["']stylesheet["']\s+href=["']css\/style\.css["']\s*\/?>/,
+      `<style>${style}</style>`,
+    )
+    .replace(
+      /src=(["'])images\/([^"']+)\1/g,
+      (source, quote, file) => {
+        const imagePath = `../projects/${memberId}/images/${file}`;
+        return `src=${quote}${projectImages[imagePath]}${quote}`;
+      },
+    );
+};
 
 export const wfByMemberId = Object.fromEntries(
   Object.entries(rawWfByMemberId).map(([memberId, profile]) => [
     memberId,
     {
       ...profile,
+      originalPage: resolveOriginalPage(memberId),
       mainImage: resolveProjectImage(memberId, profile.mainImage),
       questions: wfQuestions.map((question) => ({
         ...question,

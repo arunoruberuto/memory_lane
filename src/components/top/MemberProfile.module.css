@@ -181,7 +181,7 @@
 .member-profile__member-name {
   margin-top: 1rem;
   font-family: var(--font-display);
-  font-size: 1.875rem;
+  font-size: 1.6rem;
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.06em;
@@ -192,7 +192,7 @@
   display: block;
 }
 
-.member-profile__member-role {
+.member-profile__member-id {
   margin-top: 0.5rem;
   color: var(--color-graphite);
   font-size: 0.75rem;

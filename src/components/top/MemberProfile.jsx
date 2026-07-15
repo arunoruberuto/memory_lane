@@ -82,7 +82,7 @@ export function MemberProfile({ member, otherMembers }) {
           </div>
 
           <div className={styles["member-profile__related-grid"]}>
-            {otherMembers.slice(0, 4).map((otherMember) => (
+            {otherMembers.map((otherMember) => (
               <Link
                 to={`/members/${otherMember.id}`}
                 key={otherMember.id}
@@ -99,9 +99,8 @@ export function MemberProfile({ member, otherMembers }) {
                 </div>
                 <p className={styles["member-profile__member-name"]}>
                   <span>{otherMember.name1}</span>
-                  <span className={styles["member-profile__same-line-name2"]}>{otherMember.name2}</span>
                 </p>
-                <p className={styles["member-profile__member-role"]}>{otherMember.role}</p>
+                <p className={styles["member-profile__member-id"]}>{otherMember.id}</p>
               </Link>
             ))}
           </div>
