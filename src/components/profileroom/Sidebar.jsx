@@ -16,7 +16,7 @@ function Sidebar({ people, activeId, onSelect }) {
           aria-pressed={person.id === activeId}
         >
           <span className="menu-icon">{person.icon}</span>
-          <span className="menu-name">{person.name}</span>
+          <span className="menu-name">{person.menuName}</span>
         </button>
       ))}
     </div>

@@ -1,3 +1,5 @@
+import { members } from "@/data/members";
+
 // Shared question list — every member answers the same questions, so
 // this is the ONE place to add more later (e.g. up to 12). Each person
 // below just needs a matching entry in `answers` keyed by id.
@@ -21,15 +23,12 @@ const profileRoomImagePath = (fileName) =>
 
 const PROFILE_ROOM_PINK = "#ff758c";
 
-const peopleData = [
+const roomDefinitions = [
   {
-    id: "student-1",
-    name: "ALFONSUS NORBERT",
+    id: "pi1",
+    menuName: "ある",
     icon: "🐱",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "やぎ座 ♑",
-    class: "PI01",
     photo: profileRoomImagePath("PI01.webp"),
     answers: {
       q1: "無論です！HAL東京素晴らしい！先生たちが優しいし、設備もいいし、建物全体綺麗だし、内定もらう確率も高い！",
@@ -47,13 +46,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-2",
-    name: "KIM BYOUNGSOO",
+    id: "pi2",
+    menuName: "きむ",
     icon: "🐰",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "うお座 ♓",
-    class: "PI02",
     photo: profileRoomImagePath("PI02.webp"),
     answers: {
       q1: "戻りたくない。もう一回入学してやり直しても同じ成績をもらう自信がないので。",
@@ -71,13 +67,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-3",
-    name: "郭 紫雯",
+    id: "pw1",
+    menuName: "かく",
     icon: "🐻",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "いて座 ♐",
-    class: "PW01",
     photo: profileRoomImagePath("PW01.webp"),
     answers: {
       q1: "春生のほうがいい！四年生もいいね",
@@ -95,13 +88,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-4",
-    name: "董 豪",
+    id: "pw2",
+    menuName: "とう",
     icon: "🐼",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "てんびん座 ♎",
-    class: "PW02",
     photo: profileRoomImagePath("PW02.webp"),
     answers: {
       q1: "はい。少人数のクラスが好きです。",
@@ -119,13 +109,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-5",
-    name: "李 ゲン",
+    id: "pw3",
+    menuName: "り",
     icon: "🦊",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "しし座 ♌",
-    class: "PW03",
     photo: profileRoomImagePath("PW03.webp"),
     answers: {
       q1: "どっちでもオーケー。理由は秘密。",
@@ -143,13 +130,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-6",
-    name: "リョウ ショウ",
+    id: "pw4",
+    menuName: "りょう",
     icon: "🐹",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "かに座 ♋",
-    class: "PW04",
     photo: profileRoomImagePath("PW04.webp"),
     answers: {
       q1: "四年制に入学したい、もっと色々作ったり、勉強したりしたいです。",
@@ -167,13 +151,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-7",
-    name: "林 秋静",
+    id: "pw5",
+    menuName: "りん",
     icon: "🐨",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "おとめ座 ♍",
-    class: "PW05",
     photo: profileRoomImagePath("PW05.webp"),
     questionsPerPage: 2,
     answers: {
@@ -192,13 +173,10 @@ const peopleData = [
     },
   },
   {
-    id: "student-8",
-    name: "娄 世前沿",
+    id: "pw6",
+    menuName: "ろ",
     icon: "🐧",
-    color: PROFILE_ROOM_PINK,
-    backCoverColor: PROFILE_ROOM_PINK,
     astro: "おうし座 ♉",
-    class: "PW06",
     photo: profileRoomImagePath("PW06.webp"),
     answers: {
       q1: "もう一回入学したいです。1周目で失敗したところを、2周目は全部やり直したいからです。",
@@ -217,4 +195,27 @@ const peopleData = [
   },
 ];
 
-export default peopleData;
+const memberById = new Map(members.map((member) => [member.id, member]));
+
+function getClassLabel(id) {
+  return `${id.slice(0, 2).toUpperCase()}${id.slice(2).padStart(2, "0")}`;
+}
+
+const roomData = roomDefinitions.map((room) => {
+  const member = memberById.get(room.id);
+
+  if (!member) {
+    throw new Error(`Missing member data for Profile Room ID: ${room.id}`);
+  }
+
+  return {
+    ...room,
+    name: member.realname,
+    realnameLang: member.realnameLang,
+    class: getClassLabel(member.id),
+    color: PROFILE_ROOM_PINK,
+    backCoverColor: PROFILE_ROOM_PINK,
+  };
+});
+
+export default roomData;

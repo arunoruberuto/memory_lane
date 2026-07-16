@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import HTMLFlipBook from "react-pageflip";
 import * as THREE from "three";
-import { QUESTIONS } from "@/data/peopleData";
+import { QUESTIONS } from "@/data/roomData";
 import "./PersonFlipBook.css";
 
 const DEFAULT_PHOTO =
@@ -352,13 +352,19 @@ function PersonFlipBook({ person }) {
     built.push(
       <Page key="info">
         <div className="page-content info-page-content">
-          <div className="card-title" style={{ color: person.color }}>
+          <div
+            className="card-title person-realname"
+            lang={person.realnameLang}
+            style={{ color: person.color }}
+          >
             {person.icon} {person.name}
           </div>
           <div className="profile-list">
             <div className="profile-row">
               <label style={{ color: person.color }}>なまえ：</label>
-              <span className="underline-value">{person.name}</span>
+              <span className="underline-value person-realname" lang={person.realnameLang}>
+                {person.name}
+              </span>
             </div>
             <div className="profile-row">
               <label style={{ color: person.color }}>出席番号：</label>

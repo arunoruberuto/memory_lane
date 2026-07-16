@@ -324,6 +324,22 @@
   overflow-wrap: anywhere;
 }
 
+.person-realname:lang(en) {
+  font-family: var(--font-realname-en);
+}
+
+.person-realname:lang(ko) {
+  font-family: var(--font-realname-ko);
+}
+
+.person-realname:lang(ja) {
+  font-family: var(--font-realname-ja);
+}
+
+.person-realname:lang(zh) {
+  font-family: var(--font-realname-zh);
+}
+
 /* --- Q&A page(s) --- */
 .qa-page-content {
   justify-content: center;

@@ -62,6 +62,22 @@
   max-width: 100%;
 }
 
+.member-profile__realname:lang(en) {
+  font-family: var(--font-realname-en);
+}
+
+.member-profile__realname:lang(ko) {
+  font-family: var(--font-realname-ko);
+}
+
+.member-profile__realname:lang(ja) {
+  font-family: var(--font-realname-ja);
+}
+
+.member-profile__realname:lang(zh) {
+  font-family: var(--font-realname-zh);
+}
+
 .member-profile__same-line-name2 {
   margin-left: 0.5em;
 }

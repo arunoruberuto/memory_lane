@@ -15,7 +15,6 @@ const memberDefinitions = [
     image: memberResumeImage("pi1"),
     accent: "#ebe6dc",
     profile: {
-      studentId: "student-1",
       template: "candy",
       windowStyle: {
         "--profile-window-title": "#d92f74",
@@ -60,7 +59,6 @@ const memberDefinitions = [
     image: memberResumeImage("pi2"),
     accent: "#d6d1c7",
     profile: {
-      studentId: "student-2",
       template: "mint",
       windowStyle: {
         "--profile-window-card-border": "#4bc5ad"
@@ -103,7 +101,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw1"),
     accent: "#ebe6dc",
     profile: {
-      studentId: "student-3",
       template: "soda",
       windowStyle: {
         "--profile-window-line": "#ffd1e4"
@@ -147,7 +144,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw2"),
     accent: "#d6d1c7",
     profile: {
-      studentId: "student-4",
       template: "candy",
       windowStyle: {
         "--profile-window-header": "linear-gradient(90deg, #ff8fab, #ffc2d1)"
@@ -190,7 +186,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw3"),
     accent: "#d8d4ca",
     profile: {
-      studentId: "student-5",
       template: "mint",
       windowStyle: {
         "--profile-window-title": "#0f8c7a"
@@ -233,7 +228,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw4"),
     accent: "#ece7de",
     profile: {
-      studentId: "student-6",
       template: "soda",
       windowStyle: {
         "--profile-window-border": "#4262d9"
@@ -276,7 +270,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw5"),
     accent: "#cfcac0",
     profile: {
-      studentId: "student-7",
       template: "candy",
       windowStyle: {
         "--profile-window-card-bg": "#fffdfd"
@@ -319,7 +312,6 @@ const memberDefinitions = [
     image: memberResumeImage("pw6"),
     accent: "#e5e0d6",
     profile: {
-      studentId: "student-8",
       template: "mint",
       windowStyle: {
         "--profile-window-qa-bg": "#f5fffc"
