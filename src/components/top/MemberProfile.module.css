@@ -63,7 +63,7 @@
 }
 
 .member-profile__realname:lang(en) {
-  font-family: var(--font-realname-en);
+  font-family: inherit;
 }
 
 .member-profile__realname:lang(ko) {
@@ -76,6 +76,26 @@
 
 .member-profile__realname:lang(zh) {
   font-family: var(--font-realname-zh);
+}
+
+.member-profile__marquee-realname:lang(en) {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.member-profile__marquee-realname:lang(ko) {
+  font-family: var(--font-realname-ko);
+  font-weight: 900;
+}
+
+.member-profile__marquee-realname:lang(ja) {
+  font-family: var(--font-realname-ja);
+  font-weight: 800;
+}
+
+.member-profile__marquee-realname:lang(zh) {
+  font-family: var(--font-realname-zh);
+  font-weight: 900;
 }
 
 .member-profile__same-line-name2 {
@@ -141,7 +161,7 @@
 
 .member-profile__related-title {
   font-family: var(--font-display);
-  font-size: clamp(2.375rem, 6vw, 6.375rem);
+  font-size: clamp(1.8rem, 6vw, 4rem);
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.08em;

@@ -19,7 +19,21 @@ export function MemberProfile({ member, otherMembers }) {
     <>
       <section className={styles["member-profile__hero-section"]}>
         <div className={styles["member-profile__marquee"]}>
-          <Marquee text={`${memberName} // ${member.realname} // ${member.role}`} reverse />
+          <Marquee
+            text={(
+              <>
+                {memberName}{" // "}
+                <span
+                  className={styles["member-profile__marquee-realname"]}
+                  lang={member.realnameLang}
+                >
+                  {member.realname}
+                </span>
+                {" // "}{member.role}
+              </>
+            )}
+            reverse
+          />
         </div>
 
         <motion.div
@@ -73,7 +87,7 @@ export function MemberProfile({ member, otherMembers }) {
                 Other Members
               </p>
               <h2 className={styles["member-profile__related-title"]}>
-                Next Wall
+                他のメンバーたち
               </h2>
             </div>
             <Link className={styles["member-profile__back-link"]} to="/">

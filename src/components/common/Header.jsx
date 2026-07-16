@@ -19,12 +19,6 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
     >
-      <a
-        href="#main-content"
-        className={styles["header__skip-link"]}
-      >
-        Skip to content
-      </a>
       <nav
         className={styles["header__nav"]}
         aria-label="Primary navigation"

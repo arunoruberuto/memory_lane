@@ -11,9 +11,6 @@ import * as THREE from "three";
 import { QUESTIONS } from "@/data/roomData";
 import "./PersonFlipBook.css";
 
-const DEFAULT_PHOTO =
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop";
-
 const QUESTIONS_PER_PAGE = 3;
 const FLIP_DURATION = 1050;
 
@@ -316,7 +313,7 @@ function PersonFlipBook({ person }) {
         <div className="page-content photo-page-content">
           <div className="photo-box" style={{ borderColor: person.color }}>
             <img
-              src={person.photo || DEFAULT_PHOTO}
+              src={person.photo}
               alt={person.name}
               decoding="async"
               loading="eager"
@@ -330,7 +327,7 @@ function PersonFlipBook({ person }) {
               自分の人生への一言
             </div>
             <p className="life-motto-text" style={{ color: person.color }}>
-              {person.answers.q7 || ""}
+              {person.answers.q7}
             </p>
             <div className="card-subtitle" style={{ color: person.color }}>
               🌟 Free Space 🌟

@@ -1,7 +1,7 @@
 import styles from "./Marquee.module.css";
 
 export function Marquee({ text, reverse = false, className }) {
-  const repeated = Array.from({ length: 8 }, (_, index) => `${text} / ${index + 1}`);
+  const repeated = Array.from({ length: 8 }, (_, index) => index + 1);
   const rootClassName = [styles.marquee, className].filter(Boolean).join(" ");
   const trackClassName = [
     styles["marquee__track"],
@@ -14,9 +14,9 @@ export function Marquee({ text, reverse = false, className }) {
       aria-hidden="true"
     >
       <div className={trackClassName}>
-        {[...repeated, ...repeated].map((item, index) => (
-          <span key={`${item}-${index}`} className={styles["marquee__item"]}>
-            {item}
+        {[...repeated, ...repeated].map((number, index) => (
+          <span key={`${number}-${index}`} className={styles["marquee__item"]}>
+            {text} / {number}
           </span>
         ))}
       </div>
