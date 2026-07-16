@@ -11,12 +11,33 @@
     href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=LINE+Seed+JP:wght@100;400;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <title>Memory Lane / グループ秋卒業プロジェクト</title>
-  <script type="module" crossorigin src="/memory_lane/assets/index-E7Z92cqw.js"></script>
-  <link rel="stylesheet" crossorigin href="/memory_lane/assets/index-BvLq9PD8.css">
+  <script type="module" crossorigin src="/memory_lane/assets/index-DXaO7uBs.js"></script>
+  <link rel="stylesheet" crossorigin href="/memory_lane/assets/index-C1KmRpUz.css">
 </head>
 
 <body>
   <div id="root"></div>
+  <script>
+    (function restoreGithubPagesRoute(location) {
+      if (location.search[1] !== "/") {
+        return;
+      }
+
+      var restoredPath = location.search
+        .slice(1)
+        .split("&")
+        .map(function decodePathPart(part) {
+          return part.replace(/~and~/g, "&");
+        })
+        .join("?");
+
+      window.history.replaceState(
+        null,
+        "",
+        location.pathname.slice(0, -1) + restoredPath + location.hash
+      );
+    })(window.location);
+  </script>
 </body>
 
 </html>
