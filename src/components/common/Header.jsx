@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 
 const navItems = [
   { href: "/", label: "Top" },
-  { href: "/profiles", label: "Profiles" },
+  { href: "/members/pi1", activePrefix: "/members/", label: "Profiles" },
   { href: "/photos", label: "Photos" },
   { href: "/music", label: "Music" },
 ];
@@ -35,7 +35,9 @@ export function Header() {
         </Link>
         <div className={styles["header__nav-items"]}>
           {navItems.map((item) => {
-            const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            const isActive = item.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(item.activePrefix ?? item.href);
 
             return (
               <Link
