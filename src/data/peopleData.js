@@ -76,7 +76,7 @@ const peopleData = [
     icon: "🐻",
     color: PROFILE_ROOM_PINK,
     backCoverColor: PROFILE_ROOM_PINK,
-    astro: "しし座 ♌",
+    astro: "いて座 ♐",
     class: "PW01",
     photo: profileRoomImagePath("PW01.webp"),
     answers: {
@@ -100,7 +100,7 @@ const peopleData = [
     icon: "🐼",
     color: PROFILE_ROOM_PINK,
     backCoverColor: PROFILE_ROOM_PINK,
-    astro: "みずがめ座 ♒",
+    astro: "てんびん座 ♎",
     class: "PW02",
     photo: profileRoomImagePath("PW02.webp"),
     answers: {
@@ -124,7 +124,7 @@ const peopleData = [
     icon: "🦊",
     color: PROFILE_ROOM_PINK,
     backCoverColor: PROFILE_ROOM_PINK,
-    astro: "てんびん座 ♎",
+    astro: "しし座 ♌",
     class: "PW03",
     photo: profileRoomImagePath("PW03.webp"),
     answers: {
@@ -197,7 +197,7 @@ const peopleData = [
     icon: "🐧",
     color: PROFILE_ROOM_PINK,
     backCoverColor: PROFILE_ROOM_PINK,
-    astro: "いて座 ♐",
+    astro: "おうし座 ♉",
     class: "PW06",
     photo: profileRoomImagePath("PW06.webp"),
     answers: {
