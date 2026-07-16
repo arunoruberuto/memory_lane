@@ -15,6 +15,27 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    (function restoreGithubPagesRoute(location) {
+      if (location.search[1] !== "/") {
+        return;
+      }
+
+      var restoredPath = location.search
+        .slice(1)
+        .split("&")
+        .map(function decodePathPart(part) {
+          return part.replace(/~and~/g, "&");
+        })
+        .join("?");
+
+      window.history.replaceState(
+        null,
+        "",
+        location.pathname.slice(0, -1) + restoredPath + location.hash
+      );
+    })(window.location);
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
